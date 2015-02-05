@@ -13,6 +13,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet AccountPanel *accountPanel;
+
 @end
 
 //static const DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -29,7 +31,7 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-- (IBAction)account:(id)sender {
+- (IBAction)navigateToAccountView:(id)sender {
     UIViewController *viewController = [[AccountViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
 }

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="accountPanel" destination="A2z-iH-4V9" id="iU3-Ky-hsK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-yV-ZkL">
-                    <rect key="frame" x="8" y="79" width="57" height="30"/>
+                    <rect key="frame" x="8" y="240" width="57" height="30"/>
                     <state key="normal" title="Channel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -23,17 +24,23 @@
                         <action selector="channel:" destination="-1" eventType="touchUpInside" id="cjd-cg-rTY"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Tw-6be">
-                    <rect key="frame" x="8" y="112" width="57" height="30"/>
-                    <state key="normal" title="Account">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-iH-4V9" customClass="AccountPanel">
+                    <rect key="frame" x="0.0" y="70" width="600" height="120"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="f18-AK-rxR"/>
+                    </constraints>
                     <connections>
-                        <action selector="account:" destination="-1" eventType="touchUpInside" id="ze3-JP-57n"/>
+                        <outlet property="delegate" destination="-1" id="u69-a4-Tus"/>
                     </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="A2z-iH-4V9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gph-79-xge"/>
+                <constraint firstAttribute="trailing" secondItem="A2z-iH-4V9" secondAttribute="trailing" id="hks-1M-uY4"/>
+                <constraint firstItem="A2z-iH-4V9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="ir2-v4-Xd7"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>

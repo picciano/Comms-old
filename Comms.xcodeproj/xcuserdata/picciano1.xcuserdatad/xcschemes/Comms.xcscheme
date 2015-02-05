@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AFD0DD5B1A83FC3900C9CC10"
-               BuildableName = "CommsTests copy.xctest"
+               BuildableName = "CommsProTests.xctest"
                BlueprintName = "CommsProTests"
                ReferencedContainer = "container:Comms.xcodeproj">
             </BuildableReference>
