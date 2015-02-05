@@ -63,7 +63,6 @@
 		AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD990211A83F33300A2B1DD /* ChannelViewController.m */; };
 		AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD990221A83F33300A2B1DD /* ChannelView.xib */; };
 		AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD990211A83F33300A2B1DD /* ChannelViewController.m */; };
-		AFD990261A83F54600A2B1DD /* CommsTests.m in Resources */ = {isa = PBXBuildFile; fileRef = AFA5774C1A83E431004D2809 /* CommsTests.m */; };
 		AFD990271A83F56800A2B1DD /* CommsPro-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD9901D1A83ED7C00A2B1DD /* CommsPro-Info.plist */; };
 		AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD990221A83F33300A2B1DD /* ChannelView.xib */; };
 		AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */; };
@@ -434,7 +433,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD990261A83F54600A2B1DD /* CommsTests.m in Resources */,
 				AFA577411A83E431004D2809 /* LaunchScreen.xib in Resources */,
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
