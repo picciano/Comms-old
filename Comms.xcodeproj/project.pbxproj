@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
-		AF9FCC6D1A84299F00BD32A6 /* LaunchScreenPro.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC6B1A84299F00BD32A6 /* LaunchScreenPro.xib */; };
 		AFA577331A83E431004D2809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
 		AFA577361A83E431004D2809 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577351A83E431004D2809 /* AppDelegate.m */; };
 		AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
-		AFA577411A83E431004D2809 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773F1A83E431004D2809 /* LaunchScreen.xib */; };
 		AFA5774D1A83E431004D2809 /* CommsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5774C1A83E431004D2809 /* CommsTests.m */; };
 		AFA577651A83E563004D2809 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5775A1A83E563004D2809 /* DDLog.m */; };
 		AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5775E1A83E563004D2809 /* DDASLLogCapture.m */; };
@@ -501,7 +499,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA577411A83E431004D2809 /* LaunchScreen.xib in Resources */,
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
 				AFD0DD6F1A84001900C9CC10 /* NewMessageView.xib in Resources */,
@@ -530,7 +527,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF9FCC6D1A84299F00BD32A6 /* LaunchScreenPro.xib in Resources */,
 				AFD0DD701A84001900C9CC10 /* NewMessageView.xib in Resources */,
 				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
 				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
