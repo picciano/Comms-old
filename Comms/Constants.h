@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 Anthony Picciano. All rights reserved.
 //
 
+#import "AppInfoManager.h"
+#import <Parse/Parse.h>
+#import "CocoaLumberjack.h"
+
 #ifndef Comms_Constants_h
 #define Comms_Constants_h
 

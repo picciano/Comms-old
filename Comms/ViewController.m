@@ -7,9 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <Parse/Parse.h>
 #import "Constants.h"
-#import "CocoaLumberjack.h"
 
 @interface ViewController ()
 
@@ -21,7 +19,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Comms";
+    self.title = [AppInfoManager bundleName];
 }
 
 @end

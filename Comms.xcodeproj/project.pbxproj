@@ -33,8 +33,8 @@
 		AFA577891A83E7E6004D2809 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577881A83E7E6004D2809 /* libz.dylib */; };
 		AFA5778B1A83E7ED004D2809 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */; };
 		AFA5778D1A83E7FB004D2809 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778C1A83E7FB004D2809 /* iAd.framework */; };
-		AFD98FF81A83EA2400A2B1DD /* ProManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* ProManager.m */; };
-		AFD98FFB1A83EC1200A2B1DD /* ProManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* ProManager.m */; };
+		AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */; };
+		AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */; };
 		AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5775A1A83E563004D2809 /* DDLog.m */; };
 		AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577351A83E431004D2809 /* AppDelegate.m */; };
 		AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577711A83E5B8004D2809 /* ViewController.m */; };
@@ -115,9 +115,9 @@
 		AFA577881A83E7E6004D2809 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AFA5778C1A83E7FB004D2809 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		AFD98FF61A83EA2400A2B1DD /* ProManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProManager.h; sourceTree = "<group>"; };
-		AFD98FF71A83EA2400A2B1DD /* ProManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProManager.m; sourceTree = "<group>"; };
-		AFD9901B1A83EC1200A2B1DD /* Comms copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Comms copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD98FF61A83EA2400A2B1DD /* AppInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfoManager.h; sourceTree = "<group>"; };
+		AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfoManager.m; sourceTree = "<group>"; };
+		AFD9901B1A83EC1200A2B1DD /* CommsPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommsPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD9901D1A83ED7C00A2B1DD /* CommsPro-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CommsPro-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +188,7 @@
 			children = (
 				AFA5772D1A83E431004D2809 /* Comms.app */,
 				AFA577461A83E431004D2809 /* CommsTests.xctest */,
-				AFD9901B1A83EC1200A2B1DD /* Comms copy.app */,
+				AFD9901B1A83EC1200A2B1DD /* CommsPro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,7 +199,7 @@
 				AFA577341A83E431004D2809 /* AppDelegate.h */,
 				AFA577351A83E431004D2809 /* AppDelegate.m */,
 				AFA577751A83E616004D2809 /* Constants.h */,
-				AFD98FF51A83E9FD00A2B1DD /* Pro Manager */,
+				AFD98FF51A83E9FD00A2B1DD /* App Info Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
@@ -288,13 +288,13 @@
 			name = "Main View";
 			sourceTree = "<group>";
 		};
-		AFD98FF51A83E9FD00A2B1DD /* Pro Manager */ = {
+		AFD98FF51A83E9FD00A2B1DD /* App Info Manager */ = {
 			isa = PBXGroup;
 			children = (
-				AFD98FF61A83EA2400A2B1DD /* ProManager.h */,
-				AFD98FF71A83EA2400A2B1DD /* ProManager.m */,
+				AFD98FF61A83EA2400A2B1DD /* AppInfoManager.h */,
+				AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */,
 			);
-			name = "Pro Manager";
+			name = "App Info Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,7 +351,7 @@
 			);
 			name = CommsPro;
 			productName = Comms;
-			productReference = AFD9901B1A83EC1200A2B1DD /* Comms copy.app */;
+			productReference = AFD9901B1A83EC1200A2B1DD /* CommsPro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -457,7 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD98FF81A83EA2400A2B1DD /* ProManager.m in Sources */,
+				AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */,
 				AFA577651A83E563004D2809 /* DDLog.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
@@ -481,7 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD98FFB1A83EC1200A2B1DD /* ProManager.m in Sources */,
+				AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */,
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,
@@ -663,10 +663,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"PRO=1",
+				);
 				INFOPLIST_FILE = "Comms/CommsPro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Comms copy";
+				PRODUCT_NAME = CommsPro;
 			};
 			name = Debug;
 		};
@@ -678,10 +683,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "PRO=1";
 				INFOPLIST_FILE = "Comms/CommsPro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Comms copy";
+				PRODUCT_NAME = CommsPro;
 			};
 			name = Release;
 		};

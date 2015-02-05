@@ -1,5 +1,5 @@
 //
-//  ProManager.h
+//  AppInfoManager.h
 //  Comms
 //
 //  Created by Anthony Picciano on 2/5/15.
@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ProManager : NSObject
+@interface AppInfoManager : NSObject
+
++ (BOOL)isProVersion;
++ (NSString *)bundleName;
 
 @end

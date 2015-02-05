@@ -8,9 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import <Parse/Parse.h>
 #import "Constants.h"
-#import "CocoaLumberjack.h"
 
 @interface AppDelegate ()
 
