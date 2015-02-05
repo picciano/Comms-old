@@ -549,6 +549,7 @@
 				AFA577521A83E431004D2809 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AFA577531A83E431004D2809 /* Build configuration list for PBXNativeTarget "CommsTests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +558,7 @@
 				AFA577551A83E431004D2809 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
