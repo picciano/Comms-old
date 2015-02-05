@@ -13,7 +13,6 @@
 -(void)navigateToAccountView:(id)sender;
 @end
 
-IB_DESIGNABLE
 @interface AccountPanel : UIView
 
 @property (strong, nonatomic) UIView *contentView;

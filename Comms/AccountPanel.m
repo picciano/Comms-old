@@ -32,9 +32,7 @@
 }
 
 - (void)didMoveToSuperview {
-#if !TARGET_INTERFACE_BUILDER
     self.usernameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
-#endif
 }
 
 - (IBAction)accountView:(id)sender {

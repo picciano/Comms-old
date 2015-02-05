@@ -78,6 +78,8 @@
 		AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD9902C1A83F61E00A2B1DD /* AccountView.xib */; };
 		AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEC00D1A8438DE00A40F1F /* ProPanel.m */; };
 		AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */; };
+		AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEC00D1A8438DE00A40F1F /* ProPanel.m */; };
+		AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -536,6 +538,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */,
 				AFD0DD701A84001900C9CC10 /* NewMessageView.xib in Resources */,
 				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
 				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
@@ -630,6 +633,7 @@
 				AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */,
 				AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */,
 				AFD990021A83EC1200A2B1DD /* main.m in Sources */,
+				AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */,
 				AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
