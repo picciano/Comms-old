@@ -33,6 +33,8 @@
 		AFA577891A83E7E6004D2809 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577881A83E7E6004D2809 /* libz.dylib */; };
 		AFA5778B1A83E7ED004D2809 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */; };
 		AFA5778D1A83E7FB004D2809 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778C1A83E7FB004D2809 /* iAd.framework */; };
+		AFD0DD5F1A83FC3900C9CC10 /* CommsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5774C1A83E431004D2809 /* CommsTests.m */; };
+		AFD0DD681A83FCA300C9CC10 /* CommsProTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD0DD671A83FCA300C9CC10 /* CommsProTests-Info.plist */; };
 		AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */; };
 		AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */; };
 		AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5775A1A83E563004D2809 /* DDLog.m */; };
@@ -79,6 +81,13 @@
 			remoteGlobalIDString = AFA5772C1A83E431004D2809;
 			remoteInfo = Comms;
 		};
+		AFD0DD5D1A83FC3900C9CC10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFA577251A83E431004D2809 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFA5772C1A83E431004D2809;
+			remoteInfo = Comms;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -90,7 +99,7 @@
 		AFA5773D1A83E431004D2809 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AFA577401A83E431004D2809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AFA577461A83E431004D2809 /* CommsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFA5774B1A83E431004D2809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFA5774B1A83E431004D2809 /* CommTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CommTests-Info.plist"; sourceTree = "<group>"; };
 		AFA5774C1A83E431004D2809 /* CommsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommsTests.m; sourceTree = "<group>"; };
 		AFA577581A83E563004D2809 /* CocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjack.h; sourceTree = "<group>"; };
 		AFA577591A83E563004D2809 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
@@ -123,6 +132,8 @@
 		AFA577881A83E7E6004D2809 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AFA5778C1A83E7FB004D2809 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		AFD0DD651A83FC3900C9CC10 /* CommsProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommsProTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD0DD671A83FCA300C9CC10 /* CommsProTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CommsProTests-Info.plist"; sourceTree = "<group>"; };
 		AFD98FF61A83EA2400A2B1DD /* AppInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfoManager.h; sourceTree = "<group>"; };
 		AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfoManager.m; sourceTree = "<group>"; };
 		AFD9901B1A83EC1200A2B1DD /* CommsPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommsPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +169,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AFA577431A83E431004D2809 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD0DD601A83FC3900C9CC10 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,6 +221,7 @@
 				AFA5772D1A83E431004D2809 /* Comms.app */,
 				AFA577461A83E431004D2809 /* CommsTests.xctest */,
 				AFD9901B1A83EC1200A2B1DD /* CommsPro.app */,
+				AFD0DD651A83FC3900C9CC10 /* CommsProTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,7 +267,8 @@
 		AFA5774A1A83E431004D2809 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AFA5774B1A83E431004D2809 /* Info.plist */,
+				AFD0DD671A83FCA300C9CC10 /* CommsProTests-Info.plist */,
+				AFA5774B1A83E431004D2809 /* CommTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -372,6 +392,24 @@
 			productReference = AFA577461A83E431004D2809 /* CommsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AFD0DD5B1A83FC3900C9CC10 /* CommsProTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFD0DD621A83FC3900C9CC10 /* Build configuration list for PBXNativeTarget "CommsProTests" */;
+			buildPhases = (
+				AFD0DD5E1A83FC3900C9CC10 /* Sources */,
+				AFD0DD601A83FC3900C9CC10 /* Frameworks */,
+				AFD0DD611A83FC3900C9CC10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFD0DD5C1A83FC3900C9CC10 /* PBXTargetDependency */,
+			);
+			name = CommsProTests;
+			productName = CommsTests;
+			productReference = AFD0DD651A83FC3900C9CC10 /* CommsProTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AFD98FF91A83EC1200A2B1DD /* CommsPro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFD990181A83EC1200A2B1DD /* Build configuration list for PBXNativeTarget "CommsPro" */;
@@ -424,6 +462,7 @@
 				AFA5772C1A83E431004D2809 /* Comms */,
 				AFD98FF91A83EC1200A2B1DD /* CommsPro */,
 				AFA577451A83E431004D2809 /* CommsTests */,
+				AFD0DD5B1A83FC3900C9CC10 /* CommsProTests */,
 			);
 		};
 /* End PBXProject section */
@@ -442,6 +481,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AFA577441A83E431004D2809 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD0DD681A83FCA300C9CC10 /* CommsProTests-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD0DD611A83FC3900C9CC10 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -519,6 +566,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AFD0DD5E1A83FC3900C9CC10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD0DD5F1A83FC3900C9CC10 /* CommsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFD98FFA1A83EC1200A2B1DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -544,6 +599,11 @@
 			isa = PBXTargetDependency;
 			target = AFA5772C1A83E431004D2809 /* Comms */;
 			targetProxy = AFA577471A83E431004D2809 /* PBXContainerItemProxy */;
+		};
+		AFD0DD5C1A83FC3900C9CC10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFA5772C1A83E431004D2809 /* Comms */;
+			targetProxy = AFD0DD5D1A83FC3900C9CC10 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -677,7 +737,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CommsTests/Info.plist;
+				INFOPLIST_FILE = "CommsTests/CommTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Comms.app/Comms";
@@ -692,10 +752,46 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CommsTests/Info.plist;
+				INFOPLIST_FILE = "CommsTests/CommTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Comms.app/Comms";
+			};
+			name = Release;
+		};
+		AFD0DD631A83FC3900C9CC10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"PRO=1",
+				);
+				INFOPLIST_FILE = "CommsTests/CommsProTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = CommsProTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommsPro.app/CommsPro";
+			};
+			name = Debug;
+		};
+		AFD0DD641A83FC3900C9CC10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "PRO=1";
+				INFOPLIST_FILE = "CommsTests/CommsProTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = CommsProTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommsPro.app/CommsPro";
 			};
 			name = Release;
 		};
@@ -761,6 +857,15 @@
 			buildConfigurations = (
 				AFA577541A83E431004D2809 /* Debug */,
 				AFA577551A83E431004D2809 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFD0DD621A83FC3900C9CC10 /* Build configuration list for PBXNativeTarget "CommsProTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD0DD631A83FC3900C9CC10 /* Debug */,
+				AFD0DD641A83FC3900C9CC10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

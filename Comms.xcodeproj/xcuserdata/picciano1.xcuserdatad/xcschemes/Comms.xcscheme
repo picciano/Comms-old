@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Comms.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AFD0DD5B1A83FC3900C9CC10"
+               BuildableName = "CommsTests copy.xctest"
+               BlueprintName = "CommsProTests"
+               ReferencedContainer = "container:Comms.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
