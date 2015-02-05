@@ -16,7 +16,7 @@
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelError;
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation AppDelegate
 
@@ -32,6 +32,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 - (void)initializeLumberjackWithOptions:(NSDictionary *)launchOptions {
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    DDLogInfo(@"Cocoa Lumberjack Initialized.");
 }
 
 - (void)initializeParseWithOptions:(NSDictionary *)launchOptions {

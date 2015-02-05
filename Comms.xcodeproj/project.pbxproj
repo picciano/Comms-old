@@ -33,6 +33,34 @@
 		AFA577891A83E7E6004D2809 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577881A83E7E6004D2809 /* libz.dylib */; };
 		AFA5778B1A83E7ED004D2809 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */; };
 		AFA5778D1A83E7FB004D2809 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778C1A83E7FB004D2809 /* iAd.framework */; };
+		AFD98FF81A83EA2400A2B1DD /* ProManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* ProManager.m */; };
+		AFD98FFB1A83EC1200A2B1DD /* ProManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* ProManager.m */; };
+		AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5775A1A83E563004D2809 /* DDLog.m */; };
+		AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577351A83E431004D2809 /* AppDelegate.m */; };
+		AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577711A83E5B8004D2809 /* ViewController.m */; };
+		AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5775E1A83E563004D2809 /* DDASLLogCapture.m */; };
+		AFD990001A83EC1200A2B1DD /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577641A83E563004D2809 /* DDFileLogger.m */; };
+		AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577621A83E563004D2809 /* DDTTYLogger.m */; };
+		AFD990021A83EC1200A2B1DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
+		AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577601A83E563004D2809 /* DDASLLogger.m */; };
+		AFD990051A83EC1200A2B1DD /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778C1A83E7FB004D2809 /* iAd.framework */; };
+		AFD990061A83EC1200A2B1DD /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */; };
+		AFD990071A83EC1200A2B1DD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577881A83E7E6004D2809 /* libz.dylib */; };
+		AFD990081A83EC1200A2B1DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577861A83E7DF004D2809 /* SystemConfiguration.framework */; };
+		AFD990091A83EC1200A2B1DD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577841A83E7D7004D2809 /* StoreKit.framework */; };
+		AFD9900A1A83EC1200A2B1DD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577821A83E7CD004D2809 /* Security.framework */; };
+		AFD9900B1A83EC1200A2B1DD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577801A83E7C6004D2809 /* QuartzCore.framework */; };
+		AFD9900C1A83EC1200A2B1DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5777E1A83E7BF004D2809 /* MobileCoreServices.framework */; };
+		AFD9900D1A83EC1200A2B1DD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5777C1A83E7B7004D2809 /* CoreLocation.framework */; };
+		AFD9900E1A83EC1200A2B1DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5777A1A83E7B1004D2809 /* CoreGraphics.framework */; };
+		AFD9900F1A83EC1200A2B1DD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577781A83E7AA004D2809 /* CFNetwork.framework */; };
+		AFD990101A83EC1200A2B1DD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577761A83E7A3004D2809 /* AudioToolbox.framework */; };
+		AFD990111A83EC1200A2B1DD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5776C1A83E591004D2809 /* Parse.framework */; };
+		AFD990121A83EC1200A2B1DD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5776B1A83E591004D2809 /* Bolts.framework */; };
+		AFD990141A83EC1200A2B1DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773F1A83E431004D2809 /* LaunchScreen.xib */; };
+		AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA577721A83E5B8004D2809 /* MainView.xib */; };
+		AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
+		AFD9901E1A83ED7C00A2B1DD /* CommsPro-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD9901D1A83ED7C00A2B1DD /* CommsPro-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +75,7 @@
 
 /* Begin PBXFileReference section */
 		AFA5772D1A83E431004D2809 /* Comms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comms.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFA577311A83E431004D2809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFA577311A83E431004D2809 /* Comms-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Comms-Info.plist"; sourceTree = "<group>"; };
 		AFA577321A83E431004D2809 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AFA577341A83E431004D2809 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AFA577351A83E431004D2809 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,6 +115,10 @@
 		AFA577881A83E7E6004D2809 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AFA5778C1A83E7FB004D2809 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		AFD98FF61A83EA2400A2B1DD /* ProManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProManager.h; sourceTree = "<group>"; };
+		AFD98FF71A83EA2400A2B1DD /* ProManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProManager.m; sourceTree = "<group>"; };
+		AFD9901B1A83EC1200A2B1DD /* Comms copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Comms copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD9901D1A83ED7C00A2B1DD /* CommsPro-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CommsPro-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +150,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AFD990041A83EC1200A2B1DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD990051A83EC1200A2B1DD /* iAd.framework in Frameworks */,
+				AFD990061A83EC1200A2B1DD /* libsqlite3.dylib in Frameworks */,
+				AFD990071A83EC1200A2B1DD /* libz.dylib in Frameworks */,
+				AFD990081A83EC1200A2B1DD /* SystemConfiguration.framework in Frameworks */,
+				AFD990091A83EC1200A2B1DD /* StoreKit.framework in Frameworks */,
+				AFD9900A1A83EC1200A2B1DD /* Security.framework in Frameworks */,
+				AFD9900B1A83EC1200A2B1DD /* QuartzCore.framework in Frameworks */,
+				AFD9900C1A83EC1200A2B1DD /* MobileCoreServices.framework in Frameworks */,
+				AFD9900D1A83EC1200A2B1DD /* CoreLocation.framework in Frameworks */,
+				AFD9900E1A83EC1200A2B1DD /* CoreGraphics.framework in Frameworks */,
+				AFD9900F1A83EC1200A2B1DD /* CFNetwork.framework in Frameworks */,
+				AFD990101A83EC1200A2B1DD /* AudioToolbox.framework in Frameworks */,
+				AFD990111A83EC1200A2B1DD /* Parse.framework in Frameworks */,
+				AFD990121A83EC1200A2B1DD /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +188,7 @@
 			children = (
 				AFA5772D1A83E431004D2809 /* Comms.app */,
 				AFA577461A83E431004D2809 /* CommsTests.xctest */,
+				AFD9901B1A83EC1200A2B1DD /* Comms copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +199,7 @@
 				AFA577341A83E431004D2809 /* AppDelegate.h */,
 				AFA577351A83E431004D2809 /* AppDelegate.m */,
 				AFA577751A83E616004D2809 /* Constants.h */,
+				AFD98FF51A83E9FD00A2B1DD /* Pro Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
@@ -158,7 +213,8 @@
 		AFA577301A83E431004D2809 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AFA577311A83E431004D2809 /* Info.plist */,
+				AFA577311A83E431004D2809 /* Comms-Info.plist */,
+				AFD9901D1A83ED7C00A2B1DD /* CommsPro-Info.plist */,
 				AFA577321A83E431004D2809 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -232,6 +288,15 @@
 			name = "Main View";
 			sourceTree = "<group>";
 		};
+		AFD98FF51A83E9FD00A2B1DD /* Pro Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AFD98FF61A83EA2400A2B1DD /* ProManager.h */,
+				AFD98FF71A83EA2400A2B1DD /* ProManager.m */,
+			);
+			name = "Pro Manager";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +336,24 @@
 			productReference = AFA577461A83E431004D2809 /* CommsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AFD98FF91A83EC1200A2B1DD /* CommsPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFD990181A83EC1200A2B1DD /* Build configuration list for PBXNativeTarget "CommsPro" */;
+			buildPhases = (
+				AFD98FFA1A83EC1200A2B1DD /* Sources */,
+				AFD990041A83EC1200A2B1DD /* Frameworks */,
+				AFD990131A83EC1200A2B1DD /* Resources */,
+				AFD990171A83EC1200A2B1DD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommsPro;
+			productName = Comms;
+			productReference = AFD9901B1A83EC1200A2B1DD /* Comms copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -303,6 +386,7 @@
 			projectRoot = "";
 			targets = (
 				AFA5772C1A83E431004D2809 /* Comms */,
+				AFD98FF91A83EC1200A2B1DD /* CommsPro */,
 				AFA577451A83E431004D2809 /* CommsTests */,
 			);
 		};
@@ -315,6 +399,7 @@
 			files = (
 				AFA577411A83E431004D2809 /* LaunchScreen.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
+				AFD9901E1A83ED7C00A2B1DD /* CommsPro-Info.plist in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +408,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD990131A83EC1200A2B1DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD990141A83EC1200A2B1DD /* LaunchScreen.xib in Resources */,
+				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
+				AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +437,19 @@
 			shellPath = /bin/sh;
 			shellScript = "REV=`git rev-list HEAD | wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
 		};
+		AFD990171A83EC1200A2B1DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REV=`git rev-list HEAD | wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -349,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD98FF81A83EA2400A2B1DD /* ProManager.m in Sources */,
 				AFA577651A83E563004D2809 /* DDLog.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
@@ -365,6 +474,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA5774D1A83E431004D2809 /* CommsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD98FFA1A83EC1200A2B1DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD98FFB1A83EC1200A2B1DD /* ProManager.m in Sources */,
+				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
+				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
+				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,
+				AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */,
+				AFD990001A83EC1200A2B1DD /* DDFileLogger.m in Sources */,
+				AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */,
+				AFD990021A83EC1200A2B1DD /* main.m in Sources */,
+				AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +599,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
 				);
-				INFOPLIST_FILE = Comms/Info.plist;
+				INFOPLIST_FILE = "Comms/Comms-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,7 +614,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
 				);
-				INFOPLIST_FILE = Comms/Info.plist;
+				INFOPLIST_FILE = "Comms/Comms-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,6 +655,36 @@
 			};
 			name = Release;
 		};
+		AFD990191A83EC1200A2B1DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Comms",
+				);
+				INFOPLIST_FILE = "Comms/CommsPro-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Comms copy";
+			};
+			name = Debug;
+		};
+		AFD9901A1A83EC1200A2B1DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Comms",
+				);
+				INFOPLIST_FILE = "Comms/CommsPro-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Comms copy";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -556,6 +711,15 @@
 			buildConfigurations = (
 				AFA577541A83E431004D2809 /* Debug */,
 				AFA577551A83E431004D2809 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFD990181A83EC1200A2B1DD /* Build configuration list for PBXNativeTarget "CommsPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD990191A83EC1200A2B1DD /* Debug */,
+				AFD9901A1A83EC1200A2B1DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
