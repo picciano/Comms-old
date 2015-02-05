@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
+		AF9FCC6D1A84299F00BD32A6 /* LaunchScreenPro.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC6B1A84299F00BD32A6 /* LaunchScreenPro.xib */; };
 		AFA577331A83E431004D2809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
 		AFA577361A83E431004D2809 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577351A83E431004D2809 /* AppDelegate.m */; };
 		AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
@@ -67,7 +68,6 @@
 		AFD990101A83EC1200A2B1DD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577761A83E7A3004D2809 /* AudioToolbox.framework */; };
 		AFD990111A83EC1200A2B1DD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5776C1A83E591004D2809 /* Parse.framework */; };
 		AFD990121A83EC1200A2B1DD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5776B1A83E591004D2809 /* Bolts.framework */; };
-		AFD990141A83EC1200A2B1DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773F1A83E431004D2809 /* LaunchScreen.xib */; };
 		AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA577721A83E5B8004D2809 /* MainView.xib */; };
 		AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
 		AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD990211A83F33300A2B1DD /* ChannelViewController.m */; };
@@ -99,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPanelContents.xib; sourceTree = "<group>"; };
+		AF9FCC6C1A84299F00BD32A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenPro.xib; sourceTree = "<group>"; };
 		AFA5772D1A83E431004D2809 /* Comms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA577311A83E431004D2809 /* Comms-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Comms-Info.plist"; sourceTree = "<group>"; };
 		AFA577321A83E431004D2809 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -252,6 +253,7 @@
 				AFD990291A83F60800A2B1DD /* Account View */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
+				AF9FCC6B1A84299F00BD32A6 /* LaunchScreenPro.xib */,
 				AFA577301A83E431004D2809 /* Supporting Files */,
 				AFA577571A83E542004D2809 /* Cocoa Lumberjack */,
 				AFA5776A1A83E56B004D2809 /* Frameworks */,
@@ -528,11 +530,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF9FCC6D1A84299F00BD32A6 /* LaunchScreenPro.xib in Resources */,
 				AFD0DD701A84001900C9CC10 /* NewMessageView.xib in Resources */,
 				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
 				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
 				AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
-				AFD990141A83EC1200A2B1DD /* LaunchScreen.xib in Resources */,
 				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
 				AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */,
 			);
@@ -642,6 +644,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AF9FCC6B1A84299F00BD32A6 /* LaunchScreenPro.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF9FCC6C1A84299F00BD32A6 /* Base */,
+			);
+			name = LaunchScreenPro.xib;
+			sourceTree = "<group>";
+		};
 		AFA5773F1A83E431004D2809 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
