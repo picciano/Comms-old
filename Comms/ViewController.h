@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AccountPanel.h"
+#import "ProPanel.h"
 
-@interface ViewController : UIViewController <AccountPanelDelegate>
+@interface ViewController : UIViewController <AccountPanelDelegate, ProPanelDelegate>
 
 @end

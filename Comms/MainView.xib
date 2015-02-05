@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-yV-ZkL">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-yV-ZkL">
                     <rect key="frame" x="8" y="240" width="57" height="30"/>
                     <state key="normal" title="Channel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,10 +34,23 @@
                         <outlet property="delegate" destination="-1" id="u69-a4-Tus"/>
                     </connections>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dc-9t-HxT" customClass="ProPanel">
+                    <rect key="frame" x="0.0" y="520" width="600" height="80"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Xo2-bC-nKh"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="aQB-1Q-JrC"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="1dc-9t-HxT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1xf-io-cT7"/>
+                <constraint firstAttribute="bottom" secondItem="1dc-9t-HxT" secondAttribute="bottom" id="WCW-ba-FE2"/>
                 <constraint firstItem="A2z-iH-4V9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gph-79-xge"/>
+                <constraint firstAttribute="trailing" secondItem="1dc-9t-HxT" secondAttribute="trailing" id="haU-u8-rDl"/>
                 <constraint firstAttribute="trailing" secondItem="A2z-iH-4V9" secondAttribute="trailing" id="hks-1M-uY4"/>
                 <constraint firstItem="A2z-iH-4V9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="ir2-v4-Xd7"/>
             </constraints>

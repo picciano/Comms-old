@@ -76,6 +76,8 @@
 		AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD9902C1A83F61E00A2B1DD /* AccountView.xib */; };
 		AFD9902F1A83F62B00A2B1DD /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */; };
 		AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD9902C1A83F61E00A2B1DD /* AccountView.xib */; };
+		AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEC00D1A8438DE00A40F1F /* ProPanel.m */; };
+		AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +158,9 @@
 		AFD9902A1A83F61E00A2B1DD /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		AFD9902C1A83F61E00A2B1DD /* AccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountView.xib; sourceTree = "<group>"; };
+		AFDEC00C1A8438DE00A40F1F /* ProPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProPanel.h; sourceTree = "<group>"; };
+		AFDEC00D1A8438DE00A40F1F /* ProPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProPanel.m; sourceTree = "<group>"; };
+		AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProPanelContents.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +342,9 @@
 				AFD0DD761A840AA700C9CC10 /* AccountPanel.h */,
 				AFD0DD771A840AA700C9CC10 /* AccountPanel.m */,
 				AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */,
+				AFDEC00C1A8438DE00A40F1F /* ProPanel.h */,
+				AFDEC00D1A8438DE00A40F1F /* ProPanel.m */,
+				AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -504,6 +512,7 @@
 				AFD0DD6F1A84001900C9CC10 /* NewMessageView.xib in Resources */,
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
+				AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */,
 				AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +593,7 @@
 				AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */,
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
 				AFA577331A83E431004D2809 /* main.m in Sources */,
+				AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */,
 				AFA577671A83E563004D2809 /* DDASLLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

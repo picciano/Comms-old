@@ -1,29 +1,26 @@
 //
-//  AccountPanel.m
+//  ProPanel.m
 //  Comms
 //
 //  Created by Anthony Picciano on 2/5/15.
 //  Copyright (c) 2015 Anthony Picciano. All rights reserved.
 //
 
-#import "AccountPanel.h"
-#import "Constants.h"
+#import "ProPanel.h"
 
-@interface AccountPanel ()
-
-@property (assign, nonatomic) IBOutlet UILabel *usernameLabel;
+@interface ProPanel ()
 
 @end
 
 //static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
-@implementation AccountPanel
+@implementation ProPanel
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.contentView = [[[NSBundle mainBundle]
-                             loadNibNamed:@"AccountPanelContents"
+                             loadNibNamed:@"ProPanelContents"
                              owner:self options:nil]
                             firstObject];
         [self addSubview:self.contentView];
@@ -32,15 +29,7 @@
 }
 
 - (void)didMoveToSuperview {
-#if !TARGET_INTERFACE_BUILDER
-    self.usernameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
-#endif
-}
-
-- (IBAction)accountView:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(navigateToAccountView:)]) {
-        [self.delegate performSelector:@selector(navigateToAccountView:) withObject:self];
-    }
+//    self.usernameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
 }
 
 - (void)layoutSubviews {
