@@ -19,6 +19,9 @@
                     <state key="normal" title="Channel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="channel:" destination="-1" eventType="touchUpInside" id="cjd-cg-rTY"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Tw-6be">
                     <rect key="frame" x="8" y="112" width="57" height="30"/>
