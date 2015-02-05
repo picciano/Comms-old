@@ -7,10 +7,15 @@
 //
 
 #import "AccountPanel.h"
-#import "ViewController.h"
 #import "Constants.h"
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+@interface AccountPanel ()
+
+@property (assign, nonatomic) IBOutlet UILabel *accountNameLabel;
+
+@end
+
+//static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation AccountPanel
 
@@ -26,8 +31,11 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     return self;
 }
 
+- (void)didMoveToSuperview {
+    self.accountNameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
+}
+
 - (IBAction)accountView:(id)sender {
-    DDLogDebug(@"accountView: called");
     if (self.delegate && [self.delegate respondsToSelector:@selector(navigateToAccountView:)]) {
         [self.delegate performSelector:@selector(navigateToAccountView:) withObject:self];
     }
