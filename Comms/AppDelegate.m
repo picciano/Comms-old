@@ -56,7 +56,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)initializeUserInterfaceWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    ViewController *viewController = [[ViewController alloc] initWithNibName:@"MainView" bundle:nil];
+    UIViewController *viewController = [[ViewController alloc] initWithNibName:@"MainView" bundle:nil];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = navigationController;
     

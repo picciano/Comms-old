@@ -7,19 +7,25 @@
 //
 
 #import "ViewController.h"
+#import "ChannelViewController.h"
 #import "Constants.h"
 
 @interface ViewController ()
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+//static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [AppInfoManager bundleName];
+}
+
+- (IBAction)channel:(id)sender {
+    UIViewController *viewController = [[ChannelViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end
