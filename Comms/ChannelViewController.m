@@ -7,6 +7,7 @@
 //
 
 #import "ChannelViewController.h"
+#import "NewMessageViewController.h"
 
 @interface ChannelViewController ()
 
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Channel";
+}
+
+- (IBAction)newMessage:(id)sender {
+    UIViewController *viewController = [[NewMessageViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end
