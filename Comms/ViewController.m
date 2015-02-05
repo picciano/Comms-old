@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AccountViewController.h"
 #import "ChannelViewController.h"
 #import "Constants.h"
 
@@ -25,6 +26,11 @@
 
 - (IBAction)channel:(id)sender {
     UIViewController *viewController = [[ChannelViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)account:(id)sender {
+    UIViewController *viewController = [[AccountViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

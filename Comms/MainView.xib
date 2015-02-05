@@ -15,12 +15,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-yV-ZkL">
-                    <rect key="frame" x="8" y="71" width="57" height="30"/>
+                    <rect key="frame" x="8" y="79" width="57" height="30"/>
                     <state key="normal" title="Channel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Tw-6be">
+                    <rect key="frame" x="8" y="112" width="57" height="30"/>
+                    <state key="normal" title="Account">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
-                        <action selector="channel:" destination="-1" eventType="touchUpInside" id="3tY-kI-OVS"/>
+                        <action selector="account:" destination="-1" eventType="touchUpInside" id="ze3-JP-57n"/>
                     </connections>
                 </button>
             </subviews>

@@ -60,9 +60,16 @@
 		AFD990141A83EC1200A2B1DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773F1A83E431004D2809 /* LaunchScreen.xib */; };
 		AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA577721A83E5B8004D2809 /* MainView.xib */; };
 		AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
-		AFD9901E1A83ED7C00A2B1DD /* CommsPro-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD9901D1A83ED7C00A2B1DD /* CommsPro-Info.plist */; };
 		AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD990211A83F33300A2B1DD /* ChannelViewController.m */; };
 		AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD990221A83F33300A2B1DD /* ChannelView.xib */; };
+		AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD990211A83F33300A2B1DD /* ChannelViewController.m */; };
+		AFD990261A83F54600A2B1DD /* CommsTests.m in Resources */ = {isa = PBXBuildFile; fileRef = AFA5774C1A83E431004D2809 /* CommsTests.m */; };
+		AFD990271A83F56800A2B1DD /* CommsPro-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD9901D1A83ED7C00A2B1DD /* CommsPro-Info.plist */; };
+		AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD990221A83F33300A2B1DD /* ChannelView.xib */; };
+		AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */; };
+		AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD9902C1A83F61E00A2B1DD /* AccountView.xib */; };
+		AFD9902F1A83F62B00A2B1DD /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */; };
+		AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD9902C1A83F61E00A2B1DD /* AccountView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +131,9 @@
 		AFD990201A83F33300A2B1DD /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
 		AFD990211A83F33300A2B1DD /* ChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelViewController.m; sourceTree = "<group>"; };
 		AFD990221A83F33300A2B1DD /* ChannelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelView.xib; sourceTree = "<group>"; };
+		AFD9902A1A83F61E00A2B1DD /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		AFD9902C1A83F61E00A2B1DD /* AccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +217,7 @@
 				AFD98FF51A83E9FD00A2B1DD /* App Info Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
 				AFD9901F1A83F2EE00A2B1DD /* Channel View */,
+				AFD990291A83F60800A2B1DD /* Account View */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
 				AFA577301A83E431004D2809 /* Supporting Files */,
@@ -313,6 +324,16 @@
 			name = "Channel View";
 			sourceTree = "<group>";
 		};
+		AFD990291A83F60800A2B1DD /* Account View */ = {
+			isa = PBXGroup;
+			children = (
+				AFD9902A1A83F61E00A2B1DD /* AccountViewController.h */,
+				AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */,
+				AFD9902C1A83F61E00A2B1DD /* AccountView.xib */,
+			);
+			name = "Account View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,10 +434,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD990261A83F54600A2B1DD /* CommsTests.m in Resources */,
 				AFA577411A83E431004D2809 /* LaunchScreen.xib in Resources */,
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
-				AFD9901E1A83ED7C00A2B1DD /* CommsPro-Info.plist in Resources */,
+				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +454,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
+				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
+				AFD990271A83F56800A2B1DD /* CommsPro-Info.plist in Resources */,
 				AFD990141A83EC1200A2B1DD /* LaunchScreen.xib in Resources */,
 				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
 				AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */,
@@ -479,6 +504,7 @@
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
+				AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */,
 				AFA577691A83E563004D2809 /* DDFileLogger.m in Sources */,
 				AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */,
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
@@ -504,7 +530,9 @@
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,
 				AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */,
+				AFD9902F1A83F62B00A2B1DD /* AccountViewController.m in Sources */,
 				AFD990001A83EC1200A2B1DD /* DDFileLogger.m in Sources */,
+				AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */,
 				AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */,
 				AFD990021A83EC1200A2B1DD /* main.m in Sources */,
 				AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */,
