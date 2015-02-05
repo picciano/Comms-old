@@ -11,7 +11,7 @@
 
 @interface AccountPanel ()
 
-@property (assign, nonatomic) IBOutlet UILabel *accountNameLabel;
+@property (assign, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @end
 
@@ -32,7 +32,7 @@
 }
 
 - (void)didMoveToSuperview {
-    self.accountNameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
+    self.usernameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
 }
 
 - (IBAction)accountView:(id)sender {
