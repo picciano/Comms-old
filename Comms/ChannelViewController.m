@@ -7,7 +7,7 @@
 //
 
 #import "ChannelViewController.h"
-#import "NewMessageViewController.h"
+#import "PostMessageViewController.h"
 #import "Constants.h"
 
 @interface ChannelViewController ()
@@ -29,7 +29,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (void)postMessage {
-    UIViewController *viewController = [[NewMessageViewController alloc] initWithNibName:nil bundle:nil];
+    UIViewController *viewController = [[PostMessageViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

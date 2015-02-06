@@ -1,5 +1,5 @@
 //
-//  NewMessageViewController.h
+//  PostMessageViewController.h
 //  Comms
 //
 //  Created by Anthony Picciano on 2/5/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewMessageViewController : UIViewController
+@interface PostMessageViewController : UIViewController
 
 @end

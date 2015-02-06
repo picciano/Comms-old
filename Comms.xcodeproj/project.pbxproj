@@ -44,10 +44,10 @@
 		AFA5778D1A83E7FB004D2809 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778C1A83E7FB004D2809 /* iAd.framework */; };
 		AFD0DD5F1A83FC3900C9CC10 /* CommsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5774C1A83E431004D2809 /* CommsTests.m */; };
 		AFD0DD681A83FCA300C9CC10 /* CommsProTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD0DD671A83FCA300C9CC10 /* CommsProTests-Info.plist */; };
-		AFD0DD6D1A84001900C9CC10 /* NewMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DD6B1A84001900C9CC10 /* NewMessageViewController.m */; };
-		AFD0DD6E1A84001900C9CC10 /* NewMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DD6B1A84001900C9CC10 /* NewMessageViewController.m */; };
-		AFD0DD6F1A84001900C9CC10 /* NewMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD0DD6C1A84001900C9CC10 /* NewMessageView.xib */; };
-		AFD0DD701A84001900C9CC10 /* NewMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD0DD6C1A84001900C9CC10 /* NewMessageView.xib */; };
+		AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DD6B1A84001900C9CC10 /* PostMessageViewController.m */; };
+		AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DD6B1A84001900C9CC10 /* PostMessageViewController.m */; };
+		AFD0DD6F1A84001900C9CC10 /* PostMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD0DD6C1A84001900C9CC10 /* PostMessageView.xib */; };
+		AFD0DD701A84001900C9CC10 /* PostMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD0DD6C1A84001900C9CC10 /* PostMessageView.xib */; };
 		AFD0DD781A840AA700C9CC10 /* AccountPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DD771A840AA700C9CC10 /* AccountPanel.m */; };
 		AFD0DD791A840AA700C9CC10 /* AccountPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DD771A840AA700C9CC10 /* AccountPanel.m */; };
 		AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD98FF71A83EA2400A2B1DD /* AppInfoManager.m */; };
@@ -160,9 +160,9 @@
 		AFA5778C1A83E7FB004D2809 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		AFD0DD651A83FC3900C9CC10 /* CommsProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommsProTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD0DD671A83FCA300C9CC10 /* CommsProTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CommsProTests-Info.plist"; sourceTree = "<group>"; };
-		AFD0DD6A1A84001900C9CC10 /* NewMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMessageViewController.h; sourceTree = "<group>"; };
-		AFD0DD6B1A84001900C9CC10 /* NewMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMessageViewController.m; sourceTree = "<group>"; };
-		AFD0DD6C1A84001900C9CC10 /* NewMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessageView.xib; sourceTree = "<group>"; };
+		AFD0DD6A1A84001900C9CC10 /* PostMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMessageViewController.h; sourceTree = "<group>"; };
+		AFD0DD6B1A84001900C9CC10 /* PostMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMessageViewController.m; sourceTree = "<group>"; };
+		AFD0DD6C1A84001900C9CC10 /* PostMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostMessageView.xib; sourceTree = "<group>"; };
 		AFD0DD761A840AA700C9CC10 /* AccountPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPanel.h; sourceTree = "<group>"; };
 		AFD0DD771A840AA700C9CC10 /* AccountPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPanel.m; sourceTree = "<group>"; };
 		AFD98FF61A83EA2400A2B1DD /* AppInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfoManager.h; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 				AFD98FF51A83E9FD00A2B1DD /* App Info Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
 				AFD9901F1A83F2EE00A2B1DD /* Channel View */,
-				AFD0DD691A83FFFA00C9CC10 /* New Message View */,
+				AFD0DD691A83FFFA00C9CC10 /* Post Message View */,
 				AFD990291A83F60800A2B1DD /* Account View */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
@@ -405,14 +405,14 @@
 			name = "Main View";
 			sourceTree = "<group>";
 		};
-		AFD0DD691A83FFFA00C9CC10 /* New Message View */ = {
+		AFD0DD691A83FFFA00C9CC10 /* Post Message View */ = {
 			isa = PBXGroup;
 			children = (
-				AFD0DD6A1A84001900C9CC10 /* NewMessageViewController.h */,
-				AFD0DD6B1A84001900C9CC10 /* NewMessageViewController.m */,
-				AFD0DD6C1A84001900C9CC10 /* NewMessageView.xib */,
+				AFD0DD6A1A84001900C9CC10 /* PostMessageViewController.h */,
+				AFD0DD6B1A84001900C9CC10 /* PostMessageViewController.m */,
+				AFD0DD6C1A84001900C9CC10 /* PostMessageView.xib */,
 			);
-			name = "New Message View";
+			name = "Post Message View";
 			sourceTree = "<group>";
 		};
 		AFD98FF51A83E9FD00A2B1DD /* App Info Manager */ = {
@@ -566,7 +566,7 @@
 			files = (
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
-				AFD0DD6F1A84001900C9CC10 /* NewMessageView.xib in Resources */,
+				AFD0DD6F1A84001900C9CC10 /* PostMessageView.xib in Resources */,
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 				AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */,
@@ -597,7 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */,
-				AFD0DD701A84001900C9CC10 /* NewMessageView.xib in Resources */,
+				AFD0DD701A84001900C9CC10 /* PostMessageView.xib in Resources */,
 				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
 				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
 				AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */,
@@ -649,7 +649,7 @@
 				AF9EC1261A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
-				AFD0DD6D1A84001900C9CC10 /* NewMessageViewController.m in Sources */,
+				AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
 				AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */,
@@ -688,7 +688,7 @@
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
-				AFD0DD6E1A84001900C9CC10 /* NewMessageViewController.m in Sources */,
+				AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,
 				AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */,
 				AFD9902F1A83F62B00A2B1DD /* AccountViewController.m in Sources */,
