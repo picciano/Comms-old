@@ -10,6 +10,6 @@
 #import "AccountPanel.h"
 #import "ProPanel.h"
 
-@interface ViewController : UIViewController <AccountPanelDelegate, ProPanelDelegate>
+@interface ViewController : UIViewController <AccountPanelDelegate, ProPanelDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end
