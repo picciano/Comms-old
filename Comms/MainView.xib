@@ -15,20 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-yV-ZkL">
-                    <rect key="frame" x="8" y="240" width="57" height="30"/>
-                    <state key="normal" title="Channel">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="channel:" destination="-1" eventType="touchUpInside" id="cjd-cg-rTY"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-iH-4V9" customClass="AccountPanel">
-                    <rect key="frame" x="0.0" y="70" width="600" height="120"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="126"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="f18-AK-rxR"/>
+                        <constraint firstAttribute="height" constant="126" id="dYY-q3-XOs"/>
                     </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="u69-a4-Tus"/>
@@ -44,15 +35,23 @@
                         <outlet property="delegate" destination="-1" id="aQB-1Q-JrC"/>
                     </connections>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oKH-Bb-vpm">
+                    <rect key="frame" x="0.0" y="190" width="600" height="330"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="1dc-9t-HxT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1xf-io-cT7"/>
+                <constraint firstItem="1dc-9t-HxT" firstAttribute="top" secondItem="oKH-Bb-vpm" secondAttribute="bottom" id="GhM-nt-BJ7"/>
+                <constraint firstItem="oKH-Bb-vpm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mwq-Qg-9qN"/>
                 <constraint firstAttribute="bottom" secondItem="1dc-9t-HxT" secondAttribute="bottom" id="WCW-ba-FE2"/>
-                <constraint firstItem="A2z-iH-4V9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gph-79-xge"/>
+                <constraint firstItem="oKH-Bb-vpm" firstAttribute="top" secondItem="A2z-iH-4V9" secondAttribute="bottom" id="Xsq-ZZ-Yhw"/>
+                <constraint firstItem="A2z-iH-4V9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="bLi-Ud-Xcx"/>
+                <constraint firstAttribute="trailing" secondItem="oKH-Bb-vpm" secondAttribute="trailing" id="grg-4z-h58"/>
                 <constraint firstAttribute="trailing" secondItem="1dc-9t-HxT" secondAttribute="trailing" id="haU-u8-rDl"/>
-                <constraint firstAttribute="trailing" secondItem="A2z-iH-4V9" secondAttribute="trailing" id="hks-1M-uY4"/>
-                <constraint firstItem="A2z-iH-4V9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="ir2-v4-Xd7"/>
+                <constraint firstItem="A2z-iH-4V9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hlh-Nk-0DD"/>
+                <constraint firstAttribute="trailing" secondItem="A2z-iH-4V9" secondAttribute="trailing" id="rFh-Eq-twL"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>

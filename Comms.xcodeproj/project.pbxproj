@@ -255,6 +255,7 @@
 				AFA577751A83E616004D2809 /* Constants.h */,
 				AFD98FF51A83E9FD00A2B1DD /* App Info Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
+				AFDEC0151A843DD000A40F1F /* Group View */,
 				AFD9901F1A83F2EE00A2B1DD /* Channel View */,
 				AFD0DD691A83FFFA00C9CC10 /* New Message View */,
 				AFD990291A83F60800A2B1DD /* Account View */,
@@ -391,6 +392,13 @@
 				AFD9902C1A83F61E00A2B1DD /* AccountView.xib */,
 			);
 			name = "Account View";
+			sourceTree = "<group>";
+		};
+		AFDEC0151A843DD000A40F1F /* Group View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Group View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
