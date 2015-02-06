@@ -15,12 +15,20 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="q5c-wZ-q7l">
+                    <rect key="frame" x="140" y="550" width="320" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="pgq-B3-rPQ"/>
+                    </constraints>
+                </adBannerView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="q5c-wZ-q7l" secondAttribute="centerX" id="6SE-yK-RXe"/>
                 <constraint firstAttribute="trailing" secondItem="FLt-bB-i7J" secondAttribute="trailing" constant="8" id="93M-tW-X4r"/>
                 <constraint firstItem="FLt-bB-i7J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="DLd-eg-ORo"/>
                 <constraint firstAttribute="centerY" secondItem="FLt-bB-i7J" secondAttribute="centerY" id="ilF-Wu-Rq9"/>
+                <constraint firstAttribute="bottom" secondItem="q5c-wZ-q7l" secondAttribute="bottom" id="pW7-Ag-Zbr"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
         </view>

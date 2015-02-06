@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF9EC10E1A85221D00061558 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC10C1A85221D00061558 /* GroupViewController.m */; };
+		AF9EC10F1A85221D00061558 /* GroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC10D1A85221D00061558 /* GroupView.xib */; };
+		AF9EC1101A85244000061558 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC10C1A85221D00061558 /* GroupViewController.m */; };
+		AF9EC1111A85244B00061558 /* GroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC10D1A85221D00061558 /* GroupView.xib */; };
 		AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AFA577331A83E431004D2809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
@@ -101,6 +105,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF9EC10B1A85221D00061558 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		AF9EC10C1A85221D00061558 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		AF9EC10D1A85221D00061558 /* GroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupView.xib; sourceTree = "<group>"; };
 		AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC6C1A84299F00BD32A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenPro.xib; sourceTree = "<group>"; };
 		AFA5772D1A83E431004D2809 /* Comms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comms.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +404,9 @@
 		AFDEC0151A843DD000A40F1F /* Group View */ = {
 			isa = PBXGroup;
 			children = (
+				AF9EC10B1A85221D00061558 /* GroupViewController.h */,
+				AF9EC10C1A85221D00061558 /* GroupViewController.m */,
+				AF9EC10D1A85221D00061558 /* GroupView.xib */,
 			);
 			name = "Group View";
 			sourceTree = "<group>";
@@ -523,6 +533,7 @@
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
 				AFD0DD6F1A84001900C9CC10 /* NewMessageView.xib in Resources */,
+				AF9EC10F1A85221D00061558 /* GroupView.xib in Resources */,
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 				AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */,
@@ -556,6 +567,7 @@
 				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
 				AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
 				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
+				AF9EC1111A85244B00061558 /* GroupView.xib in Resources */,
 				AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +611,7 @@
 				AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */,
 				AFA577651A83E563004D2809 /* DDLog.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
+				AF9EC10E1A85221D00061558 /* GroupViewController.m in Sources */,
 				AFD0DD6D1A84001900C9CC10 /* NewMessageViewController.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
@@ -636,6 +649,7 @@
 				AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */,
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
+				AF9EC1101A85244000061558 /* GroupViewController.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* NewMessageViewController.m in Sources */,
 				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,
 				AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */,

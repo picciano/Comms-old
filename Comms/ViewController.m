@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AccountViewController.h"
+#import "GroupViewController.h"
 #import "ChannelViewController.h"
 #import "Constants.h"
 
@@ -26,7 +27,12 @@
     self.title = [AppInfoManager bundleName];
 }
 
-- (IBAction)channel:(id)sender {
+- (IBAction)viewGroup:(id)sender {
+    UIViewController *viewController = [[GroupViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)viewChannel:(id)sender {
     UIViewController *viewController = [[ChannelViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
 }
