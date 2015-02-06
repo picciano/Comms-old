@@ -42,14 +42,25 @@
                         <action selector="postMessage:" destination="-1" eventType="touchUpInside" id="7dg-f4-jBC"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-d6-E4Z">
+                    <rect key="frame" x="447" y="54" width="88" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="88" id="ldZ-Kg-dcp"/>
+                        <constraint firstAttribute="height" constant="21" id="xM4-xM-J9N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Z1o-6Y-wtU" firstAttribute="top" secondItem="CUQ-4t-dhc" secondAttribute="bottom" constant="9" id="0HE-MS-5nU"/>
                 <constraint firstAttribute="trailing" secondItem="CUQ-4t-dhc" secondAttribute="trailing" constant="8" id="28n-3x-cbJ"/>
                 <constraint firstItem="d3E-dK-sFX" firstAttribute="top" secondItem="CUQ-4t-dhc" secondAttribute="bottom" constant="8" id="76g-yu-G5V"/>
+                <constraint firstItem="d3E-dK-sFX" firstAttribute="leading" secondItem="iAb-d6-E4Z" secondAttribute="trailing" constant="8" id="Ma0-JF-PeS"/>
                 <constraint firstAttribute="trailing" secondItem="d3E-dK-sFX" secondAttribute="trailing" constant="8" id="Um1-Rs-b1y"/>
                 <constraint firstItem="Z1o-6Y-wtU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="XUe-PL-PTa"/>
+                <constraint firstItem="iAb-d6-E4Z" firstAttribute="top" secondItem="CUQ-4t-dhc" secondAttribute="bottom" constant="13" id="dy0-qB-cOZ"/>
                 <constraint firstItem="CUQ-4t-dhc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hhq-tc-0yX"/>
                 <constraint firstItem="CUQ-4t-dhc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zNN-tx-FUH"/>
             </constraints>
