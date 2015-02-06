@@ -14,6 +14,8 @@
 
 @end
 
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+
 @implementation ChannelViewController
 
 - (void)viewDidLoad {
@@ -21,7 +23,12 @@
     self.title = [self.channel objectForKey:OBJECT_KEY_NAME];
 }
 
-- (IBAction)newMessage:(id)sender {
+- (void)setSubscribed:(NSNumber *)subscribed {
+    BOOL on = [subscribed boolValue];
+    DDLogDebug(@"%@ %@", on?@"Subscribing to":@"Unsubscribing from", self.title);
+}
+
+- (void)postMessage {
     UIViewController *viewController = [[NewMessageViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
 }

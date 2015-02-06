@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "ChannelInfoPanel.h"
 
-@interface ChannelViewController : UIViewController
+@interface ChannelViewController : UIViewController <ChannelInfoPanelDelegate>
 
 @property (strong, nonatomic) PFObject *channel;
 

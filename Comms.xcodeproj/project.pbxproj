@@ -11,6 +11,10 @@
 		AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */; };
 		AF9EC1201A85267D00061558 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */; };
+		AF9EC1261A853B1F00061558 /* ChannelInfoPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC1251A853B1F00061558 /* ChannelInfoPanel.m */; };
+		AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC1251A853B1F00061558 /* ChannelInfoPanel.m */; };
+		AF9EC1291A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */; };
+		AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */; };
 		AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AFA577331A83E431004D2809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
@@ -108,6 +112,9 @@
 		AF9EC11A1A85267D00061558 /* ChannelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelTableViewCell.h; sourceTree = "<group>"; };
 		AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelTableViewCell.m; sourceTree = "<group>"; };
 		AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
+		AF9EC1241A853B1F00061558 /* ChannelInfoPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelInfoPanel.h; sourceTree = "<group>"; };
+		AF9EC1251A853B1F00061558 /* ChannelInfoPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelInfoPanel.m; sourceTree = "<group>"; };
+		AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelInfoPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC6C1A84299F00BD32A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenPro.xib; sourceTree = "<group>"; };
 		AFA5772D1A83E431004D2809 /* Comms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comms.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +272,16 @@
 			name = "Pro Panel";
 			sourceTree = "<group>";
 		};
+		AF9EC1231A853AE200061558 /* Channel Info Panel */ = {
+			isa = PBXGroup;
+			children = (
+				AF9EC1241A853B1F00061558 /* ChannelInfoPanel.h */,
+				AF9EC1251A853B1F00061558 /* ChannelInfoPanel.m */,
+				AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */,
+			);
+			name = "Channel Info Panel";
+			sourceTree = "<group>";
+		};
 		AFA577241A83E431004D2809 = {
 			isa = PBXGroup;
 			children = (
@@ -296,7 +313,6 @@
 				AFD9901F1A83F2EE00A2B1DD /* Channel View */,
 				AFD0DD691A83FFFA00C9CC10 /* New Message View */,
 				AFD990291A83F60800A2B1DD /* Account View */,
-				AF9EC1191A85264C00061558 /* Table View Cells */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
 				AF9FCC6B1A84299F00BD32A6 /* LaunchScreenPro.xib */,
@@ -382,6 +398,7 @@
 				AFA577701A83E5B8004D2809 /* ViewController.h */,
 				AFA577711A83E5B8004D2809 /* ViewController.m */,
 				AFA577721A83E5B8004D2809 /* MainView.xib */,
+				AF9EC1191A85264C00061558 /* Table View Cells */,
 				AF9EC1211A8529DA00061558 /* Account Panel */,
 				AF9EC1221A8529E400061558 /* Pro Panel */,
 			);
@@ -413,6 +430,7 @@
 				AFD990201A83F33300A2B1DD /* ChannelViewController.h */,
 				AFD990211A83F33300A2B1DD /* ChannelViewController.m */,
 				AFD990221A83F33300A2B1DD /* ChannelView.xib */,
+				AF9EC1231A853AE200061558 /* Channel Info Panel */,
 			);
 			name = "Channel View";
 			sourceTree = "<group>";
@@ -552,6 +570,7 @@
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 				AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */,
+				AF9EC1291A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */,
 				AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */,
 				AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */,
 				AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
@@ -581,6 +600,7 @@
 				AFD0DD701A84001900C9CC10 /* NewMessageView.xib in Resources */,
 				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
 				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
+				AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */,
 				AF9EC1201A85267D00061558 /* ChannelTableViewCell.xib in Resources */,
 				AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
 				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
@@ -626,6 +646,7 @@
 			files = (
 				AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */,
 				AFA577651A83E563004D2809 /* DDLog.m in Sources */,
+				AF9EC1261A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6D1A84001900C9CC10 /* NewMessageViewController.m in Sources */,
@@ -664,6 +685,7 @@
 			files = (
 				AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */,
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
+				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* NewMessageViewController.m in Sources */,
