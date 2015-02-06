@@ -7,11 +7,13 @@
 //
 
 #import "ChannelTableViewCell.h"
+#import "Constants.h"
 
 @implementation ChannelTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setChannel:(PFObject *)channel {
+    _channel = channel;
+    self.textLabel.text = [self.channel objectForKey:OBJECT_KEY_NAME];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

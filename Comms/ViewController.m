@@ -105,6 +105,13 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     }];
 }
 
+- (PFObject *)channelAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *channels = self.channels[self.groupNames[indexPath.section]];
+    PFObject *channel = channels[indexPath.row];
+    
+    return channel;
+}
+
 #pragma mark - navigation
 
 - (IBAction)viewChannel:(id)sender {
@@ -135,11 +142,15 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kChannelReuseIdentifier forIndexPath:indexPath];
     
-    NSArray *channels = self.channels[self.groupNames[indexPath.section]];
-    PFObject *channel = channels[indexPath.row];
-    cell.textLabel.text = [channel objectForKey:OBJECT_KEY_NAME];
+    cell.channel = [self channelAtIndexPath:indexPath];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ChannelViewController *viewController = [[ChannelViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.channel = [self channelAtIndexPath:indexPath];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

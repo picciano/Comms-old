@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface ChannelViewController : UIViewController
+
+@property (strong, nonatomic) PFObject *channel;
 
 @end

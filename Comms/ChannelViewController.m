@@ -8,6 +8,7 @@
 
 #import "ChannelViewController.h"
 #import "NewMessageViewController.h"
+#import "Constants.h"
 
 @interface ChannelViewController ()
 
@@ -17,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Channel";
+    self.title = [self.channel objectForKey:OBJECT_KEY_NAME];
 }
 
 - (IBAction)newMessage:(id)sender {

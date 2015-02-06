@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface ChannelTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) PFObject *channel;
 
 @end
