@@ -7,6 +7,7 @@
 //
 
 #import "ProPanel.h"
+#import "Constants.h"
 
 @interface ProPanel ()
 
@@ -19,8 +20,9 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        NSString *contentViewName = ([AppInfoManager isProVersion])?@"ProPanelContents":@"ProPanelPromotion";
         self.contentView = [[[NSBundle mainBundle]
-                             loadNibNamed:@"ProPanelContents"
+                             loadNibNamed:contentViewName
                              owner:self options:nil]
                             firstObject];
         [self addSubview:self.contentView];

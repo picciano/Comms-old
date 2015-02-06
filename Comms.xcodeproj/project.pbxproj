@@ -80,6 +80,7 @@
 		AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */; };
 		AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEC00D1A8438DE00A40F1F /* ProPanel.m */; };
 		AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */; };
+		AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC0131A843B2100A40F1F /* ProPanelPromotion.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		AFDEC00C1A8438DE00A40F1F /* ProPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProPanel.h; sourceTree = "<group>"; };
 		AFDEC00D1A8438DE00A40F1F /* ProPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProPanel.m; sourceTree = "<group>"; };
 		AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProPanelContents.xib; sourceTree = "<group>"; };
+		AFDEC0131A843B2100A40F1F /* ProPanelPromotion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProPanelPromotion.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +349,7 @@
 				AFDEC00C1A8438DE00A40F1F /* ProPanel.h */,
 				AFDEC00D1A8438DE00A40F1F /* ProPanel.m */,
 				AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */,
+				AFDEC0131A843B2100A40F1F /* ProPanelPromotion.xib */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 				AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */,
+				AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */,
 				AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,24 +4,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProPanel"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pro Panel Contents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soR-aG-7EN">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pro Panel Promotion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLt-bB-i7J">
                     <rect key="frame" x="8" y="289" width="584" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="soR-aG-7EN" secondAttribute="trailing" constant="8" id="3Ms-1q-Hoe"/>
-                <constraint firstAttribute="centerY" secondItem="soR-aG-7EN" secondAttribute="centerY" id="83K-b6-OsP"/>
-                <constraint firstItem="soR-aG-7EN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="y8O-rM-zXi"/>
+                <constraint firstAttribute="trailing" secondItem="FLt-bB-i7J" secondAttribute="trailing" constant="8" id="93M-tW-X4r"/>
+                <constraint firstItem="FLt-bB-i7J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="DLd-eg-ORo"/>
+                <constraint firstAttribute="centerY" secondItem="FLt-bB-i7J" secondAttribute="centerY" id="ilF-Wu-Rq9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
         </view>
