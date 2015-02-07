@@ -92,6 +92,7 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     
     PFQuery *channelQuery = [PFQuery queryWithClassName:OBJECT_TYPE_CHANNEL];
     [channelQuery whereKey:OBJECT_KEY_GROUP equalTo:group];
+    [channelQuery whereKey:OBJECT_KEY_DISABLED equalTo:@NO];
     [channelQuery orderByAscending:OBJECT_KEY_NAME];
     [channelQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [self setNetworkActivityIndicatorVisible:NO];

@@ -37,6 +37,7 @@
 #define OBJECT_KEY_CHANNEL          @"channel"
 #define OBJECT_KEY_RECIPIENT        @"recipient"
 #define OBJECT_KEY_TEXT             @"text"
+#define OBJECT_KEY_DISABLED         @"disabled"
 
 #define CURRENT_USER_CHANGE_NOTIFICATION    @"currentUserChange"
 
