@@ -9,6 +9,7 @@
 #import "AppInfoManager.h"
 #import <Parse/Parse.h>
 #import "CocoaLumberjack.h"
+#import "StyleKit.h"
 
 #ifndef Comms_Constants_h
 #define Comms_Constants_h

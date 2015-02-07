@@ -27,6 +27,7 @@
                              owner:self options:nil]
                             firstObject];
         [self addSubview:self.contentView];
+        self.backgroundColor = [StyleKit commsDeepGreen];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDisplay) name:CURRENT_USER_CHANGE_NOTIFICATION object:nil];
     }

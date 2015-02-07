@@ -55,6 +55,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (void)initializeUserInterfaceWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [StyleKit commsTan];
     
     UIViewController *viewController = [[ViewController alloc] initWithNibName:@"MainView" bundle:nil];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];

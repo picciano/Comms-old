@@ -94,6 +94,7 @@
 		AFF805141A8685440083C834 /* UIControl+NextControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */; };
 		AFF805151A8685490083C834 /* PFObject+DateFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805111A8683A00083C834 /* PFObject+DateFormat.m */; };
 		AFF805191A86C5320083C834 /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805181A86C5320083C834 /* StyleKit.m */; };
+		AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805181A86C5320083C834 /* StyleKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -731,6 +732,7 @@
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
+				AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,

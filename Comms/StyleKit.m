@@ -22,6 +22,7 @@ static UIColor* _commsPeach = nil;
 static UIColor* _commsDeepViolet = nil;
 static UIColor* _commsBlue = nil;
 static UIColor* _commsBlack = nil;
+static UIColor* _commsDeepGreen = nil;
 static UIColor* _commsDarkTan = nil;
 static UIColor* _commsGreen = nil;
 static UIColor* _commsOrange = nil;
@@ -38,6 +39,7 @@ static UIColor* _commsOrange = nil;
     _commsDeepViolet = [UIColor colorWithRed: 0.114 green: 0.098 blue: 0.299 alpha: 1];
     _commsBlue = [UIColor colorWithRed: 0.391 green: 0.638 blue: 0.858 alpha: 1];
     _commsBlack = [UIColor colorWithRed: 0.029 green: 0.033 blue: 0.033 alpha: 1];
+    _commsDeepGreen = [UIColor colorWithRed: 0.334 green: 0.35 blue: 0.3 alpha: 1];
     _commsDarkTan = [UIColor colorWithRed: 0.655 green: 0.613 blue: 0.53 alpha: 1];
     _commsGreen = [UIColor colorWithRed: 0.233 green: 0.462 blue: 0.483 alpha: 1];
     _commsOrange = [UIColor colorWithRed: 0.926 green: 0.406 blue: 0.115 alpha: 1];
@@ -53,6 +55,7 @@ static UIColor* _commsOrange = nil;
 + (UIColor*)commsDeepViolet { return _commsDeepViolet; }
 + (UIColor*)commsBlue { return _commsBlue; }
 + (UIColor*)commsBlack { return _commsBlack; }
++ (UIColor*)commsDeepGreen { return _commsDeepGreen; }
 + (UIColor*)commsDarkTan { return _commsDarkTan; }
 + (UIColor*)commsGreen { return _commsGreen; }
 + (UIColor*)commsOrange { return _commsOrange; }
@@ -62,7 +65,6 @@ static UIColor* _commsOrange = nil;
 + (void)drawLogoWithFrame: (CGRect)frame isPro: (BOOL)isPro isFree: (BOOL)isFree
 {
     //// Color Declarations
-    UIColor* commsDeepGreen = [UIColor colorWithRed: 0.334 green: 0.35 blue: 0.3 alpha: 1];
     UIColor* color0 = [UIColor colorWithRed: 0.961 green: 0.75 blue: 0.437 alpha: 1];
 
 
@@ -74,7 +76,7 @@ static UIColor* _commsOrange = nil;
     {
         //// Deep Green Rectangle Drawing
         UIBezierPath* deepGreenRectanglePath = [UIBezierPath bezierPathWithRect: CGRectMake(CGRectGetMinX(group) + floor(CGRectGetWidth(group) * 0.00000 + 0.5), CGRectGetMinY(group) + floor(CGRectGetHeight(group) * 0.83333 + 0.5), floor(CGRectGetWidth(group) * 1.00000 + 0.5) - floor(CGRectGetWidth(group) * 0.00000 + 0.5), floor(CGRectGetHeight(group) * 1.00000 + 0.5) - floor(CGRectGetHeight(group) * 0.83333 + 0.5))];
-        [commsDeepGreen setFill];
+        [StyleKit.commsDeepGreen setFill];
         [deepGreenRectanglePath fill];
 
 

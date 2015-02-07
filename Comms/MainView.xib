@@ -28,7 +28,7 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oKH-Bb-vpm">
                     <rect key="frame" x="0.0" y="190" width="600" height="360"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Y51-nX-sHW"/>
                         <outlet property="delegate" destination="-1" id="eSd-SZ-r4Q"/>
@@ -45,7 +45,7 @@
                     </connections>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="1dc-9t-HxT" secondAttribute="bottom" id="Iyg-eW-BeO"/>
                 <constraint firstAttribute="trailing" secondItem="oKH-Bb-vpm" secondAttribute="trailing" id="LjJ-1x-e2E"/>

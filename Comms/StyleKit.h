@@ -22,6 +22,7 @@
 + (UIColor*)commsDeepViolet;
 + (UIColor*)commsBlue;
 + (UIColor*)commsBlack;
++ (UIColor*)commsDeepGreen;
 + (UIColor*)commsDarkTan;
 + (UIColor*)commsGreen;
 + (UIColor*)commsOrange;

@@ -26,12 +26,9 @@
                              owner:self options:nil]
                             firstObject];
         [self addSubview:self.contentView];
+        self.backgroundColor = [StyleKit commsDeepGreen];
     }
     return self;
-}
-
-- (void)didMoveToSuperview {
-//    self.usernameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
 }
 
 - (void)layoutSubviews {
