@@ -27,11 +27,17 @@
                              owner:self options:nil]
                             firstObject];
         [self addSubview:self.contentView];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDisplay) name:CURRENT_USER_CHANGE_NOTIFICATION object:nil];
     }
     return self;
 }
 
 - (void)didMoveToSuperview {
+    [self updateDisplay];
+}
+
+- (void)updateDisplay {
     self.usernameLabel.text = ([PFUser currentUser])?[PFUser currentUser].username:@"Not Logged In";
 }
 

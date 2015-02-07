@@ -98,6 +98,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self clearLoginFields];
             [self updateDisplay:YES];
         }
@@ -126,6 +127,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self clearLoginFields];
             [self updateDisplay:YES];
         }
@@ -134,6 +136,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (IBAction)logOut:(id)sender {
     [PFUser logOut];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
     [self updateDisplay:YES];
 }
 
@@ -168,6 +171,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [self presentViewController:alert animated:YES completion:nil];
         } else {
             [PFUser logOut];
+            [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self updateDisplay:YES];
         }
     }];

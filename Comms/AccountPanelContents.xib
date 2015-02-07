@@ -21,12 +21,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-Id-PA2">
-                    <rect key="frame" x="263" y="318" width="74" height="30"/>
+                    <rect key="frame" x="8" y="318" width="584" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="QAD-CV-Ni0"/>
-                        <constraint firstAttribute="width" constant="74" id="oyL-cg-3qT"/>
+                        <constraint firstAttribute="height" constant="30" id="aiQ-Gw-22K"/>
                     </constraints>
-                    <state key="normal" title="see details">
+                    <state key="normal" title="Manage Account">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -37,10 +36,11 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="CNV-gZ-HI1" secondAttribute="trailing" constant="8" id="HFt-Jb-f7a"/>
+                <constraint firstItem="sOO-Id-PA2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="J38-s8-gPv"/>
                 <constraint firstAttribute="centerY" secondItem="CNV-gZ-HI1" secondAttribute="centerY" id="Lya-Ix-ydC"/>
                 <constraint firstItem="CNV-gZ-HI1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gNg-uM-X5a"/>
-                <constraint firstItem="sOO-Id-PA2" firstAttribute="top" secondItem="CNV-gZ-HI1" secondAttribute="bottom" constant="8" id="gmL-pi-UJQ"/>
-                <constraint firstAttribute="centerX" secondItem="sOO-Id-PA2" secondAttribute="centerX" id="pDb-X3-pfa"/>
+                <constraint firstAttribute="trailing" secondItem="sOO-Id-PA2" secondAttribute="trailing" constant="8" id="jy7-8h-3vy"/>
+                <constraint firstItem="sOO-Id-PA2" firstAttribute="top" secondItem="CNV-gZ-HI1" secondAttribute="bottom" constant="8" id="rn3-LY-ERh"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
         </view>
