@@ -55,6 +55,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)clearLoginFields {
     self.usernameField.text = EMPTY_STRING;
     self.passwordField.text = EMPTY_STRING;
+    [self.usernameField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
 }
 
 - (void)updateDisplay:(BOOL)animated {
@@ -136,6 +138,23 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (IBAction)burnAccount:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
+                                                                   message:@"Burning your account will permanently delete it along with any encrypted messages sent to it. This action is not reversible."
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:nil];
+    UIAlertAction *burnAction = [UIAlertAction actionWithTitle:@"Burn it"
+                                                            style:UIAlertActionStyleDestructive
+                                                       handler:^(UIAlertAction *action) {
+                                                           [self burnAccount];
+                                                       }];
+    [alert addAction:burnAction];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)burnAccount {
     [[PFUser currentUser] deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             DDLogError(@"Error during account burn: %@", error);
