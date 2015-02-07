@@ -7,31 +7,151 @@
 //
 
 #import "AccountViewController.h"
+#import "UIControl+NextControl.h"
+#import "PFObject+DateFormat.h"
+#import "Constants.h"
 
 @interface AccountViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *signedOutView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *signedOutViewheightConstraint;
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *logInButton;
+@property (weak, nonatomic) IBOutlet UIButton *createAccountButton;
+
+@property (weak, nonatomic) IBOutlet UIView *signedInView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *signedInViewheightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
+@property (weak, nonatomic) IBOutlet UIButton *logOutButton;
+@property (weak, nonatomic) IBOutlet UIButton *burnAccountButton;
+
 @end
+
+static CGFloat originalSignedOutViewheight;
+static CGFloat originalSignedInViewheight;
+
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation AccountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Account";
+    
+    originalSignedOutViewheight = self.signedOutViewheightConstraint.constant;
+    originalSignedInViewheight = self.signedInViewheightConstraint.constant;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [self updateDisplay:NO];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)editingChanged:(id)sender {
+    self.createAccountButton.enabled = self.logInButton.enabled = (self.usernameField.text.length > 0 && self.passwordField.text.length > 0);
 }
-*/
+
+- (void)clearLoginFields {
+    self.usernameField.text = EMPTY_STRING;
+    self.passwordField.text = EMPTY_STRING;
+}
+
+- (void)updateDisplay:(BOOL)animated {
+    BOOL signedIn = [PFUser currentUser];
+    NSTimeInterval duration = animated?0.25:0;
+    
+    if (signedIn) {
+        self.usernameLabel.text = [[PFUser currentUser] objectForKey:OBJECT_KEY_USERNAME];
+        NSString *createdAtString =[[PFUser currentUser] createdAtWithDateFormat:NSDateFormatterMediumStyle timeFormat:NSDateFormatterShortStyle];
+        self.createdAtLabel.text = [NSString stringWithFormat:@"Account created %@", createdAtString];
+    } else {
+        [self.usernameField becomeFirstResponder];
+    }
+    
+    [self editingChanged:nil];
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.signedOutViewheightConstraint.constant = (signedIn)?0:originalSignedOutViewheight;
+        self.signedInViewheightConstraint.constant = (signedIn)?originalSignedInViewheight:0;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField transferFirstResponderToNextControl];
+    return NO;
+}
+
+- (IBAction)logIn:(id)sender {
+    [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
+        if (error) {
+            DDLogError(@"Error during login: %@", error);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error logging in"
+                                                                           message:@"Check your username and password, or maybe try signing up instead."
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            [self clearLoginFields];
+            [self updateDisplay:YES];
+        }
+    }];
+}
+
+- (IBAction)createAccount:(id)sender {
+    PFUser *user = [PFUser user];
+    user.username = self.usernameField.text;
+    user.password = self.passwordField.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            DDLogError(@"Error during signup: %@", error);
+            long code = [[error.userInfo valueForKey:@"code"] longValue];
+            NSString *message = @"Sorry, could not complete sign up. Try again later.";
+            if (code == 202) {
+                message = @"Sorry, that username has been taken. Pick another username or login instead.";
+            }
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error signing up"
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            [self clearLoginFields];
+            [self updateDisplay:YES];
+        }
+    }];
+}
+
+- (IBAction)logOut:(id)sender {
+    [PFUser logOut];
+    [self updateDisplay:YES];
+}
+
+- (IBAction)burnAccount:(id)sender {
+    [[PFUser currentUser] deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            DDLogError(@"Error during account burn: %@", error);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error signing up"
+                                                                           message:@"Sorry, could not burn account. Try again later."
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            [PFUser logOut];
+            [self updateDisplay:YES];
+        }
+    }];
+}
 
 @end

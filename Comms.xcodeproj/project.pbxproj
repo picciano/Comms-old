@@ -89,6 +89,10 @@
 		AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEC00D1A8438DE00A40F1F /* ProPanel.m */; };
 		AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */; };
 		AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC0131A843B2100A40F1F /* ProPanelPromotion.xib */; };
+		AFF8050E1A86796E0083C834 /* UIControl+NextControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */; };
+		AFF805121A8683A00083C834 /* PFObject+DateFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805111A8683A00083C834 /* PFObject+DateFormat.m */; };
+		AFF805141A8685440083C834 /* UIControl+NextControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */; };
+		AFF805151A8685490083C834 /* PFObject+DateFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805111A8683A00083C834 /* PFObject+DateFormat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +183,10 @@
 		AFDEC00D1A8438DE00A40F1F /* ProPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProPanel.m; sourceTree = "<group>"; };
 		AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProPanelContents.xib; sourceTree = "<group>"; };
 		AFDEC0131A843B2100A40F1F /* ProPanelPromotion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProPanelPromotion.xib; sourceTree = "<group>"; };
+		AFF8050C1A86796E0083C834 /* UIControl+NextControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+NextControl.h"; sourceTree = "<group>"; };
+		AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+NextControl.m"; sourceTree = "<group>"; };
+		AFF805101A8683A00083C834 /* PFObject+DateFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+DateFormat.h"; sourceTree = "<group>"; };
+		AFF805111A8683A00083C834 /* PFObject+DateFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFObject+DateFormat.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,8 +449,28 @@
 				AFD9902A1A83F61E00A2B1DD /* AccountViewController.h */,
 				AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */,
 				AFD9902C1A83F61E00A2B1DD /* AccountView.xib */,
+				AFF805131A8683A40083C834 /* Date Format */,
+				AFF8050F1A8679A20083C834 /* Next Control */,
 			);
 			name = "Account View";
+			sourceTree = "<group>";
+		};
+		AFF8050F1A8679A20083C834 /* Next Control */ = {
+			isa = PBXGroup;
+			children = (
+				AFF8050C1A86796E0083C834 /* UIControl+NextControl.h */,
+				AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */,
+			);
+			name = "Next Control";
+			sourceTree = "<group>";
+		};
+		AFF805131A8683A40083C834 /* Date Format */ = {
+			isa = PBXGroup;
+			children = (
+				AFF805101A8683A00083C834 /* PFObject+DateFormat.h */,
+				AFF805111A8683A00083C834 /* PFObject+DateFormat.m */,
+			);
+			name = "Date Format";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -658,8 +686,10 @@
 				AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */,
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
 				AFA577331A83E431004D2809 /* main.m in Sources */,
+				AFF8050E1A86796E0083C834 /* UIControl+NextControl.m in Sources */,
 				AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */,
 				AFA577671A83E563004D2809 /* DDASLLogger.m in Sources */,
+				AFF805121A8683A00083C834 /* PFObject+DateFormat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,8 +727,10 @@
 				AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */,
 				AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */,
 				AFD990021A83EC1200A2B1DD /* main.m in Sources */,
+				AFF805141A8685440083C834 /* UIControl+NextControl.m in Sources */,
 				AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */,
 				AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */,
+				AFF805151A8685490083C834 /* PFObject+DateFormat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
