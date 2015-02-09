@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "ChannelInfoPanel.h"
 
-@interface ChannelViewController : UIViewController <ChannelInfoPanelDelegate>
+@interface ChannelViewController : UIViewController <ChannelInfoPanelDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) PFObject *channel;
 

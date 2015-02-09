@@ -9,15 +9,21 @@
 #import "ChannelViewController.h"
 #import "ChannelInfoPanel.h"
 #import "PostMessageViewController.h"
+#import "MessageTableViewCell.h"
 #import "Constants.h"
 
 @interface ChannelViewController ()
 
 @property (weak, nonatomic) IBOutlet ChannelInfoPanel *channelInfoPanel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSArray *messages;
 
 @end
 
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+
+static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
 
 @implementation ChannelViewController
 
@@ -25,8 +31,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [super viewDidLoad];
     self.title = [self.channel objectForKey:OBJECT_KEY_NAME];
     self.channelInfoPanel.channelNameLabel.text = [self.channel objectForKey:OBJECT_KEY_NAME];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"MessageTableViewCell"bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:kMessageReuseIdentifier];
+    
     [self loadSubscriptionStatus];
     [self loadSubscriptionCount];
+    [self loadMessages];
 }
 
 - (void)loadSubscriptionStatus {
@@ -60,6 +71,23 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         if (!error) {
             self.channelInfoPanel.subscriberCountLabel.text = [NSString stringWithFormat:@"%i Subscriber%@", number, (number==1)?@"":@"s"];
+        }
+    }];
+}
+
+- (void)loadMessages {
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    
+    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_MESSAGE];
+    [query whereKey:OBJECT_KEY_CHANNEL equalTo:self.channel];
+    [query orderByDescending:OBJECT_KEY_CREATED_AT];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        
+        if (!error) {
+            self.messages = objects;
+            [self.tableView reloadData];
         }
     }];
 }
@@ -99,6 +127,19 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     PostMessageViewController *viewController = [[PostMessageViewController alloc] initWithNibName:nil bundle:nil];
     viewController.channel = self.channel;
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+#pragma mark - table view methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.messages.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMessageReuseIdentifier forIndexPath:indexPath];
+    cell.message = self.messages[indexPath.row];
+    
+    return cell;
 }
 
 @end

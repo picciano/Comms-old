@@ -21,6 +21,10 @@
 		AFA55F051A89167800813CAE /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F021A89167800813CAE /* HeaderView.m */; };
 		AFA55F061A89167800813CAE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F031A89167800813CAE /* HeaderView.xib */; };
 		AFA55F071A89167800813CAE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F031A89167800813CAE /* HeaderView.xib */; };
+		AFA55F111A89482200813CAE /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F0F1A89482200813CAE /* MessageTableViewCell.m */; };
+		AFA55F121A89482200813CAE /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F0F1A89482200813CAE /* MessageTableViewCell.m */; };
+		AFA55F131A89482200813CAE /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F101A89482200813CAE /* MessageTableViewCell.xib */; };
+		AFA55F141A89482200813CAE /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F101A89482200813CAE /* MessageTableViewCell.xib */; };
 		AFA577331A83E431004D2809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
 		AFA577361A83E431004D2809 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577351A83E431004D2809 /* AppDelegate.m */; };
 		AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
@@ -130,6 +134,9 @@
 		AFA55F011A89167800813CAE /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		AFA55F021A89167800813CAE /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		AFA55F031A89167800813CAE /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		AFA55F0E1A89482200813CAE /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		AFA55F0F1A89482200813CAE /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		AFA55F101A89482200813CAE /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		AFA5772D1A83E431004D2809 /* Comms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA577311A83E431004D2809 /* Comms-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Comms-Info.plist"; sourceTree = "<group>"; };
 		AFA577321A83E431004D2809 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -304,6 +311,16 @@
 			name = "Channel Info Panel";
 			sourceTree = "<group>";
 		};
+		AFA55F0D1A8947D300813CAE /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AFA55F0E1A89482200813CAE /* MessageTableViewCell.h */,
+				AFA55F0F1A89482200813CAE /* MessageTableViewCell.m */,
+				AFA55F101A89482200813CAE /* MessageTableViewCell.xib */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		AFA577241A83E431004D2809 = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +470,7 @@
 				AFD990201A83F33300A2B1DD /* ChannelViewController.h */,
 				AFD990211A83F33300A2B1DD /* ChannelViewController.m */,
 				AFD990221A83F33300A2B1DD /* ChannelView.xib */,
+				AFA55F0D1A8947D300813CAE /* Table View Cells */,
 				AF9EC1231A853AE200061558 /* Channel Info Panel */,
 			);
 			name = "Channel View";
@@ -617,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
+				AFA55F131A89482200813CAE /* MessageTableViewCell.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
 				AFD0DD6F1A84001900C9CC10 /* PostMessageView.xib in Resources */,
 				AFA55F061A89167800813CAE /* HeaderView.xib in Resources */,
@@ -650,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */,
+				AFA55F141A89482200813CAE /* MessageTableViewCell.xib in Resources */,
 				AFA55F071A89167800813CAE /* HeaderView.xib in Resources */,
 				AFD0DD701A84001900C9CC10 /* PostMessageView.xib in Resources */,
 				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
@@ -700,6 +720,7 @@
 			files = (
 				AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */,
 				AFA577651A83E563004D2809 /* DDLog.m in Sources */,
+				AFA55F111A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1261A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AFF805191A86C5320083C834 /* StyleKit.m in Sources */,
@@ -743,6 +764,7 @@
 			files = (
 				AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */,
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
+				AFA55F121A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */,

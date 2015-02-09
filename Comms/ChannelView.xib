@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChannelViewController">
             <connections>
                 <outlet property="channelInfoPanel" destination="RJ3-oh-qD0" id="BJA-gF-Wm6"/>
+                <outlet property="tableView" destination="Zcc-zy-CqG" id="Ryp-zQ-Fgd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,11 +26,23 @@
                         <outlet property="delegate" destination="-1" id="giu-Ib-3Gh"/>
                     </connections>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zcc-zy-CqG">
+                    <rect key="frame" x="0.0" y="165" width="600" height="435"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="jbK-ix-c0W"/>
+                        <outlet property="delegate" destination="-1" id="xOc-cz-GXu"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="RJ3-oh-qD0" secondAttribute="trailing" id="1Vz-7H-6lC"/>
+                <constraint firstAttribute="trailing" secondItem="Zcc-zy-CqG" secondAttribute="trailing" id="22F-aR-Ay5"/>
                 <constraint firstItem="RJ3-oh-qD0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="UoZ-4D-ayE"/>
+                <constraint firstItem="Zcc-zy-CqG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wit-YW-wKT"/>
+                <constraint firstItem="Zcc-zy-CqG" firstAttribute="top" secondItem="RJ3-oh-qD0" secondAttribute="bottom" id="XkF-hW-tFL"/>
+                <constraint firstAttribute="bottom" secondItem="Zcc-zy-CqG" secondAttribute="bottom" id="kF0-y8-xPk"/>
                 <constraint firstItem="RJ3-oh-qD0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qbm-Ep-SY2"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
