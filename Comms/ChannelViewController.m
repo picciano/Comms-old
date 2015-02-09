@@ -38,6 +38,8 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
     [self loadSubscriptionStatus];
     [self loadSubscriptionCount];
     [self loadMessages];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSubscriptionCount) name:SUBSCRIPTION_CHANGE_NOTIFICATION object:nil];
 }
 
 - (void)loadSubscriptionStatus {
