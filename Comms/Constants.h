@@ -40,6 +40,7 @@
 #define OBJECT_KEY_DISABLED         @"disabled"
 
 #define CURRENT_USER_CHANGE_NOTIFICATION    @"currentUserChange"
+#define SUBSCRIPTION_CHANGE_NOTIFICATION    @"subscriptionChange"
 
 
 #endif

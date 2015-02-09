@@ -11,7 +11,7 @@
 
 @interface ChannelInfoPanel ()
 
-@property (assign, nonatomic) IBOutlet UILabel *label;
+
 
 @end
 

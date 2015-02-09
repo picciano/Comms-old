@@ -25,7 +25,7 @@
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelError;
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 
 @implementation ViewController
@@ -41,6 +41,8 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     self.groupNames = [NSMutableArray arrayWithCapacity:3];
     
     [self loadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSubscribedChannels) name:SUBSCRIPTION_CHANGE_NOTIFICATION object:nil];
 }
 
 #pragma mark - data loading
@@ -54,6 +56,8 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 }
 
 - (void)loadData {
+    self.channels[SUBSCRIBED_CHANNELS] = [NSArray array];
+    [self.groupNames addObject:SUBSCRIBED_CHANNELS];
     [self loadSubscribedChannels];
     
     [self setNetworkActivityIndicatorVisible:YES];
@@ -77,14 +81,25 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 }
 
 - (void)loadSubscribedChannels {
-    self.channels[SUBSCRIBED_CHANNELS] = [NSArray array];
-    [self.groupNames addObject:SUBSCRIBED_CHANNELS];
-    
     [self setNetworkActivityIndicatorVisible:YES];
-    [self setNetworkActivityIndicatorVisible:NO];
     
-    [self.tableView reloadData];
-    
+    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
+    [query whereKey:OBJECT_KEY_USER equalTo:[PFUser currentUser]];
+    [query includeKey:OBJECT_KEY_CHANNEL];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [self setNetworkActivityIndicatorVisible:NO];
+        if (error) {
+            DDLogError(@"Error loading data: %@", error);
+        } else {
+            DDLogDebug(@"Subscriptions: %@", objects);
+            NSMutableArray *channels = [NSMutableArray array];
+            for (PFObject *object in objects) {
+                [channels addObject:[object objectForKey:OBJECT_KEY_CHANNEL]];
+            }
+            self.channels[SUBSCRIBED_CHANNELS] = [NSArray arrayWithArray:channels];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (void)loadChannelsInGroup:(PFObject *)group {
