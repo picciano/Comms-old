@@ -24,4 +24,12 @@
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
 }
 
++ (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible {
+    static volatile int32_t NumberOfCallsToSetVisible = 0;
+    int32_t newValue = OSAtomicAdd32((setVisible ? +1 : -1), &NumberOfCallsToSetVisible);
+    
+    NSAssert(newValue >= 0, @"Network Activity Indicator was asked to hide more often than shown");
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(newValue > 0)];
+}
+
 @end

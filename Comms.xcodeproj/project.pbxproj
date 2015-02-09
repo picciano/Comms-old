@@ -17,6 +17,10 @@
 		AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */; };
 		AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
+		AFA55F041A89167800813CAE /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F021A89167800813CAE /* HeaderView.m */; };
+		AFA55F051A89167800813CAE /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F021A89167800813CAE /* HeaderView.m */; };
+		AFA55F061A89167800813CAE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F031A89167800813CAE /* HeaderView.xib */; };
+		AFA55F071A89167800813CAE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F031A89167800813CAE /* HeaderView.xib */; };
 		AFA577331A83E431004D2809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
 		AFA577361A83E431004D2809 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577351A83E431004D2809 /* AppDelegate.m */; };
 		AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
@@ -123,6 +127,9 @@
 		AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelInfoPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC6C1A84299F00BD32A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenPro.xib; sourceTree = "<group>"; };
+		AFA55F011A89167800813CAE /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		AFA55F021A89167800813CAE /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		AFA55F031A89167800813CAE /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		AFA5772D1A83E431004D2809 /* Comms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA577311A83E431004D2809 /* Comms-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Comms-Info.plist"; sourceTree = "<group>"; };
 		AFA577321A83E431004D2809 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -259,6 +266,9 @@
 				AF9EC11A1A85267D00061558 /* ChannelTableViewCell.h */,
 				AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */,
 				AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */,
+				AFA55F011A89167800813CAE /* HeaderView.h */,
+				AFA55F021A89167800813CAE /* HeaderView.m */,
+				AFA55F031A89167800813CAE /* HeaderView.xib */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -609,6 +619,7 @@
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
 				AFD0DD6F1A84001900C9CC10 /* PostMessageView.xib in Resources */,
+				AFA55F061A89167800813CAE /* HeaderView.xib in Resources */,
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 				AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */,
@@ -639,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */,
+				AFA55F071A89167800813CAE /* HeaderView.xib in Resources */,
 				AFD0DD701A84001900C9CC10 /* PostMessageView.xib in Resources */,
 				AFD990301A83F63B00A2B1DD /* AccountView.xib in Resources */,
 				AFD990281A83F56F00A2B1DD /* ChannelView.xib in Resources */,
@@ -697,6 +709,7 @@
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
 				AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */,
 				AFD0DD781A840AA700C9CC10 /* AccountPanel.m in Sources */,
+				AFA55F041A89167800813CAE /* HeaderView.m in Sources */,
 				AFA577691A83E563004D2809 /* DDFileLogger.m in Sources */,
 				AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */,
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
@@ -739,6 +752,7 @@
 				AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */,
 				AFD9902F1A83F62B00A2B1DD /* AccountViewController.m in Sources */,
 				AFD0DD791A840AA700C9CC10 /* AccountPanel.m in Sources */,
+				AFA55F051A89167800813CAE /* HeaderView.m in Sources */,
 				AFD990001A83EC1200A2B1DD /* DDFileLogger.m in Sources */,
 				AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */,
 				AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */,

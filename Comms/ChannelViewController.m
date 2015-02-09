@@ -28,13 +28,20 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (void)loadSubscriptionStatus {
+    
+    if (![PFUser currentUser]) {
+        self.channelInfoPanel.subscribedSwitch.enabled = NO;
+        return;
+    }
+    
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    
     PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
     [query whereKey:OBJECT_KEY_USER equalTo:[PFUser currentUser]];
     [query whereKey:OBJECT_KEY_CHANNEL equalTo:self.channel];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (error) {
-            DDLogError(@"Error loading subscription: %@", error);
-        } else {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        if (!error) {
             self.channelInfoPanel.subscribedSwitch.on = YES;
         }
     }];
@@ -43,17 +50,23 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)setSubscribed:(NSNumber *)subscribed {
     BOOL on = [subscribed boolValue];
     if (on) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+        
         PFObject *subscription = [PFObject objectWithClassName:OBJECT_TYPE_SUBSCRIPTION];
         [subscription setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
         [subscription setObject:self.channel forKey:OBJECT_KEY_CHANNEL];
         [subscription saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [AppInfoManager setNetworkActivityIndicatorVisible:NO];
             [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
         }];
     } else {
+        [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+        
         PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
         [query whereKey:OBJECT_KEY_USER equalTo:[PFUser currentUser]];
         [query whereKey:OBJECT_KEY_CHANNEL equalTo:self.channel];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            [AppInfoManager setNetworkActivityIndicatorVisible:NO];
             if (error) {
                 DDLogError(@"Error loading subscription: %@", error);
             } else {

@@ -10,9 +10,8 @@
 #import "AccountViewController.h"
 #import "ChannelTableViewCell.h"
 #import "ChannelViewController.h"
+#import "HeaderView.h"
 #import "Constants.h"
-
-#include <libkern/OSAtomic.h>
 
 #define SUBSCRIBED_CHANNELS     @"Subscribed Channels"
 
@@ -43,28 +42,21 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     [self loadData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSubscribedChannels) name:SUBSCRIPTION_CHANGE_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSubscribedChannels) name:CURRENT_USER_CHANGE_NOTIFICATION object:nil];
 }
 
 #pragma mark - data loading
-
-- (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible {
-    static volatile int32_t NumberOfCallsToSetVisible = 0;
-    int32_t newValue = OSAtomicAdd32((setVisible ? +1 : -1), &NumberOfCallsToSetVisible);
-    
-    NSAssert(newValue >= 0, @"Network Activity Indicator was asked to hide more often than shown");
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(newValue > 0)];
-}
 
 - (void)loadData {
     [self.groupNames addObject:SUBSCRIBED_CHANNELS];
     [self loadSubscribedChannels];
     
-    [self setNetworkActivityIndicatorVisible:YES];
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
     
     PFQuery *groupsQuery = [PFQuery queryWithClassName:OBJECT_TYPE_GROUP];
     [groupsQuery orderByAscending:OBJECT_KEY_ORDER];
     [groupsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        [self setNetworkActivityIndicatorVisible:NO];
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         
         if (error) {
             DDLogError(@"Error loading data: %@", error);
@@ -79,7 +71,14 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 }
 
 - (void)loadSubscribedChannels {
-    [self setNetworkActivityIndicatorVisible:YES];
+    
+    if (![PFUser currentUser]) {
+        [self.channels removeObjectForKey:SUBSCRIBED_CHANNELS];
+        [self.tableView reloadData];
+        return;
+    }
+    
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
     
     PFQuery *subscriptionQuery = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
     [subscriptionQuery whereKey:OBJECT_KEY_USER equalTo:[PFUser currentUser]];
@@ -87,7 +86,7 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_CHANNEL];
     [query whereKey:OBJECT_KEY_OBJECT_ID matchesKey:OBJECT_KEY_CHANNEL_ID inQuery:subscriptionQuery];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        [self setNetworkActivityIndicatorVisible:NO];
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         if (error) {
             DDLogError(@"Error loading data: %@", error);
         } else {
@@ -98,14 +97,14 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 }
 
 - (void)loadChannelsInGroup:(PFObject *)group {
-    [self setNetworkActivityIndicatorVisible:YES];
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
     
     PFQuery *channelQuery = [PFQuery queryWithClassName:OBJECT_TYPE_CHANNEL];
     [channelQuery whereKey:OBJECT_KEY_GROUP equalTo:group];
     [channelQuery whereKey:OBJECT_KEY_DISABLED equalTo:@NO];
     [channelQuery orderByAscending:OBJECT_KEY_NAME];
     [channelQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        [self setNetworkActivityIndicatorVisible:NO];
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         
         if (error) {
             DDLogError(@"Error loading data: %@", error);
@@ -138,7 +137,7 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 #pragma mark - tableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.channels.count;
+    return self.groupNames.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -156,6 +155,18 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     cell.channel = [self channelAtIndexPath:indexPath];
     
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    HeaderView *view = [[[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] firstObject];
+    view.titleLabel.text = self.groupNames[section];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    NSArray *channels = self.channels[self.groupNames[section]];
+    return (channels.count > 0)?30:0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
