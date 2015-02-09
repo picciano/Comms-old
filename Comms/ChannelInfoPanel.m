@@ -11,8 +11,6 @@
 
 @interface ChannelInfoPanel ()
 
-
-
 @end
 
 static const DDLogLevel ddLogLevel = DDLogLevelError;

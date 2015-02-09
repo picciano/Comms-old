@@ -18,7 +18,9 @@
 
 @property (strong, nonatomic) UIView *contentView;
 @property (assign, nonatomic) IBOutlet id<ChannelInfoPanelDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIView *subscribedView;
+@property (weak, nonatomic) IBOutlet UILabel *channelNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subscriberCountLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *subscribedSwitch;
 
 @end

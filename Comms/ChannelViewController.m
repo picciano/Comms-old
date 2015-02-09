@@ -24,13 +24,15 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [self.channel objectForKey:OBJECT_KEY_NAME];
+    self.channelInfoPanel.channelNameLabel.text = [self.channel objectForKey:OBJECT_KEY_NAME];
     [self loadSubscriptionStatus];
+    [self loadSubscriptionCount];
 }
 
 - (void)loadSubscriptionStatus {
     
     if (![PFUser currentUser]) {
-        self.channelInfoPanel.subscribedSwitch.enabled = NO;
+        self.channelInfoPanel.subscribedView.hidden = YES;
         return;
     }
     
@@ -43,6 +45,21 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         if (!error) {
             self.channelInfoPanel.subscribedSwitch.on = YES;
+        }
+    }];
+}
+
+- (void)loadSubscriptionCount {
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    
+    self.channelInfoPanel.subscriberCountLabel.text = EMPTY_STRING;
+    
+    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
+    [query whereKey:OBJECT_KEY_CHANNEL equalTo:self.channel];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        if (!error) {
+            self.channelInfoPanel.subscriberCountLabel.text = [NSString stringWithFormat:@"%i Subscriber%@", number, (number==1)?@"":@"s"];
         }
     }];
 }
