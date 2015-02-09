@@ -43,7 +43,7 @@
                         <outlet property="delegate" destination="-1" id="2Nz-l5-JUi"/>
                     </connections>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zn4-7s-ByP">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / ###" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zn4-7s-ByP">
                     <rect key="frame" x="8" y="215" width="91" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="91" id="VEd-b9-2bi"/>
@@ -62,6 +62,9 @@
                     <state key="normal" title="Cancel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="hDy-mG-FFO"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
