@@ -33,11 +33,13 @@
 #define OBJECT_KEY_GROUP            @"group"
 #define OBJECT_KEY_NAME             @"name"
 #define OBJECT_KEY_DISABLED         @"disabled"
+#define OBJECT_KEY_OBJECT_ID        @"objectId"
 #define OBJECT_KEY_ORDER            @"order"
 #define OBJECT_KEY_CHANNEL          @"channel"
 #define OBJECT_KEY_RECIPIENT        @"recipient"
 #define OBJECT_KEY_TEXT             @"text"
 #define OBJECT_KEY_DISABLED         @"disabled"
+#define OBJECT_KEY_CHANNEL_ID       @"channelId"
 
 #define CURRENT_USER_CHANGE_NOTIFICATION    @"currentUserChange"
 #define SUBSCRIPTION_CHANGE_NOTIFICATION    @"subscriptionChange"

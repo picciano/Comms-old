@@ -56,7 +56,6 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 }
 
 - (void)loadData {
-    self.channels[SUBSCRIBED_CHANNELS] = [NSArray array];
     [self.groupNames addObject:SUBSCRIBED_CHANNELS];
     [self loadSubscribedChannels];
     
@@ -73,7 +72,6 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
             for (PFObject *group in objects) {
                 DDLogDebug(@"Group name: %@", [group objectForKey:OBJECT_KEY_NAME]);
                 [self.groupNames addObject:[group objectForKey:OBJECT_KEY_NAME]];
-                self.channels[[group objectForKey:OBJECT_KEY_NAME]] = [NSArray array];
                 [self loadChannelsInGroup:group];
             }
         }
@@ -83,20 +81,17 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 - (void)loadSubscribedChannels {
     [self setNetworkActivityIndicatorVisible:YES];
     
-    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
-    [query whereKey:OBJECT_KEY_USER equalTo:[PFUser currentUser]];
-    [query includeKey:OBJECT_KEY_CHANNEL];
+    PFQuery *subscriptionQuery = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
+    [subscriptionQuery whereKey:OBJECT_KEY_USER equalTo:[PFUser currentUser]];
+    
+    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_CHANNEL];
+    [query whereKey:OBJECT_KEY_OBJECT_ID matchesKey:OBJECT_KEY_CHANNEL_ID inQuery:subscriptionQuery];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [self setNetworkActivityIndicatorVisible:NO];
         if (error) {
             DDLogError(@"Error loading data: %@", error);
         } else {
-            DDLogDebug(@"Subscriptions: %@", objects);
-            NSMutableArray *channels = [NSMutableArray array];
-            for (PFObject *object in objects) {
-                [channels addObject:[object objectForKey:OBJECT_KEY_CHANNEL]];
-            }
-            self.channels[SUBSCRIBED_CHANNELS] = [NSArray arrayWithArray:channels];
+            self.channels[SUBSCRIBED_CHANNELS] = objects;
             [self.tableView reloadData];
         }
     }];
