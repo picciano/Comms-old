@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 @interface PostMessageViewController : UIViewController
+
+@property (strong, nonatomic) PFObject *channel;
 
 @end

@@ -96,7 +96,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (void)postMessage {
-    UIViewController *viewController = [[PostMessageViewController alloc] initWithNibName:nil bundle:nil];
+    PostMessageViewController *viewController = [[PostMessageViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.channel = self.channel;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

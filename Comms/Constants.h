@@ -44,5 +44,6 @@
 #define CURRENT_USER_CHANGE_NOTIFICATION    @"currentUserChange"
 #define SUBSCRIPTION_CHANGE_NOTIFICATION    @"subscriptionChange"
 
+#define MAXIMUM_MESSAGE_LENGTH      500
 
 #endif
