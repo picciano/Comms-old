@@ -500,7 +500,7 @@ static UIColor* _commsOrange = nil;
 
 
     //// Lcok Symbol Drawing
-    CGRect lcokSymbolRect = CGRectMake(CGRectGetMinX(frame) + 5, CGRectGetMinY(frame) + 2, 20, 20);
+    CGRect lcokSymbolRect = CGRectMake(CGRectGetMinX(frame) + 5, CGRectGetMinY(frame) + 4, 20, 20);
     CGContextSaveGState(context);
     UIRectClip(lcokSymbolRect);
     CGContextTranslateCTM(context, lcokSymbolRect.origin.x, lcokSymbolRect.origin.y);
