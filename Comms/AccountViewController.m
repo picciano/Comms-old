@@ -9,6 +9,7 @@
 #import "AccountViewController.h"
 #import "UIControl+NextControl.h"
 #import "PFObject+DateFormat.h"
+#import "SecurityService.h"
 #import "Constants.h"
 
 @interface AccountViewController ()
@@ -26,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
 @property (weak, nonatomic) IBOutlet UIButton *burnAccountButton;
+
+@property (weak, nonatomic) IBOutlet UITextView *publicKeyBitsTextView;
 
 @end
 
@@ -70,6 +73,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     } else {
         [self.usernameField becomeFirstResponder];
     }
+    
+    self.publicKeyBitsTextView.text = EMPTY_STRING;
     
     [self editingChanged:nil];
     
@@ -157,6 +162,11 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (IBAction)showPublicKey:(id)sender {
+    NSData *bits = [[SecurityService sharedSecurityService] getPublicKeyBits];
+    self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"Public Key Bits: %@", bits];
+}
+
 - (void)burnAccount {
     [[PFUser currentUser] deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
@@ -170,6 +180,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
+            [[SecurityService sharedSecurityService] deleteKeyPair];
             [PFUser logOut];
             [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self updateDisplay:YES];

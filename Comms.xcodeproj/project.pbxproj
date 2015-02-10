@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
+		AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
+		AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; };
+		AF4344EA1A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */; };
@@ -123,6 +127,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF4344E31A8A524600A5B527 /* SecurityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityService.h; sourceTree = "<group>"; };
+		AF4344E41A8A524600A5B527 /* SecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityService.m; sourceTree = "<group>"; };
+		AF4344E71A8A7D8700A5B527 /* SecKeyWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecKeyWrapper.h; sourceTree = "<group>"; };
+		AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecKeyWrapper.m; sourceTree = "<group>"; };
 		AF9EC11A1A85267D00061558 /* ChannelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelTableViewCell.h; sourceTree = "<group>"; };
 		AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelTableViewCell.m; sourceTree = "<group>"; };
 		AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
@@ -267,6 +275,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF4344E21A8A522500A5B527 /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				AF4344E31A8A524600A5B527 /* SecurityService.h */,
+				AF4344E41A8A524600A5B527 /* SecurityService.m */,
+				AF4344E71A8A7D8700A5B527 /* SecKeyWrapper.h */,
+				AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */,
+			);
+			name = Encryption;
+			sourceTree = "<group>";
+		};
 		AF9EC1191A85264C00061558 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +501,7 @@
 				AFD9902A1A83F61E00A2B1DD /* AccountViewController.h */,
 				AFD9902B1A83F61E00A2B1DD /* AccountViewController.m */,
 				AFD9902C1A83F61E00A2B1DD /* AccountView.xib */,
+				AF4344E21A8A522500A5B527 /* Encryption */,
 				AFF805131A8683A40083C834 /* Date Format */,
 				AFF8050F1A8679A20083C834 /* Next Control */,
 			);
@@ -723,6 +743,7 @@
 				AFA55F111A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1261A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
+				AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */,
 				AFF805191A86C5320083C834 /* StyleKit.m in Sources */,
 				AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
@@ -739,6 +760,7 @@
 				AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */,
 				AFA577671A83E563004D2809 /* DDASLLogger.m in Sources */,
 				AFF805121A8683A00083C834 /* PFObject+DateFormat.m in Sources */,
+				AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +789,7 @@
 				AFA55F121A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
+				AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */,
 				AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
@@ -783,6 +806,7 @@
 				AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */,
 				AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */,
 				AFF805151A8685490083C834 /* PFObject+DateFormat.m in Sources */,
+				AF4344EA1A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

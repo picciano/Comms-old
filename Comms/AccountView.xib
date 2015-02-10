@@ -12,6 +12,7 @@
                 <outlet property="logInButton" destination="06h-td-LVs" id="u2N-ke-tdx"/>
                 <outlet property="logOutButton" destination="4fU-Hr-iAj" id="6f1-Nu-dh8"/>
                 <outlet property="passwordField" destination="i9g-zI-Fyk" id="uVu-9i-wno"/>
+                <outlet property="publicKeyBitsTextView" destination="aiO-ZZ-MmR" id="1Qf-HW-dSQ"/>
                 <outlet property="signedInView" destination="eqT-La-ums" id="oGq-dA-Avy"/>
                 <outlet property="signedInViewheightConstraint" destination="KgK-iq-vgf" id="tCI-Q7-FSH"/>
                 <outlet property="signedOutView" destination="dXo-kQ-V4Z" id="8ib-FZ-z29"/>
@@ -167,14 +168,29 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZi-iq-hLu">
+                            <rect key="frame" x="0.0" y="52" width="69" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="69" id="9sP-UO-lfL"/>
+                                <constraint firstAttribute="height" constant="30" id="QfZ-IE-THW"/>
+                            </constraints>
+                            <state key="normal" title="Show Key">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="showPublicKey:" destination="-1" eventType="touchUpInside" id="HBM-U4-Qyr"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Yji-FX-mwx" secondAttribute="trailing" id="3vI-o9-eJF"/>
+                        <constraint firstItem="OZi-iq-hLu" firstAttribute="top" secondItem="Yji-FX-mwx" secondAttribute="bottom" constant="16" id="45y-Qh-o22"/>
                         <constraint firstItem="Yji-FX-mwx" firstAttribute="top" secondItem="eqT-La-ums" secondAttribute="top" constant="15" id="5W0-Bq-gi5"/>
                         <constraint firstAttribute="trailing" secondItem="4fU-Hr-iAj" secondAttribute="trailing" id="9JS-5Z-ocd"/>
                         <constraint firstAttribute="bottom" secondItem="Xt8-Yf-JsD" secondAttribute="bottom" id="Gi8-2V-dAs"/>
                         <constraint firstAttribute="height" constant="90" id="KgK-iq-vgf"/>
                         <constraint firstItem="Yji-FX-mwx" firstAttribute="leading" secondItem="eqT-La-ums" secondAttribute="leading" id="Lhf-aZ-imi"/>
+                        <constraint firstItem="OZi-iq-hLu" firstAttribute="leading" secondItem="eqT-La-ums" secondAttribute="leading" id="PC3-dN-EId"/>
                         <constraint firstItem="B6z-5W-lIi" firstAttribute="leading" secondItem="eqT-La-ums" secondAttribute="leading" id="QIi-eb-Hf3"/>
                         <constraint firstItem="B6z-5W-lIi" firstAttribute="top" secondItem="eqT-La-ums" secondAttribute="top" id="dVb-ZE-2qs"/>
                         <constraint firstAttribute="trailing" secondItem="B6z-5W-lIi" secondAttribute="trailing" id="hzG-iy-NNY"/>
@@ -182,15 +198,25 @@
                         <constraint firstAttribute="bottom" secondItem="4fU-Hr-iAj" secondAttribute="bottom" id="uIe-MO-Tjn"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiO-ZZ-MmR">
+                    <rect key="frame" x="8" y="293" width="584" height="299"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="aiO-ZZ-MmR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="4cg-GN-l75"/>
+                <constraint firstAttribute="trailing" secondItem="aiO-ZZ-MmR" secondAttribute="trailing" constant="8" id="8Pj-f6-Kne"/>
                 <constraint firstItem="dXo-kQ-V4Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="NV1-0d-KFc"/>
                 <constraint firstItem="dXo-kQ-V4Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="T7q-Ym-tMo"/>
                 <constraint firstAttribute="trailing" secondItem="dXo-kQ-V4Z" secondAttribute="trailing" constant="8" id="Udc-LJ-QzA"/>
                 <constraint firstItem="eqT-La-ums" firstAttribute="top" secondItem="dXo-kQ-V4Z" secondAttribute="bottom" id="d7C-qz-bjY"/>
                 <constraint firstAttribute="trailing" secondItem="eqT-La-ums" secondAttribute="trailing" constant="8" id="gWs-Ee-P9w"/>
+                <constraint firstItem="aiO-ZZ-MmR" firstAttribute="top" secondItem="eqT-La-ums" secondAttribute="bottom" constant="8" id="lUw-Ig-iuf"/>
                 <constraint firstItem="eqT-La-ums" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="rQt-FE-3pq"/>
+                <constraint firstAttribute="bottom" secondItem="aiO-ZZ-MmR" secondAttribute="bottom" constant="8" id="vQF-ip-BTR"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
