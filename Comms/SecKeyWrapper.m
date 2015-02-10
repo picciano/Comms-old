@@ -72,36 +72,6 @@
 				}						
 #endif
 
-//#if TARGET_IPHONE_SIMULATOR
-//#error This sample is designed to run on a device, not in the simulator. To run this sample, \
-//choose Project > Set Active SDK > Device and connect a device. Then click Build and Go. 
-//// Dummy implementations for no-building simulator target (reduce compiler warnings)
-//+ (SecKeyWrapper *)sharedWrapper { return nil; }
-//- (void)setObject:(id)inObject forKey:(id)key {}
-//- (id)objectForKey:(id)key { return nil; }
-//// Dummy implementations for my SecKeyWrapper class.
-//- (void)generateKeyPair:(NSUInteger)keySize {}
-//- (void)deleteAsymmetricKeys {}
-//- (void)deleteSymmetricKey {}
-//- (void)generateSymmetricKey {}
-//- (NSData *)getSymmetricKeyBytes { return NULL; }
-//- (SecKeyRef)addPeerPublicKey:(NSString *)peerName keyBits:(NSData *)publicKey { return NULL; }
-//- (void)removePeerPublicKey:(NSString *)peerName {}
-//- (NSData *)wrapSymmetricKey:(NSData *)symmetricKey keyRef:(SecKeyRef)publicKey { return nil; }
-//- (NSData *)unwrapSymmetricKey:(NSData *)wrappedSymmetricKey { return nil; }
-//- (NSData *)getSignatureBytes:(NSData *)plainText { return nil; }
-//- (NSData *)getHashBytes:(NSData *)plainText { return nil; }
-//- (BOOL)verifySignature:(NSData *)plainText secKeyRef:(SecKeyRef)publicKey signature:(NSData *)sig { return NO; }
-//- (NSData *)doCipher:(NSData *)plainText key:(NSData *)symmetricKey context:(CCOperation)encryptOrDecrypt padding:(CCOptions *)pkcs7 { return nil; } 
-//- (SecKeyRef)getPublicKeyRef { return nil; }
-//- (NSData *)getPublicKeyBits { return nil; }
-//- (SecKeyRef)getPrivateKeyRef { return nil; }
-//- (CFTypeRef)getPersistentKeyRefWithKeyRef:(SecKeyRef)keyRef { return NULL; }
-//- (SecKeyRef)getKeyRefWithPersistentKeyRef:(CFTypeRef)persistentRef { return NULL; }
-//#else
-
-// (See cssmtype.h and cssmapple.h on the Mac OS X SDK.)
-
 enum {
 	CSSM_ALGID_NONE =					0x00000000L,
 	CSSM_ALGID_VENDOR_DEFINED =			CSSM_ALGID_NONE + 0x80000000L,
@@ -659,6 +629,33 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 							&movedBytes
 						);
 	 */
+}
+
+- (SecKeyRef)getPublicKeyRefForPeer:(NSString *)peerName {
+    OSStatus sanityCheck = noErr;
+    SecKeyRef publicKeyPeerReference = NULL;
+    
+    NSData * peerTag = [[NSData alloc] initWithBytes:(const void *)[peerName UTF8String] length:[peerName length]];
+    
+    NSMutableDictionary * queryPublicKey = [[NSMutableDictionary alloc] init];
+    
+    // Set the public key query dictionary.
+    [queryPublicKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPublicKey setObject:peerTag forKey:(id)kSecAttrApplicationTag];
+    [queryPublicKey setObject:(id)kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
+    [queryPublicKey setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
+    
+    // Get the key.
+    sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPublicKey, (CFTypeRef *)&publicKeyPeerReference);
+    
+    if (sanityCheck != noErr)
+    {
+        publicKeyPeerReference = NULL;
+    }
+    
+    [queryPublicKey release];
+    
+    return publicKeyPeerReference;
 }
 
 - (SecKeyRef)getPublicKeyRef {

@@ -167,6 +167,15 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"Public Key Bits: %@", bits];
 }
 
+- (IBAction)testEncryption:(id)sender {
+    NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
+    
+    NSData *ciphertext = [[SecurityService sharedSecurityService] encrypt:@"Hello, world!" usingPublicKeyBits:publicKeyBits for:@"testuser1"];
+    NSString *plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
+    
+    DDLogDebug(@"Decoded text: %@", plaintext);
+}
+
 - (void)burnAccount {
     [[PFUser currentUser] deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {

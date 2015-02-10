@@ -104,6 +104,7 @@
 - (NSData *)getHashBytes:(NSData *)plainText;
 - (BOOL)verifySignature:(NSData *)plainText secKeyRef:(SecKeyRef)publicKey signature:(NSData *)sig;
 - (NSData *)doCipher:(NSData *)plainText key:(NSData *)symmetricKey context:(CCOperation)encryptOrDecrypt padding:(CCOptions *)pkcs7;
+- (SecKeyRef)getPublicKeyRefForPeer:(NSString *)peerName;
 - (SecKeyRef)getPublicKeyRef;
 - (NSData *)getPublicKeyBits;
 - (SecKeyRef)getPrivateKeyRef;

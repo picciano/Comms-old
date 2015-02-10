@@ -17,4 +17,8 @@
 - (NSData *)getPublicKeyBits;
 - (void)deleteKeyPair;
 
+- (NSData *)encrypt:(NSString *)plaintext usingPublicKeyBits:(NSData *)publicKeyBits for:(NSString *)username;
+- (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(SecKeyRef)publicKey;
+- (NSString *)decrypt:(NSData *)ciphertext;
+
 @end
