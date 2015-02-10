@@ -60,7 +60,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (void)updateDisplay:(BOOL)animated {
-    BOOL signedIn = [PFUser currentUser];
+    BOOL signedIn = ([PFUser currentUser] != nil);
     NSTimeInterval duration = animated?0.25:0;
     
     if (signedIn) {

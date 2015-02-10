@@ -14,7 +14,7 @@
 
 - (void)drawRect:(CGRect)rect {
     NSString *date = [self.message createdAtWithDateFormat:NSDateFormatterMediumStyle timeFormat:NSDateFormatterShortStyle];
-    BOOL locked = [self.message objectForKey:OBJECT_KEY_RECIPIENT];
+    BOOL locked = ([self.message objectForKey:OBJECT_KEY_RECIPIENT] != nil);
     PFUser *sender = [self.message objectForKey:OBJECT_KEY_USER];
     
     [StyleKit drawMessageBlockWithFrame:self.bounds isLocked:locked senderUsername:sender.username createdAt:[NSString stringWithFormat:@"%@", date] message:[self.message objectForKey:OBJECT_KEY_TEXT]];
