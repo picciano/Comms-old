@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic) PFObject *message;
 
++ (CGFloat)heightForMessage:(PFObject *)messageObject frame:(CGRect)frame;
+
 @end

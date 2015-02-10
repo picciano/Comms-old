@@ -40,6 +40,7 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
     [self loadMessages];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSubscriptionCount) name:SUBSCRIPTION_CHANGE_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadMessages) name:MESSAGE_POSTED_NOTIFICATION object:nil];
 }
 
 - (void)loadSubscriptionStatus {
@@ -135,6 +136,10 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.messages.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [MessageTableViewCell heightForMessage:self.messages[indexPath.row] frame:CGRectMake(0, 0, self.tableView.frame.size.width, INFINITY)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

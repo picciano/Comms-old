@@ -64,6 +64,7 @@
             self.postMessageButton.enabled = YES;
             self.cancelButton.enabled = YES;
         } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
             [self dismiss];
         }
     }];
