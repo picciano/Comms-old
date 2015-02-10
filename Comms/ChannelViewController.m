@@ -84,6 +84,7 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
     PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_MESSAGE];
     [query whereKey:OBJECT_KEY_CHANNEL equalTo:self.channel];
     [query orderByDescending:OBJECT_KEY_CREATED_AT];
+    [query includeKey:OBJECT_KEY_USER];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
