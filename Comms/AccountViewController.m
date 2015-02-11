@@ -10,6 +10,7 @@
 #import "UIControl+NextControl.h"
 #import "PFObject+DateFormat.h"
 #import "SecurityService.h"
+#import "PFObject+UniqueIdentifier.h"
 #import "Constants.h"
 
 @interface AccountViewController ()
@@ -165,12 +166,16 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (IBAction)showPublicKey:(id)sender {
     NSData *bits = [[SecurityService sharedSecurityService] getPublicKeyBits];
     self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"Public Key Bits: %@", bits];
+    
+    [self testEncryption:sender];
 }
 
 - (IBAction)testEncryption:(id)sender {
     NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
     
-    NSData *ciphertext = [[SecurityService sharedSecurityService] encrypt:@"Hello, world!" usingPublicKeyBits:publicKeyBits for:@"testuser1"];
+    NSString *uid = [[PFUser currentUser] uniqueIdentifier];
+    
+    NSData *ciphertext = [[SecurityService sharedSecurityService] encrypt:@"Hello, world!" usingPublicKeyBits:publicKeyBits for:uid];
     NSString *plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
     
     if (plaintext == nil) {

@@ -46,8 +46,8 @@ static SecurityService * __sharedSecurityService = nil;
     return plaintext;
 }
 
-- (NSData *)encrypt:(NSString *)plaintext usingPublicKeyBits:(NSData *)publicKeyBits for:(NSString *)username {
-    NSString *peerName = [NSString stringWithFormat:@"%s.%@", kPublicKeyTag, username];
+- (NSData *)encrypt:(NSString *)plaintext usingPublicKeyBits:(NSData *)publicKeyBits for:(NSString *)uid {
+    NSString *peerName = [NSString stringWithFormat:@"%s.%@", kPublicKeyTag, uid];
     SecKeyRef publicKey = [[self wrapper] getPublicKeyRefForPeer:peerName];
     
     if (!publicKey) {
