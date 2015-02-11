@@ -31,6 +31,12 @@
     return self;
 }
 
+- (IBAction)createOrJoinHiddenChannel:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(showHiddenChannelDialog:)]) {
+        [self.delegate performSelector:@selector(showHiddenChannelDialog:) withObject:self];
+    }
+}
+
 - (void)layoutSubviews {
     self.contentView.frame = self.bounds;
 }

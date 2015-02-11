@@ -22,6 +22,9 @@
 @property (strong) NSMutableDictionary *channels;
 @property (strong) NSMutableArray *groupNames;
 
+// Used by hidden channel name dialog to enable/disable action
+@property (strong, nonatomic) UIAlertAction *joinAction;
+
 @end
 
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -132,6 +135,83 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 - (IBAction)navigateToAccountView:(id)sender {
     UIViewController *viewController = [[AccountViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+#pragma mark - Join or Create Hidden Channel
+
+- (IBAction)showHiddenChannelDialog:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Hidden Channel"
+                                                                   message:@"Please enter the name of the hidden channel. If the channel exists, you will be subscribed. If it does not, the channel will be created."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                            style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    [alert addAction:cancelAction];
+    self.joinAction = [UIAlertAction actionWithTitle:@"Join or Create"
+                                               style:UIAlertActionStyleDefault
+                                             handler:^(UIAlertAction *action) {
+                                                 NSString *channelName = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
+                                                 [self createOrJoinHiddenChannel:channelName];
+                                             }];
+    self.joinAction.enabled = NO;
+    [alert addAction:self.joinAction];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Channel Name";
+        [textField addTarget:self action:@selector(hiddenChannelNameChanges:) forControlEvents:UIControlEventEditingChanged];
+        textField.delegate = self;
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)createOrJoinHiddenChannel:(NSString *)channelName {
+    DDLogDebug(@"createOrJoinHiddenChannel: %@", channelName);
+    
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    
+    PFQuery *channelQuery = [PFQuery queryWithClassName:OBJECT_TYPE_CHANNEL];
+    [channelQuery whereKey:OBJECT_KEY_NAME equalTo:channelName];
+    [channelQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        if (error) {
+            //create channel
+            PFObject *channel = [PFObject objectWithClassName:OBJECT_TYPE_CHANNEL];
+            [channel setObject:channelName forKey:OBJECT_KEY_NAME];
+            [channel setObject:@NO forKey:OBJECT_KEY_DISABLED];
+            [channel saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (error) {
+                    // notice to user
+                } else {
+                    // subscribe
+                    [self subscribeToChannel:channel];
+                }
+            }];
+        } else {
+            //subscribe
+            [self subscribeToChannel:object];
+        }
+    }];
+}
+
+- (void)subscribeToChannel:(PFObject *)channel {
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    
+    PFObject *subscription = [PFObject objectWithClassName:OBJECT_TYPE_SUBSCRIPTION];
+    [subscription setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
+    [subscription setObject:channel forKey:OBJECT_KEY_CHANNEL];
+    [subscription saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
+    }];
+}
+
+- (IBAction)hiddenChannelNameChanges:(id)sender {
+    UITextField *textField = (UITextField *)sender;
+    self.joinAction.enabled = (textField.text.length > 0);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField  {
+    return (textField.text.length > 0);
 }
 
 #pragma mark - tableView

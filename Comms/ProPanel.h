@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol ProPanelDelegate <NSObject>
+@required
+- (void)showHiddenChannelDialog:(id)sender;
 @end
 
 @interface ProPanel : UIView
