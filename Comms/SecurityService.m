@@ -63,24 +63,23 @@ static SecurityService * __sharedSecurityService = nil;
     NSCParameterAssert(publicKey != NULL);
     
     OSStatus status = noErr;
+    
     NSData *dataToEncrypt = [plaintext dataUsingEncoding:NSUTF8StringEncoding];
+    size_t inputBufferSize = [plaintext length];
     const uint8_t *bytesToEncrypt = dataToEncrypt.bytes;
     
     size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
-    NSCAssert(cipherBufferSize > 11, @"block size is too small: %zd", cipherBufferSize);
-    
-    const size_t inputBlockSize = cipherBufferSize - 11; // since we'll use PKCS1 padding
     uint8_t *cipherBuffer = malloc(cipherBufferSize);
     
     NSMutableData *accumulator = [[NSMutableData alloc] init];
     
     @try {
         
-        for (size_t block = 0; block * inputBlockSize < dataToEncrypt.length; block++) {
-            size_t blockOffset = block * inputBlockSize;
-            const uint8_t *chunkToEncrypt = (bytesToEncrypt + block * inputBlockSize);
-            const size_t remainingSize = dataToEncrypt.length - blockOffset;
-            const size_t subsize = remainingSize < inputBlockSize ? remainingSize : inputBlockSize;
+        for (size_t block = 0; block * cipherBufferSize < inputBufferSize; block++) {
+            size_t blockOffset = block * cipherBufferSize;
+            const uint8_t *chunkToEncrypt = (bytesToEncrypt + block * cipherBufferSize);
+            const size_t remainingSize = inputBufferSize - blockOffset;
+            const size_t subsize = remainingSize < cipherBufferSize ? remainingSize : cipherBufferSize;
             
             size_t actualOutputSize = cipherBufferSize;
             
