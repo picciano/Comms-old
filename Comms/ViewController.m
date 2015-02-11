@@ -19,8 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet AccountPanel *accountPanel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong) NSMutableDictionary *channels;
-@property (strong) NSMutableArray *groupNames;
+@property (strong, nonatomic) NSMutableDictionary *channels;
+@property (strong, nonatomic) NSMutableArray *groupNames;
 
 // Used by hidden channel name dialog to enable/disable action
 @property (strong, nonatomic) UIAlertAction *joinAction;
