@@ -179,6 +179,7 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
             PFObject *channel = [PFObject objectWithClassName:OBJECT_TYPE_CHANNEL];
             [channel setObject:channelName forKey:OBJECT_KEY_NAME];
             [channel setObject:@NO forKey:OBJECT_KEY_DISABLED];
+            [channel setObject:@YES forKey:OBJECT_KEY_HIDDEN];
             
             [AppInfoManager setNetworkActivityIndicatorVisible:YES];
             
