@@ -91,7 +91,7 @@ static SecurityService * __sharedSecurityService = nil;
                                             &actualOutputSize);
             
             if (status != noErr) {
-                NSLog(@"Cannot encrypt data, last SecKeyEncrypt status: %d", (int)status);
+                DDLogError(@"Cannot encrypt data, last SecKeyEncrypt status: %d", (int)status);
                 return nil;
             }
             
@@ -106,43 +106,48 @@ static SecurityService * __sharedSecurityService = nil;
 }
 
 - (NSString *)decrypt:(NSData *)ciphertext usingPrivateKey:(SecKeyRef)privateKey {
+    NSCParameterAssert(ciphertext.length > 0);
+    NSCParameterAssert(privateKey != NULL);
+    
     OSStatus status = noErr;
     
     size_t cipherBufferSize = [ciphertext length];
-    uint8_t *cipherBuffer = (uint8_t *)[ciphertext bytes];
+    const uint8_t *cipherBuffer = (uint8_t *)[ciphertext bytes];
     
-    size_t plainBufferSize;
-    uint8_t *plainBuffer;
-    
-    plainBufferSize = SecKeyGetBlockSize(privateKey);
-    plainBuffer = malloc(plainBufferSize);
+    size_t plainBufferSize = SecKeyGetBlockSize(privateKey);
+    uint8_t *plainBuffer = malloc(plainBufferSize);
     
     NSMutableData *accumulator = [[NSMutableData alloc] init];
     
-    for (size_t block = 0; block * plainBufferSize < cipherBufferSize; block++) {
-        size_t blockOffset = block * plainBufferSize;
-        const uint8_t *chunkToDecrypt = (cipherBuffer + block * plainBufferSize);
-        const size_t remainingSize = cipherBufferSize - blockOffset;
-        const size_t subsize = remainingSize < plainBufferSize ? remainingSize : plainBufferSize;
-        
-        size_t actualOutputSize;
-        
-        status = SecKeyDecrypt(privateKey,
-                               kSecPaddingPKCS1,
-                               chunkToDecrypt,
-                               subsize,
-                               plainBuffer,
-                               &actualOutputSize);
-        
-        if (status != noErr) {
-            DDLogError(@"Cannot decrypt data, last SecKeyEncrypt status: %d", (int)status);
-            return nil;
+    @try {
+        for (size_t block = 0; block * plainBufferSize < cipherBufferSize; block++) {
+            size_t blockOffset = block * plainBufferSize;
+            const uint8_t *chunkToDecrypt = (cipherBuffer + block * plainBufferSize);
+            const size_t remainingSize = cipherBufferSize - blockOffset;
+            const size_t subsize = remainingSize < plainBufferSize ? remainingSize : plainBufferSize;
+            
+            size_t actualOutputSize;
+            
+            status = SecKeyDecrypt(privateKey,
+                                   kSecPaddingPKCS1,
+                                   chunkToDecrypt,
+                                   subsize,
+                                   plainBuffer,
+                                   &actualOutputSize);
+            
+            if (status != noErr) {
+                DDLogError(@"Cannot decrypt data, last SecKeyEncrypt status: %d", (int)status);
+                return nil;
+            }
+            
+            [accumulator appendBytes:plainBuffer length:actualOutputSize];
         }
         
-        [accumulator appendBytes:plainBuffer length:actualOutputSize];
+        return [[NSString alloc] initWithData:accumulator encoding:NSUTF8StringEncoding];
     }
-    
-    return [[NSString alloc] initWithData:accumulator encoding:NSUTF8StringEncoding];
+    @finally {
+        free(plainBuffer);
+    }
 }
 
 - (SecKeyWrapper *)wrapper {

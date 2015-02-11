@@ -181,19 +181,6 @@
                                 <action selector="showPublicKey:" destination="-1" eventType="touchUpInside" id="HBM-U4-Qyr"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDX-uj-m6l">
-                            <rect key="frame" x="0.0" y="30" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="5aj-eF-ku5"/>
-                                <constraint firstAttribute="height" constant="30" id="d73-g6-cpF"/>
-                            </constraints>
-                            <state key="normal" title="Test">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="testEncryption:" destination="-1" eventType="touchUpInside" id="968-8X-9XM"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Yji-FX-mwx" secondAttribute="trailing" id="3vI-o9-eJF"/>
@@ -205,12 +192,10 @@
                         <constraint firstItem="Yji-FX-mwx" firstAttribute="leading" secondItem="eqT-La-ums" secondAttribute="leading" id="Lhf-aZ-imi"/>
                         <constraint firstItem="OZi-iq-hLu" firstAttribute="leading" secondItem="eqT-La-ums" secondAttribute="leading" id="PC3-dN-EId"/>
                         <constraint firstItem="B6z-5W-lIi" firstAttribute="leading" secondItem="eqT-La-ums" secondAttribute="leading" id="QIi-eb-Hf3"/>
-                        <constraint firstItem="zDX-uj-m6l" firstAttribute="leading" secondItem="eqT-La-ums" secondAttribute="leading" id="cEt-am-OOD"/>
                         <constraint firstItem="B6z-5W-lIi" firstAttribute="top" secondItem="eqT-La-ums" secondAttribute="top" id="dVb-ZE-2qs"/>
                         <constraint firstAttribute="trailing" secondItem="B6z-5W-lIi" secondAttribute="trailing" id="hzG-iy-NNY"/>
                         <constraint firstItem="4fU-Hr-iAj" firstAttribute="leading" secondItem="Xt8-Yf-JsD" secondAttribute="trailing" constant="8" id="pDD-kT-U5l"/>
                         <constraint firstAttribute="bottom" secondItem="4fU-Hr-iAj" secondAttribute="bottom" id="uIe-MO-Tjn"/>
-                        <constraint firstAttribute="bottom" secondItem="zDX-uj-m6l" secondAttribute="bottom" constant="30" id="v8h-J6-wjh"/>
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiO-ZZ-MmR">
