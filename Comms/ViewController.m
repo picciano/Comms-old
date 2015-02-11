@@ -126,8 +126,9 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 
 #pragma mark - navigation
 
-- (IBAction)viewChannel:(id)sender {
-    UIViewController *viewController = [[ChannelViewController alloc] initWithNibName:nil bundle:nil];
+- (void)viewChannel:(PFObject *)channel {
+    ChannelViewController *viewController = [[ChannelViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.channel = channel;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -224,6 +225,7 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
         } else {
             [AppInfoManager setNetworkActivityIndicatorVisible:NO];
             [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
+            [self viewChannel:channel];
         }
     }];
 }
