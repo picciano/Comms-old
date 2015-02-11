@@ -148,10 +148,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     PFUser *currentUser = [PFUser currentUser];
     NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
     [currentUser setObject:publicKeyBits forKey:OBJECT_KEY_PUBLIC_KEY];
-    
-    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
-    [currentUser save];
-    [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+    [currentUser saveEventually];
 }
 
 - (IBAction)logOut:(id)sender {
