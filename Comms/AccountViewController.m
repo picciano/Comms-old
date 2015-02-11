@@ -10,7 +10,6 @@
 #import "UIControl+NextControl.h"
 #import "PFObject+DateFormat.h"
 #import "SecurityService.h"
-#import "PFObject+UniqueIdentifier.h"
 #import "Constants.h"
 
 @interface AccountViewController ()
@@ -173,7 +172,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (IBAction)testEncryption:(id)sender {
     NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
     
-    NSString *uid = [[PFUser currentUser] uniqueIdentifier];
+    NSString *uid = [PFUser currentUser].objectId;
     
     NSData *ciphertext = [[SecurityService sharedSecurityService] encrypt:@"Hello, world!" usingPublicKeyBits:publicKeyBits for:uid];
     NSString *plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
