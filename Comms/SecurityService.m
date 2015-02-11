@@ -61,6 +61,8 @@ static SecurityService * __sharedSecurityService = nil;
 - (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(SecKeyRef)publicKey {
     NSCParameterAssert(plaintext.length > 0);
     NSCParameterAssert(publicKey != NULL);
+    
+    OSStatus status = noErr;
     NSData *dataToEncrypt = [plaintext dataUsingEncoding:NSUTF8StringEncoding];
     const uint8_t *bytesToEncrypt = dataToEncrypt.bytes;
     
@@ -68,7 +70,7 @@ static SecurityService * __sharedSecurityService = nil;
     NSCAssert(cipherBufferSize > 11, @"block size is too small: %zd", cipherBufferSize);
     
     const size_t inputBlockSize = cipherBufferSize - 11; // since we'll use PKCS1 padding
-    uint8_t *cipherBuffer = (uint8_t *) malloc(sizeof(uint8_t) * cipherBufferSize);
+    uint8_t *cipherBuffer = malloc(cipherBufferSize);
     
     NSMutableData *accumulator = [[NSMutableData alloc] init];
     
@@ -81,7 +83,13 @@ static SecurityService * __sharedSecurityService = nil;
             const size_t subsize = remainingSize < inputBlockSize ? remainingSize : inputBlockSize;
             
             size_t actualOutputSize = cipherBufferSize;
-            OSStatus status = SecKeyEncrypt(publicKey, kSecPaddingPKCS1, chunkToEncrypt, subsize, cipherBuffer, &actualOutputSize);
+            
+            status = SecKeyEncrypt(publicKey,
+                                            kSecPaddingPKCS1,
+                                            chunkToEncrypt,
+                                            subsize,
+                                            cipherBuffer,
+                                            &actualOutputSize);
             
             if (status != noErr) {
                 NSLog(@"Cannot encrypt data, last SecKeyEncrypt status: %d", (int)status);
@@ -120,13 +128,12 @@ static SecurityService * __sharedSecurityService = nil;
         
         size_t actualOutputSize;
         
-        status = SecKeyDecrypt(    privateKey,
+        status = SecKeyDecrypt(privateKey,
                                kSecPaddingPKCS1,
                                chunkToDecrypt,
                                subsize,
                                plainBuffer,
-                               &actualOutputSize
-                               );
+                               &actualOutputSize);
         
         if (status != noErr) {
             DDLogError(@"Cannot decrypt data, last SecKeyEncrypt status: %d", (int)status);

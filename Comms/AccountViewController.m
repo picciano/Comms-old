@@ -173,6 +173,11 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     NSData *ciphertext = [[SecurityService sharedSecurityService] encrypt:@"Hello, world!" usingPublicKeyBits:publicKeyBits for:@"testuser1"];
     NSString *plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
     
+    if (plaintext == nil) {
+        DDLogDebug(@"Retrying decryption...");
+        plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
+    }
+    
     DDLogDebug(@"Decoded text: %@", plaintext);
 }
 
