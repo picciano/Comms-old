@@ -41,6 +41,10 @@
 
 - (void)updateDisplay {
     self.messageCharacterCountLabel.text = [NSString stringWithFormat:@"%lu / %i", (unsigned long)self.messageTextView.text.length, MAXIMUM_MESSAGE_LENGTH];
+    
+    self.messageTextView.editable = YES;
+    self.postMessageButton.enabled = (self.messageTextView.text.length > 0);
+    self.cancelButton.enabled = YES;
 }
 
 - (IBAction)postMessage:(id)sender {
@@ -60,9 +64,7 @@
         
         if (error) {
 #warning implement warning message
-            self.messageTextView.editable = YES;
-            self.postMessageButton.enabled = YES;
-            self.cancelButton.enabled = YES;
+            [self updateDisplay];
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
             [self dismiss];
