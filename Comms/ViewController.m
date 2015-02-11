@@ -173,14 +173,27 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     [channelQuery whereKey:OBJECT_KEY_NAME equalTo:channelName];
     [channelQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        
         if (error) {
             //create channel
             PFObject *channel = [PFObject objectWithClassName:OBJECT_TYPE_CHANNEL];
             [channel setObject:channelName forKey:OBJECT_KEY_NAME];
             [channel setObject:@NO forKey:OBJECT_KEY_DISABLED];
+            
+            [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+            
             [channel saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+                
                 if (error) {
                     // notice to user
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Creating Channel"
+                                                                                   message:@"The channel could not be created. Try again later."
+                                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+                    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                            style:UIAlertActionStyleDefault
+                                                                          handler:nil];
+                    [alert addAction:defaultAction];
                 } else {
                     // subscribe
                     [self subscribeToChannel:channel];
@@ -200,8 +213,19 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     [subscription setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
     [subscription setObject:channel forKey:OBJECT_KEY_CHANNEL];
     [subscription saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
+        if (error) {
+            // notice to user
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Subscribing"
+                                                                           message:@"The channel could not be subscribed to. Try again later."
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alert addAction:defaultAction];
+        } else {
+            [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
+        }
     }];
 }
 

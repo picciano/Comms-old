@@ -94,7 +94,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
         if (error) {
             DDLogError(@"Error during login: %@", error);
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error logging in"
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Logging In"
                                                                            message:@"Check your username and password, or maybe try signing up instead."
                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
@@ -127,7 +127,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             if (code == 202) {
                 message = @"Sorry, that username has been taken. Pick another username or login instead.";
             }
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error signing up"
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Signing Up"
                                                                            message:message
                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
@@ -201,7 +201,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [[PFUser currentUser] deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             DDLogError(@"Error during account burn: %@", error);
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error signing up"
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Burning Account"
                                                                            message:@"Sorry, could not burn account. Try again later."
                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
