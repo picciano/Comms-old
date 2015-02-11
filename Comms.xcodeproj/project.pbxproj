@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
 		AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
-		AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; };
+		AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF4344EA1A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
