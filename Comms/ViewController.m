@@ -65,7 +65,6 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
             DDLogError(@"Error loading data: %@", error);
         } else {
             for (PFObject *group in objects) {
-                DDLogDebug(@"Group name: %@", [group objectForKey:OBJECT_KEY_NAME]);
                 [self.groupNames addObject:[group objectForKey:OBJECT_KEY_NAME]];
                 [self loadChannelsInGroup:group];
             }
