@@ -47,7 +47,7 @@ static SecurityService * __sharedSecurityService = nil;
 }
 
 - (NSData *)encrypt:(NSString *)plaintext usingPublicKeyBits:(NSData *)publicKeyBits for:(NSString *)uid {
-    NSString *peerName = [NSString stringWithFormat:@"%s.%@", kPublicKeyTag, uid];
+    NSString *peerName = [NSString stringWithFormat:@"%s.%@", kPeerPublicKeyTag, uid];
     SecKeyRef publicKey = [[self wrapper] getPublicKeyRefForPeer:peerName];
     
     if (!publicKey) {
@@ -156,13 +156,13 @@ static SecurityService * __sharedSecurityService = nil;
     SecKeyWrapper *wrapper = [SecKeyWrapper sharedWrapper];
     
     if ([PFUser currentUser]) {
-        NSString *username = [PFUser currentUser].username;
+        NSString *objectId = [PFUser currentUser].objectId;
         
-        NSString *publicKeyIdentifier = [NSString stringWithFormat:@"%s.%@", kPublicKeyTag, username];
+        NSString *publicKeyIdentifier = [NSString stringWithFormat:@"%s.%@", kPublicKeyTag, objectId];
         NSData *publicTag = [publicKeyIdentifier dataUsingEncoding:NSUTF8StringEncoding];
         [wrapper setPublicTag:publicTag];
         
-        NSString *privateKeyIdentifier = [NSString stringWithFormat:@"%s.%@", kPrivateKeyTag, username];
+        NSString *privateKeyIdentifier = [NSString stringWithFormat:@"%s.%@", kPrivateKeyTag, objectId];
         NSData *privateTag = [privateKeyIdentifier dataUsingEncoding:NSUTF8StringEncoding];
         [wrapper setPrivateTag:privateTag];
     }

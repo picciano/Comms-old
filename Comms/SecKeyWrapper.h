@@ -71,6 +71,7 @@
 #define kTypeOfSigPadding		kSecPaddingPKCS1SHA1
 
 // constants used to find public, private, and symmetric keys.
+#define kPeerPublicKeyTag		"com.picciano.comms.peerPublickey"
 #define kPublicKeyTag			"com.picciano.comms.publickey"
 #define kPrivateKeyTag			"com.picciano.comms.privatekey"
 #define kSymmetricKeyTag		"com.picciano.comms.symmetrickey"

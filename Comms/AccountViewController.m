@@ -103,6 +103,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
+            [self updatePublicKey];
             [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self clearLoginFields];
             [self updateDisplay:YES];
@@ -115,7 +116,10 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     user.username = self.usernameField.text;
     user.password = self.passwordField.text;
     
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         if (error) {
             DDLogError(@"Error during signup: %@", error);
             long code = [[error.userInfo valueForKey:@"code"] longValue];
@@ -132,11 +136,22 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
+            [self updatePublicKey];
             [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self clearLoginFields];
             [self updateDisplay:YES];
         }
     }];
+}
+
+- (void)updatePublicKey {
+    PFUser *currentUser = [PFUser currentUser];
+    NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
+    [currentUser setObject:publicKeyBits forKey:OBJECT_KEY_PUBLIC_KEY];
+    
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    [currentUser save];
+    [AppInfoManager setNetworkActivityIndicatorVisible:NO];
 }
 
 - (IBAction)logOut:(id)sender {

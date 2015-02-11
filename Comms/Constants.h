@@ -40,6 +40,7 @@
 #define OBJECT_KEY_TEXT             @"text"
 #define OBJECT_KEY_DISABLED         @"disabled"
 #define OBJECT_KEY_CHANNEL_ID       @"channelId"
+#define OBJECT_KEY_PUBLIC_KEY       @"publicKey"
 
 #define CURRENT_USER_CHANGE_NOTIFICATION    @"currentUserChange"
 #define SUBSCRIPTION_CHANGE_NOTIFICATION    @"subscriptionChange"
