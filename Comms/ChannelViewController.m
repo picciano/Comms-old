@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet ChannelInfoPanel *channelInfoPanel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSArray *messages;
+@property (strong, atomic) NSArray *messages;
 
 @end
 

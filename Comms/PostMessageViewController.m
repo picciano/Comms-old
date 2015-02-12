@@ -57,7 +57,13 @@
     PFObject *message = [PFObject objectWithClassName:OBJECT_TYPE_MESSAGE];
     [message setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
     [message setObject:self.channel forKey:OBJECT_KEY_CHANNEL];
-    [message setObject:self.messageTextView.text forKey:OBJECT_KEY_TEXT];
+    
+    if ([[self.channel objectForKey:OBJECT_KEY_HIDDEN] boolValue]) {
+        [self encryptMessage:message];
+    } else {
+        [message setObject:@NO forKey:OBJECT_KEY_ENCRYPTED];
+        [message setObject:self.messageTextView.text forKey:OBJECT_KEY_TEXT];
+    }
     
     [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
@@ -78,6 +84,11 @@
             [self dismiss];
         }
     }];
+}
+
+- (void)encryptMessage:(PFObject *)message {
+    [message setObject:@YES forKey:OBJECT_KEY_ENCRYPTED];
+    [message setObject:@"[ENCRYPTED MESSAGE]" forKey:OBJECT_KEY_TEXT];
 }
 
 - (IBAction)cancel:(id)sender {

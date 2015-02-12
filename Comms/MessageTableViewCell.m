@@ -14,10 +14,15 @@
 
 - (void)drawRect:(CGRect)rect {
     NSString *date = [self.message createdAtWithDateFormat:NSDateFormatterMediumStyle timeFormat:NSDateFormatterShortStyle];
-    BOOL locked = ([self.message objectForKey:OBJECT_KEY_RECIPIENT] != nil);
+    BOOL locked = ([[self.message objectForKey:OBJECT_KEY_ENCRYPTED] boolValue]);
     PFUser *sender = [self.message objectForKey:OBJECT_KEY_USER];
     
     [StyleKit drawMessageBlockWithFrame:self.bounds isLocked:locked senderUsername:sender.username createdAt:[NSString stringWithFormat:@"%@", date] message:[self.message objectForKey:OBJECT_KEY_TEXT]];
+}
+
+- (void)setMessage:(PFObject *)message {
+    _message = message;
+    [self setNeedsDisplay];
 }
 
 + (CGFloat)heightForMessage:(PFObject *)messageObject frame:(CGRect)frame {
