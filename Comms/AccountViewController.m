@@ -104,6 +104,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [self presentViewController:alert animated:YES completion:nil];
         } else {
             [self updatePublicKey];
+            [self initializePushNotifications];
             [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self clearLoginFields];
             [self updateDisplay:YES];
@@ -137,6 +138,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [self presentViewController:alert animated:YES completion:nil];
         } else {
             [self updatePublicKey];
+            [self initializePushNotifications];
             [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self clearLoginFields];
             [self updateDisplay:YES];
@@ -216,6 +218,17 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [self updateDisplay:YES];
         }
     }];
+}
+
+- (void)initializePushNotifications {
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    UIApplication *application = [UIApplication sharedApplication];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
 }
 
 @end
