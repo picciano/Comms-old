@@ -86,6 +86,10 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
     [query orderByDescending:OBJECT_KEY_CREATED_AT];
     [query includeKey:OBJECT_KEY_USER];
     
+    if ([[self.channel objectForKey:OBJECT_KEY_HIDDEN] boolValue]) {
+        [query whereKey:OBJECT_KEY_RECIPIENT equalTo:[PFUser currentUser]];
+    }
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         

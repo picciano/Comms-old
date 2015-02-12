@@ -20,8 +20,6 @@
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
-
 @implementation PostMessageViewController
 
 - (void)viewDidLoad {
