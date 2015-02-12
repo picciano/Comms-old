@@ -83,15 +83,26 @@ static const DDLogLevel ddLogLevel = DDLogLevelInfo;
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
-    NSString *message = userInfo[@"aps"][@"alert"];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remote Notification"
-                                                                   message:message
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:nil];
-    [alert addAction:defaultAction];
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    
+    int type = [userInfo[@"type"] intValue];
+    
+    switch (type) {
+        case PUSH_TYPE_NEW_MESSAGE:
+            [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
+            break;
+            
+        default:
+            DDLogDebug(@"Unknow message type: %i", type);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remote Notification"
+                                                                           message:userInfo[@"aps"][@"alert"]
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alert addAction:defaultAction];
+            [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+            break;
+    }
 }
 
 @end

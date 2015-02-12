@@ -20,6 +20,8 @@
 
 #define EMPTY_STRING                @""
 
+#define PUSH_TYPE_NEW_MESSAGE       101
+
 #define OBJECT_TYPE_CHANNEL         @"Channel"
 #define OBJECT_TYPE_GROUP           @"Group"
 #define OBJECT_TYPE_MESSAGE         @"Message"
