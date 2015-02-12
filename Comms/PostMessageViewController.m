@@ -63,8 +63,16 @@
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         
         if (error) {
-#warning implement warning message
-            [self updateDisplay];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Posting Message"
+                                                                           message:@"Please try again later."
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction *action) {
+                                                                      [self updateDisplay];
+                                                                  }];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
             [self dismiss];
@@ -73,8 +81,24 @@
 }
 
 - (IBAction)cancel:(id)sender {
-#warning implement confirmation
-    [self dismiss];
+    if ((self.messageTextView.text.length > 0)) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
+                                                                       message:@"Are you sure that you want to discard the unposted message?."
+                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"No, Stay Here"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:nil];
+        [alert addAction:defaultAction];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Discard Message"
+                                                               style:UIAlertActionStyleDestructive
+                                                             handler:^(UIAlertAction *action) {
+                                                                 [self dismiss];
+                                                             }];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        [self dismiss];
+    }
 }
 
 - (void)dismiss {
