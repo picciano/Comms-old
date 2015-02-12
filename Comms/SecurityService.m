@@ -137,7 +137,7 @@ static SecurityService * __sharedSecurityService = nil;
             
             if (status != noErr) {
                 DDLogError(@"Cannot decrypt data, last SecKeyEncrypt status: %d", (int)status);
-                return nil;
+                return @"[unable to decrypt data]";
             }
             
             [accumulator appendBytes:plainBuffer length:actualOutputSize];
