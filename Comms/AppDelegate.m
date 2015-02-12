@@ -91,6 +91,10 @@ static const DDLogLevel ddLogLevel = DDLogLevelInfo;
             [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
             break;
             
+        case PUSH_TYPE_SUBSCRIPTION:
+            [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
+            break;
+            
         default:
             DDLogDebug(@"Unknow message type: %i", type);
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remote Notification"
