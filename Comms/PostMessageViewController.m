@@ -7,6 +7,9 @@
 //
 
 #import "PostMessageViewController.h"
+#import "SecurityService.h"
+
+#define ENCRYPTED_STRING @"[ENCRYPTED]"
 
 @interface PostMessageViewController ()
 
@@ -16,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
+
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation PostMessageViewController
 
@@ -48,47 +53,101 @@
 }
 
 - (IBAction)postMessage:(id)sender {
-    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
-    
     self.messageTextView.editable = NO;
     self.postMessageButton.enabled = NO;
     self.cancelButton.enabled = NO;
     
-    PFObject *message = [PFObject objectWithClassName:OBJECT_TYPE_MESSAGE];
-    [message setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
-    [message setObject:self.channel forKey:OBJECT_KEY_CHANNEL];
-    
     if ([[self.channel objectForKey:OBJECT_KEY_HIDDEN] boolValue]) {
-        [self encryptMessage:message];
+        [self postEncryptedMessages];
     } else {
+        [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+        
+        PFObject *message = [PFObject objectWithClassName:OBJECT_TYPE_MESSAGE];
+        [message setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
+        [message setObject:self.channel forKey:OBJECT_KEY_CHANNEL];
         [message setObject:@NO forKey:OBJECT_KEY_ENCRYPTED];
         [message setObject:self.messageTextView.text forKey:OBJECT_KEY_TEXT];
+        
+        [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+            
+            if (error) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Posting Message"
+                                                                               message:@"Please try again later."
+                                                                        preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction *action) {
+                                                                          [self updateDisplay];
+                                                                      }];
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
+                [self dismiss];
+            }
+        }];
     }
+}
+
+- (void)postEncryptedMessages {
     
-    [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
+    [query whereKey:OBJECT_KEY_CHANNEL equalTo:self.channel];
+    [query includeKey:OBJECT_KEY_USER];
+    
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         
         if (error) {
+            // handle error
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Posting Message"
-                                                                           message:@"Please try again later."
+                                                                           message:@"Subscribers public keys could not be loaded. Please try again later."
                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
                                                                     style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction *action) {
-                                                                      [self updateDisplay];
-                                                                  }];
+                                                                  handler:nil];
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
+            for (PFObject *subscription in objects) {
+                PFUser *recipient = [subscription objectForKey:OBJECT_KEY_USER];
+                NSData *publicKeyBits = [recipient objectForKey:OBJECT_KEY_PUBLIC_KEY];
+                NSData *data = [[SecurityService sharedSecurityService] encrypt:self.messageTextView.text
+                                                             usingPublicKeyBits:publicKeyBits
+                                                                            for:recipient.objectId];
+                [self postEncryptedMessage:data recipient:recipient];
+            }
             [self dismiss];
         }
     }];
 }
 
-- (void)encryptMessage:(PFObject *)message {
+- (void)postEncryptedMessage:(NSData *)data recipient:(PFUser *)recipient {
+    PFObject *message = [PFObject objectWithClassName:OBJECT_TYPE_MESSAGE];
+    [message setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
+    [message setObject:self.channel forKey:OBJECT_KEY_CHANNEL];
     [message setObject:@YES forKey:OBJECT_KEY_ENCRYPTED];
-    [message setObject:@"[ENCRYPTED MESSAGE]" forKey:OBJECT_KEY_TEXT];
+    [message setObject:ENCRYPTED_STRING forKey:OBJECT_KEY_TEXT];
+    [message setObject:data forKey:OBJECT_KEY_ENCRYPTED_DATA];
+    [message setObject:recipient forKey:OBJECT_KEY_RECIPIENT];
+    
+    [message saveEventually:^(BOOL succeeded, NSError *error) {
+        if (!succeeded || error) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Posting Message"
+                                                                           message:@"Encrypted message was not sent. Please try again later."
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else if ([recipient.objectId isEqualToString:[PFUser currentUser].objectId]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_POSTED_NOTIFICATION object:self];
+        }
+    }];
 }
 
 - (IBAction)cancel:(id)sender {

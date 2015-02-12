@@ -8,7 +8,14 @@
 
 #import "MessageTableViewCell.h"
 #import "PFObject+DateFormat.h"
+#import "SecurityService.h"
 #import "Constants.h"
+
+@interface MessageTableViewCell ()
+
+@property (strong, nonatomic) NSString *messageText;
+
+@end
 
 @implementation MessageTableViewCell
 
@@ -17,17 +24,38 @@
     BOOL locked = ([[self.message objectForKey:OBJECT_KEY_ENCRYPTED] boolValue]);
     PFUser *sender = [self.message objectForKey:OBJECT_KEY_USER];
     
-    [StyleKit drawMessageBlockWithFrame:self.bounds isLocked:locked senderUsername:sender.username createdAt:[NSString stringWithFormat:@"%@", date] message:[self.message objectForKey:OBJECT_KEY_TEXT]];
+    [StyleKit drawMessageBlockWithFrame:self.bounds
+                               isLocked:locked
+                         senderUsername:sender.username
+                              createdAt:date
+                                message:self.messageText];
 }
 
 - (void)setMessage:(PFObject *)message {
     _message = message;
+    
+    if ([[self.message objectForKey:OBJECT_KEY_ENCRYPTED] boolValue]) {
+        self.messageText = [self decryptedMessage];
+    } else {
+        self.messageText = [self.message objectForKey:OBJECT_KEY_TEXT];
+    }
+    
     [self setNeedsDisplay];
 }
 
-+ (CGFloat)heightForMessage:(PFObject *)messageObject frame:(CGRect)frame {
+- (NSString *)decryptedMessage {
+    return [[SecurityService sharedSecurityService] decrypt:[self.message objectForKey:OBJECT_KEY_ENCRYPTED_DATA]];
+}
+
++ (CGFloat)heightForMessage:(PFObject *)message frame:(CGRect)frame {
     
-    NSString *message = [messageObject objectForKey:OBJECT_KEY_TEXT];
+    NSString *messageText;
+    
+    if ([[message objectForKey:OBJECT_KEY_ENCRYPTED] boolValue]) {
+        messageText = [[SecurityService sharedSecurityService] decrypt:[message objectForKey:OBJECT_KEY_ENCRYPTED_DATA]];
+    } else {
+        messageText = [message objectForKey:OBJECT_KEY_TEXT];
+    }
     
     //// Message Text Drawing
     CGRect messageTextRect = CGRectMake(CGRectGetMinX(frame) + 5, CGRectGetMinY(frame) + 25, CGRectGetWidth(frame) - 10, CGRectGetHeight(frame) - 25);
@@ -36,7 +64,7 @@
     
     NSDictionary* messageTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS" size: UIFont.smallSystemFontSize], NSForegroundColorAttributeName: StyleKit.commsBlue, NSParagraphStyleAttributeName: messageTextStyle};
     
-    CGFloat messageTextTextHeight = [message boundingRectWithSize: CGSizeMake(messageTextRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: messageTextFontAttributes context: nil].size.height;
+    CGFloat messageTextTextHeight = [messageText boundingRectWithSize: CGSizeMake(messageTextRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: messageTextFontAttributes context: nil].size.height;
     
     return messageTextTextHeight + 30;
 }

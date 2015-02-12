@@ -30,6 +30,7 @@
 #define OBJECT_KEY_CREATED_AT       @"createdAt"
 #define OBJECT_KEY_DISABLED         @"disabled"
 #define OBJECT_KEY_ENCRYPTED        @"encrypted"
+#define OBJECT_KEY_ENCRYPTED_DATA   @"encryptedData"
 #define OBJECT_KEY_GROUP            @"group"
 #define OBJECT_KEY_HIDDEN           @"hidden"
 #define OBJECT_KEY_NAME             @"name"
