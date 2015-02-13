@@ -60,6 +60,14 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     self.passwordField.text = EMPTY_STRING;
     [self.usernameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
+    [self setFormFieldsEnabled:YES];
+}
+
+- (void)setFormFieldsEnabled:(BOOL)enabled {
+    self.usernameField.enabled = enabled;
+    self.passwordField.enabled = enabled;
+    self.createAccountButton.enabled = enabled;
+    self.logInButton.enabled = enabled;
 }
 
 - (void)updateDisplay:(BOOL)animated {
@@ -91,6 +99,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (IBAction)logIn:(id)sender {
+    [self setFormFieldsEnabled:NO];
     [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
         if (error) {
             DDLogError(@"Error during login: %@", error);
@@ -99,7 +108,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
                                                                     style:UIAlertActionStyleDefault
-                                                                  handler:nil];
+                                                                  handler:^(UIAlertAction *action) {
+                                                                      [self setFormFieldsEnabled:YES];
+                                                                  }];
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
@@ -128,6 +139,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     user.username = self.usernameField.text;
     user.password = self.passwordField.text;
     
+    [self setFormFieldsEnabled:NO];
+    
     [AppInfoManager setNetworkActivityIndicatorVisible:YES];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -144,7 +157,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
                                                                     style:UIAlertActionStyleDefault
-                                                                  handler:nil];
+                                                                  handler:^(UIAlertAction *action) {
+                                                                      [self setFormFieldsEnabled:YES];
+                                                                  }];
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
