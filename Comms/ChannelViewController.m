@@ -125,6 +125,7 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
             } else {
                 [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
+                    [self.navigationController popViewControllerAnimated:YES];
                 }];
             }
         }];
