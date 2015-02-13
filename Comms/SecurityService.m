@@ -35,6 +35,12 @@ static SecurityService * __sharedSecurityService = nil;
     return [wrapper getPublicKeyBits];
 }
 
+- (BOOL)publicKeyExists {
+    SecKeyWrapper *wrapper = [self wrapper];
+    NSData *bits = [wrapper getPublicKeyBits];
+    return (bits != nil);
+}
+
 - (void)deleteKeyPair {
     [[self wrapper] deleteAsymmetricKeys];
 }

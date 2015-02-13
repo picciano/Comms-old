@@ -103,6 +103,17 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
+            if (![[SecurityService sharedSecurityService] publicKeyExists]) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Important Notice"
+                                                                               message:@"When you log into the same user account on multiple devices, only the device that logs in most recently will be able to decrypt encrypted message sent to that user. This is done to protect the private encryption key."
+                                                                        preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:nil];
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+            
             [self updatePublicKey];
             [self initializePushNotifications];
             [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
