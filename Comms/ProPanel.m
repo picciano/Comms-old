@@ -11,6 +11,8 @@
 
 @interface ProPanel ()
 
+@property (weak, nonatomic) IBOutlet UIButton *hiddenChannelButton;
+
 @end
 
 //static const DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -27,8 +29,13 @@
                             firstObject];
         [self addSubview:self.contentView];
         self.backgroundColor = [StyleKit commsDeepGreen];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDisplay) name:CURRENT_USER_CHANGE_NOTIFICATION object:nil];
     }
     return self;
+}
+
+- (void)updateDisplay {
+    self.hiddenChannelButton.enabled = ([PFUser currentUser] != nil);
 }
 
 - (IBAction)createOrJoinHiddenChannel:(id)sender {
@@ -38,6 +45,8 @@
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    [self updateDisplay];
     self.contentView.frame = self.bounds;
 }
 

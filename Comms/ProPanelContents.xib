@@ -4,7 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProPanel"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProPanel">
+            <connections>
+                <outlet property="hiddenChannelButton" destination="g4n-rg-61O" id="ctl-qZ-PQn"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
@@ -19,6 +23,7 @@
                     <state key="normal" title="Create or Join a Hidden Channel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="disabled" title="Must Be Logged In For Hidden Channels"/>
                     <connections>
                         <action selector="createOrJoinHiddenChannel:" destination="-1" eventType="touchUpInside" id="qFP-8k-Wk4"/>
                     </connections>
