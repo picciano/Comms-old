@@ -166,6 +166,26 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	if (privateKeyRef) CFRelease(privateKeyRef);
 }
 
+- (void)deleteAsymmetricKeyForPeer:(NSString *)peerName {
+    OSStatus sanityCheck = noErr;
+    
+    NSMutableDictionary * queryPeerKey = [[NSMutableDictionary alloc] init];
+    NSData * peerTag = [[NSData alloc] initWithBytes:(const void *)[peerName UTF8String] length:[peerName length]];
+    
+    // Set the symmetric key query dictionary.
+    [queryPeerKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPeerKey setObject:peerTag forKey:(id)kSecAttrApplicationTag];
+    [queryPeerKey setObject:kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
+    
+    // Delete the symmetric key.
+    sanityCheck = SecItemDelete((CFDictionaryRef)queryPeerKey);
+    LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing symmetric key, OSStatus == %d.", sanityCheck );
+    
+    [queryPeerKey release];
+    [peerTag release];
+    [symmetricKeyRef release];
+}
+
 - (void)deleteSymmetricKey {
 	OSStatus sanityCheck = noErr;
 	
@@ -654,6 +674,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
     }
     
     [queryPublicKey release];
+    [peerTag release];
     
     return publicKeyPeerReference;
 }

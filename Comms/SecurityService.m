@@ -55,7 +55,11 @@ static SecurityService * __sharedSecurityService = nil;
         publicKey = [[self wrapper] addPeerPublicKey:peerName keyBits:publicKeyBits];
     }
     
-    return [self encrypt:plaintext usingPublicKey:publicKey];
+    NSData *data = [self encrypt:plaintext usingPublicKey:publicKey];
+    
+    [[self wrapper] deleteAsymmetricKeyForPeer:peerName];
+    
+    return data;
 }
 
 - (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(SecKeyRef)publicKey {

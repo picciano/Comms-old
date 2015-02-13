@@ -94,6 +94,7 @@
 + (SecKeyWrapper *)sharedWrapper;
 - (void)generateKeyPair:(NSUInteger)keySize;
 - (void)deleteAsymmetricKeys;
+- (void)deleteAsymmetricKeyForPeer:(NSString *)peerName;
 - (void)deleteSymmetricKey;
 - (void)generateSymmetricKey;
 - (SecKeyRef)addPeerPublicKey:(NSString *)peerName keyBits:(NSData *)publicKey;
