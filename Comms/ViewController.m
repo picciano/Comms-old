@@ -279,6 +279,7 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     ChannelViewController *viewController = [[ChannelViewController alloc] initWithNibName:nil bundle:nil];
     viewController.channel = [self channelAtIndexPath:indexPath];
     [self.navigationController pushViewController:viewController animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
