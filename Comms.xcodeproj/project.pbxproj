@@ -21,6 +21,8 @@
 		AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */; };
 		AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
+		AFA41DDF1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */; };
+		AFA41DE11A8FB1D100DAF30A /* PFUser+UniqueIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */; };
 		AFA55F041A89167800813CAE /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F021A89167800813CAE /* HeaderView.m */; };
 		AFA55F051A89167800813CAE /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F021A89167800813CAE /* HeaderView.m */; };
 		AFA55F061A89167800813CAE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F031A89167800813CAE /* HeaderView.xib */; };
@@ -139,6 +141,8 @@
 		AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelInfoPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC6C1A84299F00BD32A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenPro.xib; sourceTree = "<group>"; };
+		AFA41DDD1A8FB12500DAF30A /* PFUser+UniqueIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFUser+UniqueIdentifier.h"; sourceTree = "<group>"; };
+		AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFUser+UniqueIdentifier.m"; sourceTree = "<group>"; };
 		AFA55F011A89167800813CAE /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		AFA55F021A89167800813CAE /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		AFA55F031A89167800813CAE /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -330,6 +334,15 @@
 			name = "Channel Info Panel";
 			sourceTree = "<group>";
 		};
+		AFA41DE01A8FB12900DAF30A /* Unique Identifier */ = {
+			isa = PBXGroup;
+			children = (
+				AFA41DDD1A8FB12500DAF30A /* PFUser+UniqueIdentifier.h */,
+				AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */,
+			);
+			name = "Unique Identifier";
+			sourceTree = "<group>";
+		};
 		AFA55F0D1A8947D300813CAE /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +483,7 @@
 				AFD0DD6A1A84001900C9CC10 /* PostMessageViewController.h */,
 				AFD0DD6B1A84001900C9CC10 /* PostMessageViewController.m */,
 				AFD0DD6C1A84001900C9CC10 /* PostMessageView.xib */,
+				AFA41DE01A8FB12900DAF30A /* Unique Identifier */,
 			);
 			name = "Post Message View";
 			sourceTree = "<group>";
@@ -744,6 +758,7 @@
 				AF9EC1261A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */,
+				AFA41DDF1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m in Sources */,
 				AFF805191A86C5320083C834 /* StyleKit.m in Sources */,
 				AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
@@ -790,6 +805,7 @@
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */,
+				AFA41DE11A8FB1D100DAF30A /* PFUser+UniqueIdentifier.m in Sources */,
 				AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */,

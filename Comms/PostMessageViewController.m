@@ -7,6 +7,7 @@
 //
 
 #import "PostMessageViewController.h"
+#import "PFUser+UniqueIdentifier.h"
 #import "SecurityService.h"
 
 #define ENCRYPTED_STRING @"[ENCRYPTED]"
@@ -115,7 +116,7 @@
                 NSData *publicKeyBits = [recipient objectForKey:OBJECT_KEY_PUBLIC_KEY];
                 NSData *data = [[SecurityService sharedSecurityService] encrypt:self.messageTextView.text
                                                              usingPublicKeyBits:publicKeyBits
-                                                                            for:recipient.objectId];
+                                                                            for:recipient.uniqueIdentifier];
                 [self postEncryptedMessage:data recipient:recipient];
             }
             [self dismiss];
