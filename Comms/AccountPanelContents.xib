@@ -11,19 +11,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNV-gZ-HI1">
-                    <rect key="frame" x="8" y="289" width="584" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-Id-PA2">
-                    <rect key="frame" x="8" y="318" width="584" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-Id-PA2" customClass="CommsButton">
+                    <rect key="frame" x="200" y="67" width="200" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="aiQ-Gw-22K"/>
+                        <constraint firstAttribute="height" constant="40" id="3qQ-fZ-nAS"/>
+                        <constraint firstAttribute="width" constant="200" id="dtY-7x-bTD"/>
                     </constraints>
                     <state key="normal" title="Manage Account">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,17 +27,26 @@
                         <action selector="accountView:" destination="-1" eventType="touchUpInside" id="JmA-Qe-D85"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNV-gZ-HI1">
+                    <rect key="frame" x="8" y="35" width="584" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="OjX-iI-DVG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="CNV-gZ-HI1" secondAttribute="trailing" constant="8" id="HFt-Jb-f7a"/>
-                <constraint firstItem="sOO-Id-PA2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="J38-s8-gPv"/>
-                <constraint firstAttribute="centerY" secondItem="CNV-gZ-HI1" secondAttribute="centerY" id="Lya-Ix-ydC"/>
-                <constraint firstItem="CNV-gZ-HI1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gNg-uM-X5a"/>
-                <constraint firstAttribute="trailing" secondItem="sOO-Id-PA2" secondAttribute="trailing" constant="8" id="jy7-8h-3vy"/>
-                <constraint firstItem="sOO-Id-PA2" firstAttribute="top" secondItem="CNV-gZ-HI1" secondAttribute="bottom" constant="8" id="rn3-LY-ERh"/>
+                <constraint firstAttribute="trailing" secondItem="CNV-gZ-HI1" secondAttribute="trailing" constant="8" id="BNM-Q3-YdW"/>
+                <constraint firstItem="sOO-Id-PA2" firstAttribute="top" secondItem="CNV-gZ-HI1" secondAttribute="bottom" constant="8" id="VLG-3Z-aDf"/>
+                <constraint firstItem="CNV-gZ-HI1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="VaN-ZO-pq2"/>
+                <constraint firstAttribute="centerX" secondItem="sOO-Id-PA2" secondAttribute="centerX" id="bcd-fc-CSh"/>
+                <constraint firstItem="CNV-gZ-HI1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="e0J-9T-deB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>

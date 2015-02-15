@@ -432,14 +432,15 @@ static UIColor* _commsOrange = nil;
     }
 }
 
-+ (void)drawButtonWithFrame: (CGRect)frame message: (NSString*)message isEnabled: (BOOL)isEnabled
++ (void)drawButtonWithFrame: (CGRect)frame message: (NSString*)message isEnabled: (BOOL)isEnabled isHighlighted: (BOOL)isHighlighted
 {
     //// General Declarations
     CGContextRef context = UIGraphicsGetCurrentContext();
 
 
     //// Variable Declarations
-    UIColor* expression = isEnabled ? StyleKit.commsPeach : StyleKit.commsDarkTan;
+    UIColor* buttonTextColor = isEnabled ? StyleKit.commsPeach : StyleKit.commsDarkTan;
+    UIColor* buttonBackgroundColor = isHighlighted ? StyleKit.commsDeepGreen : StyleKit.commsBlack;
 
     //// Peach Rectangle Drawing
     UIBezierPath* peachRectanglePath = [UIBezierPath bezierPathWithRect: CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), 55, CGRectGetHeight(frame))];
@@ -450,12 +451,12 @@ static UIColor* _commsOrange = nil;
     //// Black Rectangle Drawing
     CGRect blackRectangleRect = CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), CGRectGetWidth(frame), CGRectGetHeight(frame) - 5);
     UIBezierPath* blackRectanglePath = [UIBezierPath bezierPathWithRect: blackRectangleRect];
-    [StyleKit.commsBlack setFill];
+    [buttonBackgroundColor setFill];
     [blackRectanglePath fill];
     NSMutableParagraphStyle* blackRectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
     blackRectangleStyle.alignment = NSTextAlignmentCenter;
 
-    NSDictionary* blackRectangleFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica" size: 12], NSForegroundColorAttributeName: expression, NSParagraphStyleAttributeName: blackRectangleStyle};
+    NSDictionary* blackRectangleFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica" size: 12], NSForegroundColorAttributeName: buttonTextColor, NSParagraphStyleAttributeName: blackRectangleStyle};
 
     CGFloat blackRectangleTextHeight = [message boundingRectWithSize: CGSizeMake(blackRectangleRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: blackRectangleFontAttributes context: nil].size.height;
     CGContextSaveGState(context);

@@ -44,6 +44,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [super viewDidLoad];
     self.title = @"Account";
     
+    self.view.backgroundColor = [StyleKit commsDeepGreen];
+    
     originalSignedOutViewheight = self.signedOutViewheightConstraint.constant;
     originalSignedInViewheight = self.signedInViewheightConstraint.constant;
 }

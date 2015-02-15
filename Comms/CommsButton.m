@@ -20,8 +20,13 @@
     self.titleLabel.hidden = YES;
 }
 
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect {
-    [StyleKit drawButtonWithFrame:self.bounds message:[self titleForState:self.state] isEnabled:self.enabled];
+    [StyleKit drawButtonWithFrame:self.bounds message:[self titleForState:self.state] isEnabled:self.enabled isHighlighted:self.highlighted];
 }
 
 @end

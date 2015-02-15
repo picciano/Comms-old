@@ -15,28 +15,24 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYr-5z-CIR" customClass="CommsButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYr-5z-CIR" customClass="CommsButton">
                     <rect key="frame" x="8" y="5" width="148" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="148" id="7dD-27-xOj"/>
                         <constraint firstAttribute="height" constant="40" id="kDw-pD-gtT"/>
                     </constraints>
-                    <state key="normal" title="Get Pro Features">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="normal" title="Get Pro Features"/>
                     <connections>
                         <action selector="manageSubscriptions:" destination="-1" eventType="touchUpInside" id="ZlJ-nh-Wxl"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGd-3D-OWR" customClass="CommsButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGd-3D-OWR" customClass="CommsButton">
                     <rect key="frame" x="444" y="5" width="148" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="148" id="Uay-6T-21n"/>
                         <constraint firstAttribute="height" constant="40" id="cxv-Uq-e2N"/>
                     </constraints>
-                    <state key="normal" title="Hidden Channels">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="normal" title="Hidden Channels"/>
                     <state key="disabled" title="Must Be Logged In For Hidden Channels"/>
                     <connections>
                         <action selector="createOrJoinHiddenChannel:" destination="-1" eventType="touchUpInside" id="X2b-S5-X7C"/>
