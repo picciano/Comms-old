@@ -19,8 +19,6 @@
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
-
 @implementation ProductTableViewCell
 
 - (void)setProduct:(SKProduct *)product {
@@ -57,7 +55,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (IBAction)subscribeButtonTapped:(id)sender {
-    DDLogDebug(@"Buying %@...", self.product.productIdentifier);
     [[CommsIAPHelper sharedInstance] buyProduct:self.product];
 }
 

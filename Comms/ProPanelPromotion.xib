@@ -4,30 +4,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProPanel"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProPanel">
+            <connections>
+                <outlet property="hiddenChannelButton" destination="NGd-3D-OWR" id="JJw-ZL-3J9"/>
+                <outlet property="manageSubscriptionsButton" destination="wYr-5z-CIR" id="cIV-3c-oWe"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYr-5z-CIR">
-                    <rect key="frame" x="153" y="10" width="296" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYr-5z-CIR" customClass="CommsButton">
+                    <rect key="frame" x="8" y="5" width="148" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="kif-x1-6pm"/>
-                        <constraint firstAttribute="width" constant="296" id="muM-Rn-8Gc"/>
+                        <constraint firstAttribute="width" constant="148" id="7dD-27-xOj"/>
+                        <constraint firstAttribute="height" constant="40" id="kDw-pD-gtT"/>
                     </constraints>
-                    <state key="normal" title="Get hidden channels and strong encryption">
+                    <state key="normal" title="Get Pro Features">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="manageSubscriptions:" destination="-1" eventType="touchUpInside" id="ZlJ-nh-Wxl"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGd-3D-OWR" customClass="CommsButton">
+                    <rect key="frame" x="444" y="5" width="148" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="148" id="Uay-6T-21n"/>
+                        <constraint firstAttribute="height" constant="40" id="cxv-Uq-e2N"/>
+                    </constraints>
+                    <state key="normal" title="Hidden Channels">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" title="Must Be Logged In For Hidden Channels"/>
+                    <connections>
+                        <action selector="createOrJoinHiddenChannel:" destination="-1" eventType="touchUpInside" id="X2b-S5-X7C"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="wYr-5z-CIR" secondAttribute="centerX" constant="-1" id="8Rb-BN-Tzz"/>
-                <constraint firstItem="wYr-5z-CIR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="U7F-Nm-2mx"/>
+                <constraint firstItem="wYr-5z-CIR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="55h-Mo-grJ"/>
+                <constraint firstItem="wYr-5z-CIR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="jbc-Rc-Ogl"/>
+                <constraint firstAttribute="trailing" secondItem="NGd-3D-OWR" secondAttribute="trailing" constant="8" id="tUO-1t-rbQ"/>
+                <constraint firstItem="NGd-3D-OWR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="wbN-k3-kw3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

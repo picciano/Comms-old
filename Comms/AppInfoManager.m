@@ -7,6 +7,7 @@
 //
 
 #import "AppInfoManager.h"
+#import "CommsIAPHelper.h"
 
 @implementation AppInfoManager
 
@@ -15,7 +16,7 @@
 #ifdef PRO
     return YES;
 #else
-    return NO;
+    return NO; //[[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] > 0;
 #endif
     
 }

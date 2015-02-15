@@ -10,10 +10,10 @@
 #import <StoreKit/StoreKit.h>
 #import "Constants.h"
 
-NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
-
 @interface IAPHelper () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 @end
+
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation IAPHelper {
     SKProductsRequest * _productsRequest;
@@ -36,9 +36,9 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
             BOOL productPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
             if (productPurchased) {
                 [_purchasedProductIdentifiers addObject:productIdentifier];
-                NSLog(@"Previously purchased: %@", productIdentifier);
+                DDLogDebug(@"Previously purchased: %@", productIdentifier);
             } else {
-                NSLog(@"Not purchased: %@", productIdentifier);
+                DDLogDebug(@"Not purchased: %@", productIdentifier);
             }
         }
         
@@ -67,7 +67,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)buyProduct:(SKProduct *)product {
     
-    NSLog(@"Buying %@...", product.productIdentifier);
+    DDLogDebug(@"Buying %@...", product.productIdentifier);
     
     SKPayment * payment = [SKPayment paymentWithProduct:product];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
@@ -82,12 +82,12 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
     
-    NSLog(@"Loaded list of products...");
+    DDLogDebug(@"Loaded list of products...");
     _productsRequest = nil;
     
     NSArray * skProducts = response.products;
     for (SKProduct * skProduct in skProducts) {
-        NSLog(@"Found product: %@ %@ %0.2f",
+        DDLogDebug(@"Found product: %@ %@ %0.2f",
               skProduct.productIdentifier,
               skProduct.localizedTitle,
               skProduct.price.floatValue);
@@ -100,7 +100,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
     
-    NSLog(@"Failed to load list of products.");
+    DDLogError(@"Failed to load list of products.");
     _productsRequest = nil;
     
     _completionHandler(NO, nil);
@@ -130,14 +130,14 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 }
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
-    NSLog(@"completeTransaction...");
+    DDLogDebug(@"completeTransaction...");
     
     [self validateReceiptForTransaction:transaction];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
-    NSLog(@"restoreTransaction...");
+    DDLogDebug(@"restoreTransaction...");
     
     [self validateReceiptForTransaction:transaction];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
@@ -145,10 +145,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
     
-    NSLog(@"failedTransaction...");
+    DDLogError(@"failedTransaction...");
     if (transaction.error.code != SKErrorPaymentCancelled)
     {
-        NSLog(@"Transaction error: %@", transaction.error.localizedDescription);
+        DDLogError(@"Transaction error: %@", transaction.error.localizedDescription);
     }
     
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
@@ -194,7 +194,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     if ([self daysRemainingOnSubscription] > 0) {
         NSDate *today = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"dd/MM/yyyy"];
+        [dateFormat setDateFormat:@"MMM dd, yyyy"];
         return [NSString stringWithFormat:@"Subscribed! \nExpires: %@ (%i Days)",[dateFormat stringFromDate:today],[self daysRemainingOnSubscription]];
     } else {
         return @"Not Subscribed";
@@ -217,7 +217,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         [self purchaseSubscriptionWithMonths:12];
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:PRODUCT_PURCHASED_NOTIFICATION object:productIdentifier userInfo:nil];
 }
 
 @end

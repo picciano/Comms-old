@@ -8,7 +8,7 @@
 
 #import "InAppPurchaseViewController.h"
 #import "ProductTableViewCell.h"
-#import "HeaderView.h"
+#import "ExpirationHeaderView.h"
 #import "CommsIAPHelper.h"
 #import "Constants.h"
 
@@ -16,7 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *products;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -30,10 +29,7 @@ static NSString *kProductReuseIdentifier = @"kProductReuseIdentifier";
     [super viewDidLoad];
     self.title = @"Pro Subscription";
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     [self reload];
-    [self.refreshControl beginRefreshing];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductTableViewCell"bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:kProductReuseIdentifier];
@@ -52,31 +48,19 @@ static NSString *kProductReuseIdentifier = @"kProductReuseIdentifier";
     [self.tableView reloadData];
     [[CommsIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
         if (success) {
+            DDLogDebug(@"Products loaded.");
             self.products = products;
             [self.tableView reloadData];
         }
-        [self.refreshControl endRefreshing];
     }];
 }
 
-//- (void)productPurchased:(NSNotification *)notification {
-//    
-//    NSString * productIdentifier = notification.object;
-//    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-//        if ([product.productIdentifier isEqualToString:productIdentifier]) {
-//            if ([product.productIdentifier hasSuffix:@"monthlyrageface"]) {
-//                [self reload];
-//                [self.refreshControl beginRefreshing];
-//            } else {
-//                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-//            }
-//            *stop = YES;
-//        }
-//    }];
-//}
+- (void)productPurchased:(NSNotification *)notification {
+    [self reload];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:PRODUCT_PURCHASED_NOTIFICATION object:nil];
     
     [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
     [self.tableView reloadData];
@@ -93,14 +77,15 @@ static NSString *kProductReuseIdentifier = @"kProductReuseIdentifier";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    HeaderView *view = [[[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] firstObject];
-    view.titleLabel.text = [[CommsIAPHelper sharedInstance] getExpirationDateString];
+    ExpirationHeaderView *view = [[[NSBundle mainBundle] loadNibNamed:@"ExpirationHeaderView" owner:self options:nil] firstObject];
+    NSString *expirationDateString = [[CommsIAPHelper sharedInstance] getExpirationDateString];
+    view.titleLabel.text = expirationDateString;
     
     return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30.0f;
+    return 60.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

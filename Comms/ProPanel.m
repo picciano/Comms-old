@@ -8,11 +8,13 @@
 
 #import "ProPanel.h"
 #import "InAppPurchaseViewController.h"
+#import "CommsIAPHelper.h"
 #import "Constants.h"
 
 @interface ProPanel ()
 
 @property (weak, nonatomic) IBOutlet UIButton *hiddenChannelButton;
+@property (weak, nonatomic) IBOutlet UIButton *manageSubscriptionsButton;
 
 @end
 
@@ -31,12 +33,16 @@
         [self addSubview:self.contentView];
         self.backgroundColor = [StyleKit commsDeepGreen];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDisplay) name:CURRENT_USER_CHANGE_NOTIFICATION object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDisplay) name:PRODUCT_PURCHASED_NOTIFICATION object:nil];
     }
     return self;
 }
 
 - (void)updateDisplay {
     self.hiddenChannelButton.enabled = ([PFUser currentUser] != nil);
+    if ([[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] > 0) {
+        [self.manageSubscriptionsButton setTitle:@"Manage Subscriptions" forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)createOrJoinHiddenChannel:(id)sender {

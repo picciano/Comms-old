@@ -52,6 +52,7 @@
 #define MESSAGE_POSTED_NOTIFICATION             @"messagePosted"
 
 #define PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY    @"proSubscriptionExpirationDate"
+#define PRODUCT_PURCHASED_NOTIFICATION          @"IAPHelperProductPurchasedNotification"
 #define ONE_MONTH_PRODUCT_IDENTIFIER            @"1"
 #define SIX_MONTH_PRODUCT_IDENTIFIER            @"6"
 #define ONE_YEAR_PRODUCT_IDENTIFIER             @"12"

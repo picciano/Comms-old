@@ -17,6 +17,10 @@
 		AF4D9CA91A9117B400754BB7 /* CommsIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4D9CA81A9117B400754BB7 /* CommsIAPHelper.m */; };
 		AF562A931A9126C6006FC3F6 /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF562A911A9126C6006FC3F6 /* ProductTableViewCell.m */; };
 		AF562A941A9126C6006FC3F6 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF562A921A9126C6006FC3F6 /* ProductTableViewCell.xib */; };
+		AF562A991A91419A006FC3F6 /* ExpirationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF562A971A91419A006FC3F6 /* ExpirationHeaderView.m */; };
+		AF562A9A1A91419A006FC3F6 /* ExpirationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF562A981A91419A006FC3F6 /* ExpirationHeaderView.xib */; };
+		AF562A9E1A914E8C006FC3F6 /* CommsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF562A9D1A914E8C006FC3F6 /* CommsButton.m */; };
+		AF562A9F1A914E8C006FC3F6 /* CommsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF562A9D1A914E8C006FC3F6 /* CommsButton.m */; };
 		AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */; };
@@ -150,6 +154,11 @@
 		AF562A901A9126C6006FC3F6 /* ProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
 		AF562A911A9126C6006FC3F6 /* ProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
 		AF562A921A9126C6006FC3F6 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		AF562A961A91419A006FC3F6 /* ExpirationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpirationHeaderView.h; sourceTree = "<group>"; };
+		AF562A971A91419A006FC3F6 /* ExpirationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpirationHeaderView.m; sourceTree = "<group>"; };
+		AF562A981A91419A006FC3F6 /* ExpirationHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpirationHeaderView.xib; sourceTree = "<group>"; };
+		AF562A9C1A914E8C006FC3F6 /* CommsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommsButton.h; sourceTree = "<group>"; };
+		AF562A9D1A914E8C006FC3F6 /* CommsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommsButton.m; sourceTree = "<group>"; };
 		AF9EC11A1A85267D00061558 /* ChannelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelTableViewCell.h; sourceTree = "<group>"; };
 		AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelTableViewCell.m; sourceTree = "<group>"; };
 		AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
@@ -333,11 +342,23 @@
 		AF562A951A9126CA006FC3F6 /* Product Table View */ = {
 			isa = PBXGroup;
 			children = (
+				AF562A961A91419A006FC3F6 /* ExpirationHeaderView.h */,
+				AF562A971A91419A006FC3F6 /* ExpirationHeaderView.m */,
+				AF562A981A91419A006FC3F6 /* ExpirationHeaderView.xib */,
 				AF562A901A9126C6006FC3F6 /* ProductTableViewCell.h */,
 				AF562A911A9126C6006FC3F6 /* ProductTableViewCell.m */,
 				AF562A921A9126C6006FC3F6 /* ProductTableViewCell.xib */,
 			);
 			name = "Product Table View";
+			sourceTree = "<group>";
+		};
+		AF562A9B1A914E6A006FC3F6 /* Comm Button */ = {
+			isa = PBXGroup;
+			children = (
+				AF562A9C1A914E8C006FC3F6 /* CommsButton.h */,
+				AF562A9D1A914E8C006FC3F6 /* CommsButton.m */,
+			);
+			name = "Comm Button";
 			sourceTree = "<group>";
 		};
 		AF9EC1191A85264C00061558 /* Table View Cells */ = {
@@ -430,6 +451,7 @@
 				AFA577341A83E431004D2809 /* AppDelegate.h */,
 				AFA577351A83E431004D2809 /* AppDelegate.m */,
 				AFA577751A83E616004D2809 /* Constants.h */,
+				AF562A9B1A914E6A006FC3F6 /* Comm Button */,
 				AFD98FF51A83E9FD00A2B1DD /* App Info Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
 				AF4D9C9A1A91141800754BB7 /* In App Purchase */,
@@ -735,6 +757,7 @@
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
 				AFA5773E1A83E431004D2809 /* Images.xcassets in Resources */,
 				AFDEC0101A8438DE00A40F1F /* ProPanelContents.xib in Resources */,
+				AF562A9A1A91419A006FC3F6 /* ExpirationHeaderView.xib in Resources */,
 				AF9EC1291A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */,
 				AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */,
 				AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */,
@@ -836,6 +859,8 @@
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
 				AFA577331A83E431004D2809 /* main.m in Sources */,
 				AFF8050E1A86796E0083C834 /* UIControl+NextControl.m in Sources */,
+				AF562A991A91419A006FC3F6 /* ExpirationHeaderView.m in Sources */,
+				AF562A9E1A914E8C006FC3F6 /* CommsButton.m in Sources */,
 				AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */,
 				AFA577671A83E563004D2809 /* DDASLLogger.m in Sources */,
 				AFF805121A8683A00083C834 /* PFObject+DateFormat.m in Sources */,
@@ -873,6 +898,7 @@
 				AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
+				AF562A9F1A914E8C006FC3F6 /* CommsButton.m in Sources */,
 				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,
 				AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */,
 				AFD9902F1A83F62B00A2B1DD /* AccountViewController.m in Sources */,
