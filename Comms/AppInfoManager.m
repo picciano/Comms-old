@@ -16,7 +16,7 @@
 #ifdef PRO
     return YES;
 #else
-    return NO; //[[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] > 0;
+    return NO;
 #endif
     
 }

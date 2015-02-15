@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProPanel">
             <connections>
+                <outlet property="getProFeaturesButton" destination="UyJ-Vq-455" id="zi5-GG-w9Z"/>
                 <outlet property="hiddenChannelButton" destination="NGd-3D-OWR" id="JJw-ZL-3J9"/>
                 <outlet property="manageSubscriptionsButton" destination="wYr-5z-CIR" id="cIV-3c-oWe"/>
             </connections>
@@ -21,7 +22,7 @@
                         <constraint firstAttribute="width" constant="148" id="7dD-27-xOj"/>
                         <constraint firstAttribute="height" constant="40" id="kDw-pD-gtT"/>
                     </constraints>
-                    <state key="normal" title="Get Pro Features"/>
+                    <state key="normal" title="Manage Subscriptions"/>
                     <connections>
                         <action selector="manageSubscriptions:" destination="-1" eventType="touchUpInside" id="ZlJ-nh-Wxl"/>
                     </connections>
@@ -38,13 +39,24 @@
                         <action selector="createOrJoinHiddenChannel:" destination="-1" eventType="touchUpInside" id="X2b-S5-X7C"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyJ-Vq-455" customClass="CommsButton">
+                    <rect key="frame" x="8" y="5" width="584" height="40"/>
+                    <state key="normal" title="Get Pro Features"/>
+                    <connections>
+                        <action selector="manageSubscriptions:" destination="-1" eventType="touchUpInside" id="uUG-rb-mPU"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wYr-5z-CIR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="55h-Mo-grJ"/>
+                <constraint firstItem="UyJ-Vq-455" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="PrV-rs-A1O"/>
+                <constraint firstAttribute="bottom" secondItem="UyJ-Vq-455" secondAttribute="bottom" constant="5" id="X6t-ew-RhX"/>
+                <constraint firstAttribute="trailing" secondItem="UyJ-Vq-455" secondAttribute="trailing" constant="8" id="Xb4-0p-rlj"/>
                 <constraint firstItem="wYr-5z-CIR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="jbc-Rc-Ogl"/>
                 <constraint firstAttribute="trailing" secondItem="NGd-3D-OWR" secondAttribute="trailing" constant="8" id="tUO-1t-rbQ"/>
                 <constraint firstItem="NGd-3D-OWR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="wbN-k3-kw3"/>
+                <constraint firstItem="UyJ-Vq-455" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zZp-yJ-hHB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -29,7 +29,7 @@
     
     // Buy Button
     if ([[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] > 0) {
-        [self.subscribeButton setTitle:@"Renew" forState:UIControlStateNormal];
+        [self.subscribeButton setTitle:@"Extend" forState:UIControlStateNormal];
     }
 }
 

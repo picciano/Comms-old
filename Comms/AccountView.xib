@@ -76,23 +76,10 @@
                                 <outlet property="nextControl" destination="5gY-lg-D1d" id="ajB-Oh-8AO"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06h-td-LVs">
-                            <rect key="frame" x="502" y="76" width="82" height="46"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFc-wP-IcV" customClass="CommsButton">
+                            <rect key="frame" x="316" y="76" width="130" height="46"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="46" id="JmP-k4-HU5"/>
-                                <constraint firstAttribute="width" constant="82" id="uRU-Y9-pTF"/>
-                            </constraints>
-                            <state key="normal" title="Log In">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="logIn:" destination="-1" eventType="touchUpInside" id="L2w-b9-ON2"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFc-wP-IcV">
-                            <rect key="frame" x="356" y="76" width="138" height="46"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="138" id="Va2-8x-SGA"/>
+                                <constraint firstAttribute="width" constant="130" id="Va2-8x-SGA"/>
                                 <constraint firstAttribute="height" constant="46" id="ech-bw-lD6"/>
                             </constraints>
                             <state key="normal" title="Create Account">
@@ -100,6 +87,19 @@
                             </state>
                             <connections>
                                 <action selector="createAccount:" destination="-1" eventType="touchUpInside" id="bkt-f7-UgX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06h-td-LVs" customClass="CommsButton">
+                            <rect key="frame" x="454" y="76" width="130" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="46" id="JmP-k4-HU5"/>
+                                <constraint firstAttribute="width" constant="130" id="uRU-Y9-pTF"/>
+                            </constraints>
+                            <state key="normal" title="Log In">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="logIn:" destination="-1" eventType="touchUpInside" id="L2w-b9-ON2"/>
                             </connections>
                         </button>
                     </subviews>
@@ -124,10 +124,10 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqT-La-ums">
                     <rect key="frame" x="8" y="195" width="584" height="90"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fU-Hr-iAj">
-                            <rect key="frame" x="502" y="44" width="82" height="46"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fU-Hr-iAj" customClass="CommsButton">
+                            <rect key="frame" x="461" y="44" width="123" height="46"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="82" id="2cn-cR-RK2"/>
+                                <constraint firstAttribute="width" constant="123" id="2cn-cR-RK2"/>
                                 <constraint firstAttribute="height" constant="46" id="TfE-mx-eZb"/>
                             </constraints>
                             <state key="normal" title="Log Out">
@@ -137,10 +137,10 @@
                                 <action selector="logOut:" destination="-1" eventType="touchUpInside" id="9yv-gB-Vda"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xt8-Yf-JsD">
-                            <rect key="frame" x="356" y="44" width="138" height="46"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xt8-Yf-JsD" customClass="CommsButton">
+                            <rect key="frame" x="356" y="44" width="97" height="46"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="138" id="5cL-yq-er5"/>
+                                <constraint firstAttribute="width" constant="97" id="5cL-yq-er5"/>
                                 <constraint firstAttribute="height" constant="46" id="cbQ-1V-eRQ"/>
                             </constraints>
                             <state key="normal" title="Burn Account">
@@ -168,11 +168,11 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZi-iq-hLu">
-                            <rect key="frame" x="0.0" y="52" width="69" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZi-iq-hLu" customClass="CommsButton">
+                            <rect key="frame" x="0.0" y="44" width="69" height="46"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="69" id="9sP-UO-lfL"/>
-                                <constraint firstAttribute="height" constant="30" id="QfZ-IE-THW"/>
+                                <constraint firstAttribute="height" constant="46" id="QfZ-IE-THW"/>
                             </constraints>
                             <state key="normal" title="Show Key">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,7 +184,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Yji-FX-mwx" secondAttribute="trailing" id="3vI-o9-eJF"/>
-                        <constraint firstItem="OZi-iq-hLu" firstAttribute="top" secondItem="Yji-FX-mwx" secondAttribute="bottom" constant="13" id="45y-Qh-o22"/>
+                        <constraint firstItem="OZi-iq-hLu" firstAttribute="top" secondItem="Yji-FX-mwx" secondAttribute="bottom" constant="5" id="45y-Qh-o22"/>
                         <constraint firstItem="Yji-FX-mwx" firstAttribute="top" secondItem="eqT-La-ums" secondAttribute="top" constant="18" id="5W0-Bq-gi5"/>
                         <constraint firstAttribute="trailing" secondItem="4fU-Hr-iAj" secondAttribute="trailing" id="9JS-5Z-ocd"/>
                         <constraint firstAttribute="bottom" secondItem="Xt8-Yf-JsD" secondAttribute="bottom" id="Gi8-2V-dAs"/>

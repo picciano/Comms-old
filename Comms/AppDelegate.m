@@ -78,6 +78,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     
     // get changes that might have happened while this
     // instance of your app wasn't running
+//    [[NSUbiquitousKeyValueStore defaultStore] removeObjectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
     [[NSUbiquitousKeyValueStore defaultStore] synchronize];
     
     DDLogDebug(@"Expiration Date: %@", [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY]);
@@ -85,7 +86,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (void)storeDidChange:(NSNotification *)notification {
     DDLogDebug(@"storeDidChange notification: %@", notification);
-    DDLogDebug(@"Expiration Date: %@", [[NSUbiquitousKeyValueStore defaultStore] objectForKey:@"proSubscriptionExpirationDate"]);
+    DDLogDebug(@"Expiration Date: %@", [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY]);
 }
 #endif
 

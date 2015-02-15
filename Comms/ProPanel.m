@@ -14,7 +14,11 @@
 @interface ProPanel ()
 
 @property (weak, nonatomic) IBOutlet UIButton *hiddenChannelButton;
+
+#ifndef PRO
 @property (weak, nonatomic) IBOutlet UIButton *manageSubscriptionsButton;
+@property (weak, nonatomic) IBOutlet UIButton *getProFeaturesButton;
+#endif
 
 @end
 
@@ -40,9 +44,14 @@
 
 - (void)updateDisplay {
     self.hiddenChannelButton.enabled = ([PFUser currentUser] != nil);
-    if ([[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] > 0) {
-        [self.manageSubscriptionsButton setTitle:@"Manage Subscriptions" forState:UIControlStateNormal];
-    }
+    
+#ifndef PRO
+    BOOL noSubscription = ([[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] == 0);
+    self.hiddenChannelButton.hidden = noSubscription;
+    self.manageSubscriptionsButton.hidden = noSubscription;
+    self.getProFeaturesButton.hidden = !noSubscription;
+#endif
+    
 }
 
 - (IBAction)createOrJoinHiddenChannel:(id)sender {
