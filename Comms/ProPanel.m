@@ -7,6 +7,7 @@
 //
 
 #import "ProPanel.h"
+#import "InAppPurchaseViewController.h"
 #import "Constants.h"
 
 @interface ProPanel ()
@@ -42,6 +43,11 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(showHiddenChannelDialog:)]) {
         [self.delegate performSelector:@selector(showHiddenChannelDialog:) withObject:self];
     }
+}
+
+- (IBAction)manageSubscriptions:(id)sender {
+    UIViewController *viewController = [[InAppPurchaseViewController alloc] initWithNibName:nil bundle:nil];
+    [((UIViewController *)self.delegate).navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)layoutSubviews {

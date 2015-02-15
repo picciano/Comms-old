@@ -11,6 +11,12 @@
 		AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
 		AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF4344EA1A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AF4D9C9E1A91145600754BB7 /* InAppPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4D9C9C1A91145600754BB7 /* InAppPurchaseViewController.m */; };
+		AF4D9C9F1A91145600754BB7 /* InAppPurchaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4D9C9D1A91145600754BB7 /* InAppPurchaseView.xib */; };
+		AF4D9CA51A91179100754BB7 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4D9CA41A91179100754BB7 /* IAPHelper.m */; };
+		AF4D9CA91A9117B400754BB7 /* CommsIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4D9CA81A9117B400754BB7 /* CommsIAPHelper.m */; };
+		AF562A931A9126C6006FC3F6 /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF562A911A9126C6006FC3F6 /* ProductTableViewCell.m */; };
+		AF562A941A9126C6006FC3F6 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF562A921A9126C6006FC3F6 /* ProductTableViewCell.xib */; };
 		AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */; };
@@ -133,6 +139,17 @@
 		AF4344E41A8A524600A5B527 /* SecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityService.m; sourceTree = "<group>"; };
 		AF4344E71A8A7D8700A5B527 /* SecKeyWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecKeyWrapper.h; sourceTree = "<group>"; };
 		AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecKeyWrapper.m; sourceTree = "<group>"; };
+		AF4D9C971A91012600754BB7 /* Comms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Comms.entitlements; sourceTree = "<group>"; };
+		AF4D9C9B1A91145600754BB7 /* InAppPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseViewController.h; sourceTree = "<group>"; };
+		AF4D9C9C1A91145600754BB7 /* InAppPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseViewController.m; sourceTree = "<group>"; };
+		AF4D9C9D1A91145600754BB7 /* InAppPurchaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InAppPurchaseView.xib; sourceTree = "<group>"; };
+		AF4D9CA31A91179100754BB7 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		AF4D9CA41A91179100754BB7 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		AF4D9CA71A9117B400754BB7 /* CommsIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommsIAPHelper.h; sourceTree = "<group>"; };
+		AF4D9CA81A9117B400754BB7 /* CommsIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommsIAPHelper.m; sourceTree = "<group>"; };
+		AF562A901A9126C6006FC3F6 /* ProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
+		AF562A911A9126C6006FC3F6 /* ProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
+		AF562A921A9126C6006FC3F6 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		AF9EC11A1A85267D00061558 /* ChannelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelTableViewCell.h; sourceTree = "<group>"; };
 		AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelTableViewCell.m; sourceTree = "<group>"; };
 		AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
@@ -290,6 +307,39 @@
 			name = Encryption;
 			sourceTree = "<group>";
 		};
+		AF4D9C9A1A91141800754BB7 /* In App Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				AF4D9C9B1A91145600754BB7 /* InAppPurchaseViewController.h */,
+				AF4D9C9C1A91145600754BB7 /* InAppPurchaseViewController.m */,
+				AF4D9C9D1A91145600754BB7 /* InAppPurchaseView.xib */,
+				AF562A951A9126CA006FC3F6 /* Product Table View */,
+				AF4D9CA61A91179500754BB7 /* IAP Helper */,
+			);
+			name = "In App Purchase";
+			sourceTree = "<group>";
+		};
+		AF4D9CA61A91179500754BB7 /* IAP Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AF4D9CA31A91179100754BB7 /* IAPHelper.h */,
+				AF4D9CA41A91179100754BB7 /* IAPHelper.m */,
+				AF4D9CA71A9117B400754BB7 /* CommsIAPHelper.h */,
+				AF4D9CA81A9117B400754BB7 /* CommsIAPHelper.m */,
+			);
+			name = "IAP Helper";
+			sourceTree = "<group>";
+		};
+		AF562A951A9126CA006FC3F6 /* Product Table View */ = {
+			isa = PBXGroup;
+			children = (
+				AF562A901A9126C6006FC3F6 /* ProductTableViewCell.h */,
+				AF562A911A9126C6006FC3F6 /* ProductTableViewCell.m */,
+				AF562A921A9126C6006FC3F6 /* ProductTableViewCell.xib */,
+			);
+			name = "Product Table View";
+			sourceTree = "<group>";
+		};
 		AF9EC1191A85264C00061558 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,11 +426,13 @@
 		AFA5772F1A83E431004D2809 /* Comms */ = {
 			isa = PBXGroup;
 			children = (
+				AF4D9C971A91012600754BB7 /* Comms.entitlements */,
 				AFA577341A83E431004D2809 /* AppDelegate.h */,
 				AFA577351A83E431004D2809 /* AppDelegate.m */,
 				AFA577751A83E616004D2809 /* Constants.h */,
 				AFD98FF51A83E9FD00A2B1DD /* App Info Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
+				AF4D9C9A1A91141800754BB7 /* In App Purchase */,
 				AFD9901F1A83F2EE00A2B1DD /* Channel View */,
 				AFD0DD691A83FFFA00C9CC10 /* Post Message View */,
 				AFD990291A83F60800A2B1DD /* Account View */,
@@ -635,6 +687,12 @@
 				TargetAttributes = {
 					AFA5772C1A83E431004D2809 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = PC5SP4V242;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					AFA577451A83E431004D2809 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -671,6 +729,7 @@
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA55F131A89482200813CAE /* MessageTableViewCell.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
+				AF562A941A9126C6006FC3F6 /* ProductTableViewCell.xib in Resources */,
 				AFD0DD6F1A84001900C9CC10 /* PostMessageView.xib in Resources */,
 				AFA55F061A89167800813CAE /* HeaderView.xib in Resources */,
 				AFD9902E1A83F61E00A2B1DD /* AccountView.xib in Resources */,
@@ -679,6 +738,7 @@
 				AF9EC1291A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */,
 				AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */,
 				AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */,
+				AF4D9C9F1A91145600754BB7 /* InAppPurchaseView.xib in Resources */,
 				AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,8 +814,10 @@
 			files = (
 				AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */,
 				AFA577651A83E563004D2809 /* DDLog.m in Sources */,
+				AF4D9C9E1A91145600754BB7 /* InAppPurchaseViewController.m in Sources */,
 				AFA55F111A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1261A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
+				AF562A931A9126C6006FC3F6 /* ProductTableViewCell.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */,
 				AFA41DDF1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m in Sources */,
@@ -765,9 +827,11 @@
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
 				AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */,
+				AF4D9CA51A91179100754BB7 /* IAPHelper.m in Sources */,
 				AFD0DD781A840AA700C9CC10 /* AccountPanel.m in Sources */,
 				AFA55F041A89167800813CAE /* HeaderView.m in Sources */,
 				AFA577691A83E563004D2809 /* DDFileLogger.m in Sources */,
+				AF4D9CA91A9117B400754BB7 /* CommsIAPHelper.m in Sources */,
 				AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */,
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
 				AFA577331A83E431004D2809 /* main.m in Sources */,
@@ -941,6 +1005,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Comms/Comms.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
@@ -949,6 +1016,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -956,6 +1024,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Comms/Comms.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
@@ -964,6 +1035,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

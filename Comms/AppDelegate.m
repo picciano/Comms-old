@@ -14,7 +14,7 @@
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelInfo;
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation AppDelegate
 
@@ -22,6 +22,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelInfo;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeLumberjackWithOptions:launchOptions];
     [self initializeParseWithOptions:launchOptions];
+#ifndef PRO
+    [self initializeICloudKeyValueStorageWithOptions:launchOptions];
+#endif
     [self initializeUserInterfaceWithOptions:launchOptions];
     
     return YES;
@@ -63,6 +66,28 @@ static const DDLogLevel ddLogLevel = DDLogLevelInfo;
     
     [self.window makeKeyAndVisible];
 }
+
+#ifndef PRO
+- (void)initializeICloudKeyValueStorageWithOptions:(NSDictionary *)launchOptions {
+    // register to observe notifications from the store
+    [[NSNotificationCenter defaultCenter]
+     addObserver: self
+     selector: @selector (storeDidChange:)
+     name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification
+     object: [NSUbiquitousKeyValueStore defaultStore]];
+    
+    // get changes that might have happened while this
+    // instance of your app wasn't running
+    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
+    
+    DDLogDebug(@"Expiration Date: %@", [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY]);
+}
+
+- (void)storeDidChange:(NSNotification *)notification {
+    DDLogDebug(@"storeDidChange notification: %@", notification);
+    DDLogDebug(@"Expiration Date: %@", [[NSUbiquitousKeyValueStore defaultStore] objectForKey:@"proSubscriptionExpirationDate"]);
+}
+#endif
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Store the deviceToken in the current Installation and save it to Parse.

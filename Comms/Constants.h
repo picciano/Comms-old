@@ -47,9 +47,14 @@
 #define OBJECT_KEY_USER             @"user"
 #define OBJECT_KEY_USERNAME         @"username"
 
-#define CURRENT_USER_CHANGE_NOTIFICATION    @"currentUserChange"
-#define SUBSCRIPTION_CHANGE_NOTIFICATION    @"subscriptionChange"
-#define MESSAGE_POSTED_NOTIFICATION         @"messagePosted"
+#define CURRENT_USER_CHANGE_NOTIFICATION        @"currentUserChange"
+#define SUBSCRIPTION_CHANGE_NOTIFICATION        @"subscriptionChange"
+#define MESSAGE_POSTED_NOTIFICATION             @"messagePosted"
+
+#define PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY    @"proSubscriptionExpirationDate"
+#define ONE_MONTH_PRODUCT_IDENTIFIER            @"1"
+#define SIX_MONTH_PRODUCT_IDENTIFIER            @"6"
+#define ONE_YEAR_PRODUCT_IDENTIFIER             @"12"
 
 #define MAXIMUM_MESSAGE_LENGTH      500
 
