@@ -7,8 +7,9 @@
 //
 
 #import "InAppPurchaseViewController.h"
-#import "CommsIAPHelper.h"
 #import "ProductTableViewCell.h"
+#import "HeaderView.h"
+#import "CommsIAPHelper.h"
 #import "Constants.h"
 
 @interface InAppPurchaseViewController ()
@@ -16,11 +17,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *products;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) NSNumberFormatter *priceFormatter;
 
 @end
 
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+
 static NSString *kProductReuseIdentifier = @"kProductReuseIdentifier";
 
 @implementation InAppPurchaseViewController
@@ -33,10 +34,6 @@ static NSString *kProductReuseIdentifier = @"kProductReuseIdentifier";
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     [self reload];
     [self.refreshControl beginRefreshing];
-    
-    self.priceFormatter = [[NSNumberFormatter alloc] init];
-    [self.priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-    [self.priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductTableViewCell"bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:kProductReuseIdentifier];
@@ -95,10 +92,30 @@ static NSString *kProductReuseIdentifier = @"kProductReuseIdentifier";
     return self.products.count;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    HeaderView *view = [[[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] firstObject];
+    view.titleLabel.text = [[CommsIAPHelper sharedInstance] getExpirationDateString];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 140.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kProductReuseIdentifier forIndexPath:indexPath];
     cell.product = self.products[indexPath.row];
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
