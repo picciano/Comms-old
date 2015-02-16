@@ -87,6 +87,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)storeDidChange:(NSNotification *)notification {
     DDLogDebug(@"storeDidChange notification: %@", notification);
     DDLogDebug(@"Expiration Date: %@", [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY]);
+    [[NSNotificationCenter defaultCenter] postNotificationName:PRODUCT_PURCHASED_NOTIFICATION object:nil userInfo:nil];
 }
 #endif
 
