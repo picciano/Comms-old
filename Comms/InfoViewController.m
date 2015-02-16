@@ -28,6 +28,8 @@
     [super viewDidLoad];
     self.title = @"Info";
     
+    self.view.backgroundColor = [StyleKit commsDeepGreen];
+    
     [self updateDisplay];
 }
 

@@ -45,6 +45,10 @@
     return self;
 }
 
+- (void)didMoveToSuperview {
+    self.contentView.backgroundColor = [StyleKit commsDeepGreen];
+}
+
 - (void)updateDisplay {
     self.hiddenChannelButton.enabled = ([PFUser currentUser] != nil);
     

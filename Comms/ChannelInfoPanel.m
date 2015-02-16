@@ -30,7 +30,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 }
 
 - (void)didMoveToSuperview {
-    //
+    self.contentView.backgroundColor = [StyleKit commsDeepGreen];
 }
 
 - (IBAction)toggleSubscribeButton:(id)sender {

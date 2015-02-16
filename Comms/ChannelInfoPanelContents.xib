@@ -23,7 +23,7 @@
                         <constraint firstAttribute="height" constant="21" id="SjZ-Ke-eDE"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-Us-pzz">
@@ -39,11 +39,11 @@
                                 <action selector="toggleSubscribeButton:" destination="-1" eventType="valueChanged" id="3Ks-9V-yMF"/>
                             </connections>
                         </switch>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1o-6Y-wtU">
-                            <rect key="frame" x="8" y="10" width="98" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1o-6Y-wtU" customClass="CommsButton">
+                            <rect key="frame" x="8" y="0.0" width="98" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="98" id="LoK-pp-M6j"/>
-                                <constraint firstAttribute="height" constant="30" id="cOc-ns-TnZ"/>
+                                <constraint firstAttribute="height" constant="40" id="cOc-ns-TnZ"/>
                             </constraints>
                             <state key="normal" title="Post Message">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,6 +59,7 @@
                                 <constraint firstAttribute="width" constant="88" id="ygw-92-qHi"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -79,11 +80,11 @@
                         <constraint firstAttribute="height" constant="21" id="ZZQ-1Y-BfN"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="cxv-4s-Zlk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="1uw-0F-OhI"/>
                 <constraint firstItem="CUQ-4t-dhc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="3xV-ka-eoB"/>
