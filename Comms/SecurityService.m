@@ -10,7 +10,7 @@
 #import "SecKeyWrapper.h"
 #import "Constants.h"
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 @implementation SecurityService
 

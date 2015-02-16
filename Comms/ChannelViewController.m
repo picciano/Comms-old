@@ -21,7 +21,7 @@
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
 

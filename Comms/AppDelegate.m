@@ -8,14 +8,17 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "CommsIAPHelper.h"
 #import "Constants.h"
+
+#ifndef PRO
+#import "CommsIAPHelper.h"
+#endif
 
 @interface AppDelegate ()
 
 @end
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 @implementation AppDelegate
 
@@ -138,6 +141,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     }
 }
 
+#ifndef PRO
 - (void)checkForExpiredSubscriptionAndHiddenChannels {
     if ([[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] > 0) {
         return;
@@ -177,5 +181,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
         }
     }];
 }
+#endif
 
 @end

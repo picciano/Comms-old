@@ -36,7 +36,7 @@
 static CGFloat originalSignedOutViewheight;
 static CGFloat originalSignedInViewheight;
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 @implementation AccountViewController
 
@@ -208,24 +208,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (IBAction)showPublicKey:(id)sender {
     NSData *bits = [[SecurityService sharedSecurityService] getPublicKeyBits];
     self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"Public Key Bits: %@", bits];
-    
-    [self testEncryption:sender];
-}
-
-- (IBAction)testEncryption:(id)sender {
-    NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
-    
-    NSString *uid = [PFUser currentUser].uniqueIdentifier;
-    
-    NSData *ciphertext = [[SecurityService sharedSecurityService] encrypt:@"Hello, world!" usingPublicKeyBits:publicKeyBits for:uid];
-    NSString *plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
-    
-    if (plaintext == nil) {
-        DDLogDebug(@"Retrying decryption...");
-        plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
-    }
-    
-    DDLogDebug(@"Decoded text: %@", plaintext);
 }
 
 - (void)burnAccount {

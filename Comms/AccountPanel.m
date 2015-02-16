@@ -15,8 +15,6 @@
 
 @end
 
-//static const DDLogLevel ddLogLevel = DDLogLevelDebug;
-
 @implementation AccountPanel
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {

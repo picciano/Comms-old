@@ -7,9 +7,12 @@
 //
 
 #import "ProPanel.h"
-#import "InAppPurchaseViewController.h"
-#import "CommsIAPHelper.h"
 #import "Constants.h"
+
+#ifndef PRO
+#import "CommsIAPHelper.h"
+#import "InAppPurchaseViewController.h"
+#endif
 
 @interface ProPanel ()
 
@@ -60,10 +63,12 @@
     }
 }
 
+#ifndef PRO
 - (IBAction)manageSubscriptions:(id)sender {
     UIViewController *viewController = [[InAppPurchaseViewController alloc] initWithNibName:nil bundle:nil];
     [((UIViewController *)self.delegate).navigationController pushViewController:viewController animated:YES];
 }
+#endif
 
 - (void)layoutSubviews {
     [super layoutSubviews];
