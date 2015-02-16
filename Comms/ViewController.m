@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AccountViewController.h"
+#import "InfoViewController.h"
 #import "ChannelTableViewCell.h"
 #import "ChannelViewController.h"
 #import "HeaderView.h"
@@ -134,6 +135,11 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
 
 - (IBAction)navigateToAccountView:(id)sender {
     UIViewController *viewController = [[AccountViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)navigateToInfoView:(id)sender {
+    UIViewController *viewController = [[InfoViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

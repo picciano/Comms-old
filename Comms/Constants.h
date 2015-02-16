@@ -27,6 +27,7 @@
 #define OBJECT_TYPE_GROUP           @"Group"
 #define OBJECT_TYPE_MESSAGE         @"Message"
 #define OBJECT_TYPE_SUBSCRIPTION    @"Subscription"
+#define OBJECT_TYPE_SUGGESTION      @"Suggestion"
 
 #define OBJECT_KEY_CHANNEL          @"channel"
 #define OBJECT_KEY_CHANNEL_ID       @"channelId"

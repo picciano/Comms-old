@@ -36,6 +36,7 @@
 + (void)drawBigLabelWithLabelText: (NSString*)labelText;
 + (void)drawMessageBlockWithFrame: (CGRect)frame isLocked: (BOOL)isLocked senderUsername: (NSString*)senderUsername createdAt: (NSString*)createdAt message: (NSString*)message;
 + (void)drawLockIconWithFrame: (CGRect)frame lockColor: (UIColor*)lockColor keyColor: (UIColor*)keyColor isLocked: (BOOL)isLocked;
++ (void)drawInfoIcon;
 
 // Generated Images
 + (UIImage*)imageOfChannelLock;

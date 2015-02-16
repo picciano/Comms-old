@@ -119,6 +119,12 @@
 		AFF805151A8685490083C834 /* PFObject+DateFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805111A8683A00083C834 /* PFObject+DateFormat.m */; };
 		AFF805191A86C5320083C834 /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805181A86C5320083C834 /* StyleKit.m */; };
 		AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805181A86C5320083C834 /* StyleKit.m */; };
+		AFFA88A01A929FA400F035F5 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA889E1A929FA400F035F5 /* InfoViewController.m */; };
+		AFFA88A11A929FA400F035F5 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA889E1A929FA400F035F5 /* InfoViewController.m */; };
+		AFFA88A21A929FA400F035F5 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFFA889F1A929FA400F035F5 /* InfoViewController.xib */; };
+		AFFA88A31A929FA400F035F5 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFFA889F1A929FA400F035F5 /* InfoViewController.xib */; };
+		AFFA88A71A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
+		AFFA88A81A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +249,11 @@
 		AFF805111A8683A00083C834 /* PFObject+DateFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFObject+DateFormat.m"; sourceTree = "<group>"; };
 		AFF805171A86C5320083C834 /* StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKit.h; sourceTree = "<group>"; };
 		AFF805181A86C5320083C834 /* StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKit.m; sourceTree = "<group>"; };
+		AFFA889D1A929FA400F035F5 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		AFFA889E1A929FA400F035F5 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		AFFA889F1A929FA400F035F5 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		AFFA88A51A92A26100F035F5 /* InfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoButton.h; sourceTree = "<group>"; };
+		AFFA88A61A92A26100F035F5 /* InfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +462,8 @@
 				AFA577341A83E431004D2809 /* AppDelegate.h */,
 				AFA577351A83E431004D2809 /* AppDelegate.m */,
 				AFA577751A83E616004D2809 /* Constants.h */,
+				AFFA889C1A929F8A00F035F5 /* Info View */,
+				AFFA88A41A92A24900F035F5 /* Info Button */,
 				AF562A9B1A914E6A006FC3F6 /* Comm Button */,
 				AFD98FF51A83E9FD00A2B1DD /* App Info Manager */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
@@ -623,6 +636,25 @@
 			name = "Style Kit";
 			sourceTree = "<group>";
 		};
+		AFFA889C1A929F8A00F035F5 /* Info View */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA889D1A929FA400F035F5 /* InfoViewController.h */,
+				AFFA889E1A929FA400F035F5 /* InfoViewController.m */,
+				AFFA889F1A929FA400F035F5 /* InfoViewController.xib */,
+			);
+			name = "Info View";
+			sourceTree = "<group>";
+		};
+		AFFA88A41A92A24900F035F5 /* Info Button */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA88A51A92A26100F035F5 /* InfoButton.h */,
+				AFFA88A61A92A26100F035F5 /* InfoButton.m */,
+			);
+			name = "Info Button";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -750,6 +782,7 @@
 			files = (
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA55F131A89482200813CAE /* MessageTableViewCell.xib in Resources */,
+				AFFA88A21A929FA400F035F5 /* InfoViewController.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
 				AF562A941A9126C6006FC3F6 /* ProductTableViewCell.xib in Resources */,
 				AFD0DD6F1A84001900C9CC10 /* PostMessageView.xib in Resources */,
@@ -795,6 +828,7 @@
 				AF9EC1201A85267D00061558 /* ChannelTableViewCell.xib in Resources */,
 				AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
 				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
+				AFFA88A31A929FA400F035F5 /* InfoViewController.xib in Resources */,
 				AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -836,6 +870,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFD98FF81A83EA2400A2B1DD /* AppInfoManager.m in Sources */,
+				AFFA88A01A929FA400F035F5 /* InfoViewController.m in Sources */,
 				AFA577651A83E563004D2809 /* DDLog.m in Sources */,
 				AF4D9C9E1A91145600754BB7 /* InAppPurchaseViewController.m in Sources */,
 				AFA55F111A89482200813CAE /* MessageTableViewCell.m in Sources */,
@@ -849,6 +884,7 @@
 				AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
+				AFFA88A71A92A26100F035F5 /* InfoButton.m in Sources */,
 				AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */,
 				AF4D9CA51A91179100754BB7 /* IAPHelper.m in Sources */,
 				AFD0DD781A840AA700C9CC10 /* AccountPanel.m in Sources */,
@@ -889,6 +925,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */,
+				AFFA88A81A92A26100F035F5 /* InfoButton.m in Sources */,
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
 				AFA55F121A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
@@ -908,6 +945,7 @@
 				AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */,
 				AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */,
 				AFD990021A83EC1200A2B1DD /* main.m in Sources */,
+				AFFA88A11A929FA400F035F5 /* InfoViewController.m in Sources */,
 				AFF805141A8685440083C834 /* UIControl+NextControl.m in Sources */,
 				AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */,
 				AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */,

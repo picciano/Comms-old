@@ -48,6 +48,12 @@
     }
 }
 
+- (IBAction)infoView:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(navigateToInfoView:)]) {
+        [self.delegate performSelector:@selector(navigateToInfoView:) withObject:self];
+    }
+}
+
 - (void)layoutSubviews {
     self.contentView.frame = self.bounds;
 }

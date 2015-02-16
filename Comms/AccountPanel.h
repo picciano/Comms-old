@@ -11,6 +11,7 @@
 @protocol AccountPanelDelegate <NSObject>
 @required
 - (void)navigateToAccountView:(id)sender;
+- (void)navigateToInfoView:(id)sender;
 @end
 
 @interface AccountPanel : UIView

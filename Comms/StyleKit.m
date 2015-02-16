@@ -695,6 +695,31 @@ static UIImage* _imageOfChannelLock = nil;
     CGContextRestoreGState(context);
 }
 
++ (void)drawInfoIcon
+{
+    //// General Declarations
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    //// Oval Drawing
+    CGRect ovalRect = CGRectMake(5, 5, 20, 20);
+    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: ovalRect];
+    [StyleKit.commsDarkTan setFill];
+    [ovalPath fill];
+    {
+        NSString* textContent = @"?";
+        NSMutableParagraphStyle* ovalStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
+        ovalStyle.alignment = NSTextAlignmentCenter;
+
+        NSDictionary* ovalFontAttributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize: UIFont.labelFontSize], NSForegroundColorAttributeName: StyleKit.commsDeepGreen, NSParagraphStyleAttributeName: ovalStyle};
+
+        CGFloat ovalTextHeight = [textContent boundingRectWithSize: CGSizeMake(ovalRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: ovalFontAttributes context: nil].size.height;
+        CGContextSaveGState(context);
+        CGContextClipToRect(context, ovalRect);
+        [textContent drawInRect: CGRectMake(CGRectGetMinX(ovalRect), CGRectGetMinY(ovalRect) + (CGRectGetHeight(ovalRect) - ovalTextHeight) / 2, CGRectGetWidth(ovalRect), ovalTextHeight) withAttributes: ovalFontAttributes];
+        CGContextRestoreGState(context);
+    }
+}
+
 #pragma mark Generated Images
 
 + (UIImage*)imageOfChannelLock
