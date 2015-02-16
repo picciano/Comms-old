@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "CommsIAPHelper.h"
 #import "Constants.h"
 
 @interface AppDelegate ()
@@ -24,6 +25,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [self initializeParseWithOptions:launchOptions];
 #ifndef PRO
     [self initializeICloudKeyValueStorageWithOptions:launchOptions];
+    [self checkForExpiredSubscriptionAndHiddenChannels];
 #endif
     [self initializeUserInterfaceWithOptions:launchOptions];
     
@@ -134,6 +136,46 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
             break;
     }
+}
+
+- (void)checkForExpiredSubscriptionAndHiddenChannels {
+    if ([[CommsIAPHelper sharedInstance] daysRemainingOnSubscription] > 0) {
+        return;
+    }
+    
+    if ([PFUser currentUser] == nil) {
+        return;
+    }
+    
+    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_SUBSCRIPTION];
+    [query whereKey:OBJECT_KEY_USER equalTo:[PFUser currentUser]];
+    [query includeKey:OBJECT_KEY_CHANNEL];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            __block BOOL didRemoveHiddenSubscription = NO;
+            [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                PFObject *subscription = obj;
+                PFObject *channel = [subscription objectForKey:OBJECT_KEY_CHANNEL];
+                BOOL hidden = [[channel objectForKey:OBJECT_KEY_HIDDEN] boolValue];
+                if (hidden) {
+                    [subscription deleteEventually];
+                    didRemoveHiddenSubscription = YES;
+                }
+            }];
+            if (didRemoveHiddenSubscription) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Subscription Has Expired"
+                                                                               message:@"Your pro subscription has expired and your access to hidden channels was removed. Please consider renewing your subscription."
+                                                                        preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction *action) {
+                                                                          [[NSNotificationCenter defaultCenter] postNotificationName:SUBSCRIPTION_CHANGE_NOTIFICATION object:self];
+                                                                      }];
+                [alert addAction:defaultAction];
+                [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+            }
+        }
+    }];
 }
 
 @end
