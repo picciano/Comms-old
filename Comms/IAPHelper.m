@@ -195,7 +195,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
         NSDate *today = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"MMM dd, yyyy"];
-        return [NSString stringWithFormat:@"Subscribed! \nExpires: %@ (%i Days)",[dateFormat stringFromDate:today],[self daysRemainingOnSubscription]];
+        return [NSString stringWithFormat:@"Pro Subscription is Active\nExpires: %@ (%i Days)",[dateFormat stringFromDate:today],[self daysRemainingOnSubscription]];
     } else {
         return @"Not Subscribed";
     }
