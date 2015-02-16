@@ -9,6 +9,10 @@
 #import "InfoViewController.h"
 #import "Constants.h"
 
+#ifndef PRO
+#import "CommsIAPHelper.h"
+#endif
+
 @interface InfoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *suggestPublicChannelButton;
@@ -44,6 +48,11 @@
 - (void)updateDisplay {
     self.suggestPublicChannelButton.enabled = self.channelNameTextField.text.length > 3;
     self.enterCodeButton.enabled = self.redemptionCodeTextField.text.length == 8;
+    
+#ifdef PRO
+    self.redemptionCodeTextField.hidden = YES;
+    self.enterCodeButton.hidden = YES;
+#endif
 }
 
 - (IBAction)suggestPublicChannel:(id)sender {
@@ -68,8 +77,47 @@
     }];
 }
 
+#ifndef PRO
 - (IBAction)enterCode:(id)sender {
+    [self hideKeyboard];
+    self.redemptionCodeTextField.text = [self.redemptionCodeTextField.text uppercaseString];
     
+    PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_REDEMPTION_CODE];
+    [query whereKey:OBJECT_KEY_CODE equalTo:self.redemptionCodeTextField.text];
+    [query whereKey:OBJECT_KEY_REMAINING_USES greaterThan:@0];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *redemptionCode, NSError *error) {
+        if (error) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Code"
+                                                                           message:@"The code you entered is no longer valid. Sorry."
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction *action) {
+                                                                      [self clearTextFields];
+                                                                  }];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            [redemptionCode incrementKey:OBJECT_KEY_REMAINING_USES byAmount:@-1];
+            [redemptionCode saveEventually];
+            
+            int days = [[redemptionCode objectForKey:OBJECT_KEY_NUMBER_OF_DAYS] intValue];
+            [[CommsIAPHelper sharedInstance] extendSubscriptionByDays:days];
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Code Accepted"
+                                                                           message:@"Your Pro subscription has been extended."
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction *action) {
+                                                                      [self clearTextFields];
+                                                                  }];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
 }
+#endif
 
 @end

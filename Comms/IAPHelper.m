@@ -190,6 +190,23 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
                                                         options:0];
 }
 
+- (NSDate *)getExpirationDateForDays:(int)days {
+    NSDate *originDate = nil;
+    
+    if ([self daysRemainingOnSubscription] > 0) {
+        originDate = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
+    } else {
+        originDate = [NSDate date];
+    }
+    
+    NSDateComponents *dateComp = [[NSDateComponents alloc] init];
+    [dateComp setDay:days];
+    
+    return [[NSCalendar currentCalendar] dateByAddingComponents:dateComp
+                                                         toDate:originDate
+                                                        options:0];
+}
+
 - (NSString *)getExpirationDateString {
     if ([self daysRemainingOnSubscription] > 0) {
         NSDate *today = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
@@ -202,7 +219,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (void)purchaseSubscriptionWithMonths:(int)months {
-    NSDate * expirationDate = [self getExpirationDateForMonths:months];
+    NSDate *expirationDate = [self getExpirationDateForMonths:months];
     
     [[NSUbiquitousKeyValueStore defaultStore] setObject:expirationDate forKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
     [[NSUbiquitousKeyValueStore defaultStore] synchronize];
@@ -218,6 +235,15 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:PRODUCT_PURCHASED_NOTIFICATION object:productIdentifier userInfo:nil];
+}
+
+- (void)extendSubscriptionByDays:(int)days {
+    NSDate *expirationDate = [self getExpirationDateForDays:days+1];
+    
+    [[NSUbiquitousKeyValueStore defaultStore] setObject:expirationDate forKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
+    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:PRODUCT_PURCHASED_NOTIFICATION object:nil userInfo:nil];
 }
 
 @end

@@ -24,5 +24,6 @@ typedef void (^RequestProductsCompletionHandler)(BOOL success, NSArray * product
 - (NSString *)getExpirationDateString;
 - (NSDate *)getExpirationDateForMonths:(int)months;
 - (void)purchaseSubscriptionWithMonths:(int)months;
+- (void)extendSubscriptionByDays:(int)days;
 
 @end
