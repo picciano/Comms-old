@@ -197,6 +197,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
         originDate = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
     } else {
         originDate = [NSDate date];
+        days++; // to compensate for rounding down expiration date
     }
     
     NSDateComponents *dateComp = [[NSDateComponents alloc] init];
@@ -238,7 +239,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 }
 
 - (void)extendSubscriptionByDays:(int)days {
-    NSDate *expirationDate = [self getExpirationDateForDays:days+1];
+    NSDate *expirationDate = [self getExpirationDateForDays:days];
     
     [[NSUbiquitousKeyValueStore defaultStore] setObject:expirationDate forKey:PRO_SUBSCRIPTION_EXPIRATION_DATE_KEY];
     [[NSUbiquitousKeyValueStore defaultStore] synchronize];
