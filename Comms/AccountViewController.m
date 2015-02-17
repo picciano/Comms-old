@@ -222,7 +222,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 }
 
 - (void)burnAccount {
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    [self.activityIndicator startAnimating];
+    
     [[PFUser currentUser] deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        [self.activityIndicator stopAnimating];
+        
         if (error) {
             DDLogError(@"Error during account burn: %@", error);
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Burning Account"
