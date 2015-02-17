@@ -125,6 +125,8 @@
 		AFFA88A31A929FA400F035F5 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFFA889F1A929FA400F035F5 /* InfoViewController.xib */; };
 		AFFA88A71A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
 		AFFA88A81A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
+		AFFA88AC1A92C4B700F035F5 /* LogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88AB1A92C4B700F035F5 /* LogoView.m */; };
+		AFFA88AD1A92C4B700F035F5 /* LogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88AB1A92C4B700F035F5 /* LogoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +256,8 @@
 		AFFA889F1A929FA400F035F5 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		AFFA88A51A92A26100F035F5 /* InfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoButton.h; sourceTree = "<group>"; };
 		AFFA88A61A92A26100F035F5 /* InfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoButton.m; sourceTree = "<group>"; };
+		AFFA88AA1A92C4B700F035F5 /* LogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoView.h; sourceTree = "<group>"; };
+		AFFA88AB1A92C4B700F035F5 /* LogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +466,7 @@
 				AFA577341A83E431004D2809 /* AppDelegate.h */,
 				AFA577351A83E431004D2809 /* AppDelegate.m */,
 				AFA577751A83E616004D2809 /* Constants.h */,
+				AFFA88A91A92C4A200F035F5 /* Logo View */,
 				AFA5776F1A83E59D004D2809 /* Main View */,
 				AFFA889C1A929F8A00F035F5 /* Info View */,
 				AFFA88A41A92A24900F035F5 /* Info Button */,
@@ -653,6 +658,15 @@
 				AFFA88A61A92A26100F035F5 /* InfoButton.m */,
 			);
 			name = "Info Button";
+			sourceTree = "<group>";
+		};
+		AFFA88A91A92C4A200F035F5 /* Logo View */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA88AA1A92C4B700F035F5 /* LogoView.h */,
+				AFFA88AB1A92C4B700F035F5 /* LogoView.m */,
+			);
+			name = "Logo View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -896,6 +910,7 @@
 				AFA577331A83E431004D2809 /* main.m in Sources */,
 				AFF8050E1A86796E0083C834 /* UIControl+NextControl.m in Sources */,
 				AF562A991A91419A006FC3F6 /* ExpirationHeaderView.m in Sources */,
+				AFFA88AC1A92C4B700F035F5 /* LogoView.m in Sources */,
 				AF562A9E1A914E8C006FC3F6 /* CommsButton.m in Sources */,
 				AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */,
 				AFA577671A83E563004D2809 /* DDASLLogger.m in Sources */,
@@ -929,6 +944,7 @@
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
 				AFA55F121A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
+				AFFA88AD1A92C4B700F035F5 /* LogoView.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */,
 				AFA41DE11A8FB1D100DAF30A /* PFUser+UniqueIdentifier.m in Sources */,

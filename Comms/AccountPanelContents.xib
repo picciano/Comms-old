@@ -14,6 +14,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account Panel Background" translatesAutoresizingMaskIntoConstraints="NO" id="AOf-aJ-BNw">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-Id-PA2" customClass="CommsButton">
                     <rect key="frame" x="200" y="67" width="200" height="40"/>
                     <constraints>
@@ -57,11 +60,18 @@
                 <constraint firstItem="QNY-rs-Elc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="U1p-KS-9f3"/>
                 <constraint firstItem="sOO-Id-PA2" firstAttribute="top" secondItem="CNV-gZ-HI1" secondAttribute="bottom" constant="8" id="VLG-3Z-aDf"/>
                 <constraint firstItem="CNV-gZ-HI1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="VaN-ZO-pq2"/>
+                <constraint firstAttribute="trailing" secondItem="AOf-aJ-BNw" secondAttribute="trailing" id="W2x-0i-xap"/>
                 <constraint firstAttribute="centerX" secondItem="sOO-Id-PA2" secondAttribute="centerX" id="bcd-fc-CSh"/>
                 <constraint firstItem="CNV-gZ-HI1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="e0J-9T-deB"/>
+                <constraint firstItem="AOf-aJ-BNw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lOb-j7-ien"/>
+                <constraint firstItem="AOf-aJ-BNw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="my5-eZ-8qs"/>
+                <constraint firstAttribute="bottom" secondItem="AOf-aJ-BNw" secondAttribute="bottom" id="xxP-GZ-8Gp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="Account Panel Background" width="414" height="126"/>
+    </resources>
 </document>
