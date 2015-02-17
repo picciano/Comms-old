@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChannelInfoPanel">
             <connections>
                 <outlet property="channelNameLabel" destination="CUQ-4t-dhc" id="Xgq-ba-kHt"/>
-                <outlet property="subscribedSwitch" destination="d3E-dK-sFX" id="LxC-zR-hHr"/>
+                <outlet property="subscribeButton" destination="UWc-SF-Qqd" id="VxZ-3m-8r7"/>
                 <outlet property="subscribedView" destination="tf2-Us-pzz" id="jh8-7D-jeV"/>
                 <outlet property="subscriberCountLabel" destination="cxv-4s-Zlk" id="3eG-fi-DrZ"/>
             </connections>
@@ -17,6 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account Panel Background" translatesAutoresizingMaskIntoConstraints="NO" id="D5z-Wz-wE4">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUQ-4t-dhc">
                     <rect key="frame" x="8" y="8" width="584" height="21"/>
                     <constraints>
@@ -29,16 +32,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-Us-pzz">
                     <rect key="frame" x="0.0" y="50" width="600" height="50"/>
                     <subviews>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="d3E-dK-sFX">
-                            <rect key="frame" x="543" y="9" width="51" height="31"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="49" id="FOy-pZ-vkq"/>
-                                <constraint firstAttribute="height" constant="31" id="SXB-SF-Qpj"/>
-                            </constraints>
-                            <connections>
-                                <action selector="toggleSubscribeButton:" destination="-1" eventType="valueChanged" id="3Ks-9V-yMF"/>
-                            </connections>
-                        </switch>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1o-6Y-wtU" customClass="CommsButton">
                             <rect key="frame" x="8" y="0.0" width="98" height="40"/>
                             <constraints>
@@ -52,23 +45,25 @@
                                 <action selector="postMessage:" destination="-1" eventType="touchUpInside" id="7dg-f4-jBC"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-d6-E4Z">
-                            <rect key="frame" x="447" y="14" width="88" height="21"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWc-SF-Qqd" customClass="CommsButton">
+                            <rect key="frame" x="494" y="2" width="98" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="21" id="05Q-Za-Aiu"/>
-                                <constraint firstAttribute="width" constant="88" id="ygw-92-qHi"/>
+                                <constraint firstAttribute="width" constant="98" id="Td1-OG-pZ3"/>
+                                <constraint firstAttribute="height" constant="40" id="zOR-cr-ROy"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <state key="normal" title="Subscribe">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" title="Unsubscribe"/>
+                            <connections>
+                                <action selector="toggleSubscribeButton:" destination="-1" eventType="touchUpInside" id="psx-mF-sn5"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="d3E-dK-sFX" secondAttribute="bottom" constant="10" id="Av9-Iq-Bb3"/>
-                        <constraint firstItem="d3E-dK-sFX" firstAttribute="leading" secondItem="iAb-d6-E4Z" secondAttribute="trailing" constant="8" id="VEU-mN-j7g"/>
-                        <constraint firstAttribute="trailing" secondItem="d3E-dK-sFX" secondAttribute="trailing" constant="8" id="XG0-kL-pS4"/>
-                        <constraint firstAttribute="bottom" secondItem="iAb-d6-E4Z" secondAttribute="bottom" constant="15" id="XL8-JN-eUR"/>
+                        <constraint firstAttribute="bottom" secondItem="UWc-SF-Qqd" secondAttribute="bottom" constant="8" id="5zD-Je-aZy"/>
+                        <constraint firstAttribute="trailing" secondItem="UWc-SF-Qqd" secondAttribute="trailing" constant="8" id="juz-rR-k49"/>
                         <constraint firstItem="Z1o-6Y-wtU" firstAttribute="leading" secondItem="tf2-Us-pzz" secondAttribute="leading" constant="8" id="o9c-Rq-Epb"/>
                         <constraint firstAttribute="height" constant="50" id="qDf-JO-Oo9"/>
                         <constraint firstAttribute="bottom" secondItem="Z1o-6Y-wtU" secondAttribute="bottom" constant="10" id="ycQ-07-CBc"/>
@@ -88,16 +83,23 @@
             <constraints>
                 <constraint firstItem="cxv-4s-Zlk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="1uw-0F-OhI"/>
                 <constraint firstItem="CUQ-4t-dhc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="3xV-ka-eoB"/>
+                <constraint firstAttribute="trailing" secondItem="D5z-Wz-wE4" secondAttribute="trailing" id="4ey-l3-TPS"/>
+                <constraint firstAttribute="bottom" secondItem="D5z-Wz-wE4" secondAttribute="bottom" id="AUB-PJ-Ju7"/>
+                <constraint firstItem="D5z-Wz-wE4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AV0-Lg-MCO"/>
                 <constraint firstAttribute="trailing" secondItem="CUQ-4t-dhc" secondAttribute="trailing" constant="8" id="AtR-6r-6ej"/>
                 <constraint firstAttribute="trailing" secondItem="tf2-Us-pzz" secondAttribute="trailing" id="EhG-0L-bAY"/>
                 <constraint firstAttribute="bottom" secondItem="tf2-Us-pzz" secondAttribute="bottom" id="MoQ-63-l74"/>
                 <constraint firstItem="tf2-Us-pzz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SHw-R0-tva"/>
                 <constraint firstItem="cxv-4s-Zlk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="Ss4-8f-cIl"/>
                 <constraint firstAttribute="trailing" secondItem="cxv-4s-Zlk" secondAttribute="trailing" constant="8" id="cBc-0d-ydr"/>
+                <constraint firstItem="D5z-Wz-wE4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="iZE-xm-Yuc"/>
                 <constraint firstItem="CUQ-4t-dhc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="umD-UY-6nj"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="Account Panel Background" width="414" height="126"/>
+    </resources>
 </document>

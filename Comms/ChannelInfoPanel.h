@@ -21,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIView *subscribedView;
 @property (weak, nonatomic) IBOutlet UILabel *channelNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subscriberCountLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *subscribedSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *subscribeButton;
 
 @end

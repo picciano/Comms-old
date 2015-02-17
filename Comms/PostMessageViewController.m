@@ -29,6 +29,9 @@
     
     self.view.backgroundColor = [StyleKit commsDeepGreen];
     self.messageTextView.backgroundColor = [StyleKit commsTan];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancel:)];
+    self.navigationItem.leftBarButtonItem = backButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

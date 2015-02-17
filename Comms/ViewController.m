@@ -40,6 +40,8 @@ static NSString *kChannelReuseIdentifier = @"kChannelReuseIdentifier";
     [self.tableView registerNib:[UINib nibWithNibName:@"ChannelTableViewCell"bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:kChannelReuseIdentifier];
     
+    self.tableView.backgroundColor = [StyleKit commsTan];
+    
     self.channels = [NSMutableDictionary dictionaryWithCapacity:3];
     self.groupNames = [NSMutableArray arrayWithCapacity:3];
     

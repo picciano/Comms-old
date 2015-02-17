@@ -35,9 +35,10 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 
 - (IBAction)toggleSubscribeButton:(id)sender {
     DDLogDebug(@"toggleSubscribeButton:");
-    UISwitch *subscribedSwitch = (UISwitch *)sender;
+    UIButton *subscribeButton = (UIButton *)sender;
+    subscribeButton.selected = !subscribeButton.selected;
     if (self.delegate && [self.delegate respondsToSelector:@selector(setSubscribed:)]) {
-        [self.delegate performSelector:@selector(setSubscribed:) withObject:[NSNumber numberWithBool:subscribedSwitch.on]];
+        [self.delegate performSelector:@selector(setSubscribed:) withObject:[NSNumber numberWithBool:subscribeButton.selected]];
     }
 }
 

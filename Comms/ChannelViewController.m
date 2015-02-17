@@ -60,7 +60,7 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         if (!error) {
-            self.channelInfoPanel.subscribedSwitch.on = YES;
+            self.channelInfoPanel.subscribeButton.selected = YES;
         }
     }];
 }
