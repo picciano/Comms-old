@@ -99,7 +99,6 @@
 		AFD990111A83EC1200A2B1DD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5776C1A83E591004D2809 /* Parse.framework */; };
 		AFD990121A83EC1200A2B1DD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5776B1A83E591004D2809 /* Bolts.framework */; };
 		AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA577721A83E5B8004D2809 /* MainView.xib */; };
-		AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
 		AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD990211A83F33300A2B1DD /* ChannelViewController.m */; };
 		AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD990221A83F33300A2B1DD /* ChannelView.xib */; };
 		AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD990211A83F33300A2B1DD /* ChannelViewController.m */; };
@@ -125,6 +124,7 @@
 		AFFA88A31A929FA400F035F5 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFFA889F1A929FA400F035F5 /* InfoViewController.xib */; };
 		AFFA88A71A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
 		AFFA88A81A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
+		AFFA88AE1A938D0800F035F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -827,9 +827,9 @@
 				AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */,
 				AF9EC1201A85267D00061558 /* ChannelTableViewCell.xib in Resources */,
 				AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
+				AFFA88AE1A938D0800F035F5 /* Images.xcassets in Resources */,
 				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
 				AFFA88A31A929FA400F035F5 /* InfoViewController.xib in Resources */,
-				AFD990161A83EC1200A2B1DD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1176,7 +1176,7 @@
 		AFD990191A83EC1200A2B1DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPro;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
@@ -1196,7 +1196,7 @@
 		AFD9901A1A83EC1200A2B1DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPro;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Comms",
