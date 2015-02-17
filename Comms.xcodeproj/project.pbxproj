@@ -125,6 +125,8 @@
 		AFFA88A71A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
 		AFFA88A81A92A26100F035F5 /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFA88A61A92A26100F035F5 /* InfoButton.m */; };
 		AFFA88AE1A938D0800F035F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773D1A83E431004D2809 /* Images.xcassets */; };
+		AFFA88AF1A93947900F035F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773F1A83E431004D2809 /* LaunchScreen.xib */; };
+		AFFA88B11A9395E600F035F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA5773F1A83E431004D2809 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,7 +174,6 @@
 		AF9EC1251A853B1F00061558 /* ChannelInfoPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelInfoPanel.m; sourceTree = "<group>"; };
 		AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelInfoPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPanelContents.xib; sourceTree = "<group>"; };
-		AF9FCC6C1A84299F00BD32A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenPro.xib; sourceTree = "<group>"; };
 		AFA41DDD1A8FB12500DAF30A /* PFUser+UniqueIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFUser+UniqueIdentifier.h"; sourceTree = "<group>"; };
 		AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFUser+UniqueIdentifier.m"; sourceTree = "<group>"; };
 		AFA55F011A89167800813CAE /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
@@ -473,7 +474,6 @@
 				AFD990291A83F60800A2B1DD /* Account View */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
-				AF9FCC6B1A84299F00BD32A6 /* LaunchScreenPro.xib */,
 				AFF805161A86C5220083C834 /* Style Kit */,
 				AFA577301A83E431004D2809 /* Supporting Files */,
 				AFA577571A83E542004D2809 /* Cocoa Lumberjack */,
@@ -783,6 +783,7 @@
 				AFD990241A83F33300A2B1DD /* ChannelView.xib in Resources */,
 				AFA55F131A89482200813CAE /* MessageTableViewCell.xib in Resources */,
 				AFFA88A21A929FA400F035F5 /* InfoViewController.xib in Resources */,
+				AFFA88AF1A93947900F035F5 /* LaunchScreen.xib in Resources */,
 				AFA577741A83E5B8004D2809 /* MainView.xib in Resources */,
 				AF562A941A9126C6006FC3F6 /* ProductTableViewCell.xib in Resources */,
 				AFD0DD6F1A84001900C9CC10 /* PostMessageView.xib in Resources */,
@@ -827,6 +828,7 @@
 				AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */,
 				AF9EC1201A85267D00061558 /* ChannelTableViewCell.xib in Resources */,
 				AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
+				AFFA88B11A9395E600F035F5 /* LaunchScreen.xib in Resources */,
 				AFFA88AE1A938D0800F035F5 /* Images.xcassets in Resources */,
 				AFD990151A83EC1200A2B1DD /* MainView.xib in Resources */,
 				AFFA88A31A929FA400F035F5 /* InfoViewController.xib in Resources */,
@@ -970,14 +972,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AF9FCC6B1A84299F00BD32A6 /* LaunchScreenPro.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF9FCC6C1A84299F00BD32A6 /* Base */,
-			);
-			name = LaunchScreenPro.xib;
-			sourceTree = "<group>";
-		};
 		AFA5773F1A83E431004D2809 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
