@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *messageCharacterCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *postMessageButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -66,6 +67,7 @@
         [self postEncryptedMessages];
     } else {
         [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+        [self.activityIndicator startAnimating];
         
         PFObject *message = [PFObject objectWithClassName:OBJECT_TYPE_MESSAGE];
         [message setObject:[PFUser currentUser] forKey:OBJECT_KEY_USER];
@@ -75,6 +77,7 @@
         
         [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+            [self.activityIndicator stopAnimating];
             
             if (error) {
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Posting Message"
@@ -102,9 +105,11 @@
     [query includeKey:OBJECT_KEY_USER];
     
     [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    [self.activityIndicator startAnimating];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        [self.activityIndicator stopAnimating];
         
         if (error) {
             // handle error

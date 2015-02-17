@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountViewController">
             <connections>
+                <outlet property="activityIndicator" destination="zkn-AE-js5" id="uGu-AF-Ft4"/>
                 <outlet property="burnAccountButton" destination="Xt8-Yf-JsD" id="8pF-mi-EJW"/>
                 <outlet property="createAccountButton" destination="zFc-wP-IcV" id="vwN-tI-qXQ"/>
                 <outlet property="createdAtLabel" destination="Yji-FX-mwx" id="hrc-tw-dIf"/>
@@ -203,6 +204,13 @@
                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zkn-AE-js5">
+                    <rect key="frame" x="282" y="281" width="37" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="hOb-Eh-NXU"/>
+                        <constraint firstAttribute="height" constant="37" id="yQI-P8-0aM"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -210,8 +218,10 @@
                 <constraint firstAttribute="trailing" secondItem="aiO-ZZ-MmR" secondAttribute="trailing" constant="8" id="8Pj-f6-Kne"/>
                 <constraint firstItem="dXo-kQ-V4Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="NV1-0d-KFc"/>
                 <constraint firstItem="dXo-kQ-V4Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="T7q-Ym-tMo"/>
+                <constraint firstAttribute="centerY" secondItem="zkn-AE-js5" secondAttribute="centerY" id="TUa-3i-yVo"/>
                 <constraint firstAttribute="trailing" secondItem="dXo-kQ-V4Z" secondAttribute="trailing" constant="8" id="Udc-LJ-QzA"/>
                 <constraint firstItem="eqT-La-ums" firstAttribute="top" secondItem="dXo-kQ-V4Z" secondAttribute="bottom" id="d7C-qz-bjY"/>
+                <constraint firstAttribute="centerX" secondItem="zkn-AE-js5" secondAttribute="centerX" id="dxj-jb-WoM"/>
                 <constraint firstAttribute="trailing" secondItem="eqT-La-ums" secondAttribute="trailing" constant="8" id="gWs-Ee-P9w"/>
                 <constraint firstItem="aiO-ZZ-MmR" firstAttribute="top" secondItem="eqT-La-ums" secondAttribute="bottom" constant="8" id="lUw-Ig-iuf"/>
                 <constraint firstItem="eqT-La-ums" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="rQt-FE-3pq"/>

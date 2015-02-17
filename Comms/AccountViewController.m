@@ -31,6 +31,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *publicKeyBitsTextView;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @end
 
 static CGFloat originalSignedOutViewheight;
@@ -103,7 +105,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 - (IBAction)logIn:(id)sender {
     [self setFormFieldsEnabled:NO];
+    [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    [self.activityIndicator startAnimating];
+    
     [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
+        [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        [self.activityIndicator stopAnimating];
+        
         if (error) {
             DDLogError(@"Error during login: %@", error);
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Logging In"
@@ -145,9 +153,12 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
     [self setFormFieldsEnabled:NO];
     
     [AppInfoManager setNetworkActivityIndicatorVisible:YES];
+    [self.activityIndicator startAnimating];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
+        [self.activityIndicator stopAnimating];
+        
         if (error) {
             DDLogError(@"Error during signup: %@", error);
             long code = [[error.userInfo valueForKey:@"code"] longValue];

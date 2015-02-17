@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostMessageViewController">
             <connections>
+                <outlet property="activityIndicator" destination="sJf-eK-jvL" id="ZVP-ge-Mgg"/>
                 <outlet property="cancelButton" destination="41q-CP-iLt" id="mbH-BW-WAY"/>
                 <outlet property="messageCharacterCountLabel" destination="zn4-7s-ByP" id="eJQ-lN-N4V"/>
                 <outlet property="messageTextView" destination="x2i-rF-Nxb" id="g8X-tz-7TO"/>
@@ -66,14 +67,23 @@
                         <action selector="cancel:" destination="-1" eventType="touchUpInside" id="hDy-mG-FFO"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="sJf-eK-jvL">
+                    <rect key="frame" x="282" y="281" width="37" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="hgh-8U-8tt"/>
+                        <constraint firstAttribute="width" constant="37" id="iEA-EG-FfM"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="O9Y-38-7Mp" secondAttribute="centerX" id="6J0-Vv-4Ai"/>
                 <constraint firstItem="41q-CP-iLt" firstAttribute="top" secondItem="x2i-rF-Nxb" secondAttribute="bottom" constant="6" id="Bhl-Of-uCr"/>
+                <constraint firstAttribute="centerY" secondItem="sJf-eK-jvL" secondAttribute="centerY" id="JlN-5r-x0C"/>
                 <constraint firstItem="O9Y-38-7Mp" firstAttribute="top" secondItem="x2i-rF-Nxb" secondAttribute="bottom" constant="6" id="RoQ-g3-Vqf"/>
                 <constraint firstAttribute="trailing" secondItem="41q-CP-iLt" secondAttribute="trailing" constant="8" id="W9r-47-3eo"/>
                 <constraint firstItem="x2i-rF-Nxb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="77" id="e0c-CU-2jS"/>
+                <constraint firstAttribute="centerX" secondItem="sJf-eK-jvL" secondAttribute="centerX" id="fjy-gh-6LB"/>
                 <constraint firstItem="x2i-rF-Nxb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hIr-Ex-bI0"/>
                 <constraint firstItem="zn4-7s-ByP" firstAttribute="top" secondItem="x2i-rF-Nxb" secondAttribute="bottom" constant="10" id="o6Y-Wy-zh4"/>
                 <constraint firstItem="zn4-7s-ByP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="ri1-qr-gWM"/>
