@@ -35,6 +35,8 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
     [self.tableView registerNib:[UINib nibWithNibName:@"MessageTableViewCell"bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:kMessageReuseIdentifier];
     
+    self.tableView.backgroundColor = [StyleKit commsTan];
+    
     [self loadSubscriptionStatus];
     [self loadSubscriptionCount];
     [self loadMessages];
@@ -153,6 +155,10 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
     cell.message = self.messages[indexPath.row];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

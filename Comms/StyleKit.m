@@ -499,17 +499,17 @@ static UIImage* _imageOfChannelLock = nil;
 
     //// Background Drawing
     UIBezierPath* backgroundPath = [UIBezierPath bezierPathWithRect: CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), CGRectGetWidth(frame), CGRectGetHeight(frame))];
-    [StyleKit.commsBlack setFill];
+    [StyleKit.commsDarkTan setFill];
     [backgroundPath fill];
 
 
     //// Lcok Symbol Drawing
-    CGRect lcokSymbolRect = CGRectMake(CGRectGetMinX(frame) + 5, CGRectGetMinY(frame) + 4, 20, 20);
+    CGRect lcokSymbolRect = CGRectMake(CGRectGetMinX(frame) + 5, CGRectGetMinY(frame) + 5, 20, 20);
     CGContextSaveGState(context);
     UIRectClip(lcokSymbolRect);
     CGContextTranslateCTM(context, lcokSymbolRect.origin.x, lcokSymbolRect.origin.y);
 
-    [StyleKit drawLockIconWithFrame: CGRectMake(0, 0, lcokSymbolRect.size.width, lcokSymbolRect.size.height) lockColor: StyleKit.commsTan keyColor: StyleKit.commsBlack isLocked: isLocked];
+    [StyleKit drawLockIconWithFrame: CGRectMake(0, 0, lcokSymbolRect.size.width, lcokSymbolRect.size.height) lockColor: StyleKit.commsBlack keyColor: StyleKit.commsPeach isLocked: isLocked];
     CGContextRestoreGState(context);
 
 
@@ -518,7 +518,7 @@ static UIImage* _imageOfChannelLock = nil;
     NSMutableParagraphStyle* createdAtTextStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
     createdAtTextStyle.alignment = NSTextAlignmentRight;
 
-    NSDictionary* createdAtTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS" size: UIFont.smallSystemFontSize], NSForegroundColorAttributeName: StyleKit.commsLightGreen, NSParagraphStyleAttributeName: createdAtTextStyle};
+    NSDictionary* createdAtTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS" size: UIFont.smallSystemFontSize], NSForegroundColorAttributeName: StyleKit.commsDeepGreen, NSParagraphStyleAttributeName: createdAtTextStyle};
 
     CGFloat createdAtTextTextHeight = [createdAt boundingRectWithSize: CGSizeMake(createdAtTextRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: createdAtTextFontAttributes context: nil].size.height;
     CGContextSaveGState(context);
@@ -532,7 +532,7 @@ static UIImage* _imageOfChannelLock = nil;
     NSMutableParagraphStyle* senderUsernameTextStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
     senderUsernameTextStyle.alignment = NSTextAlignmentLeft;
 
-    NSDictionary* senderUsernameTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS" size: UIFont.systemFontSize], NSForegroundColorAttributeName: StyleKit.commsLightGreen, NSParagraphStyleAttributeName: senderUsernameTextStyle};
+    NSDictionary* senderUsernameTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS-Bold" size: UIFont.systemFontSize], NSForegroundColorAttributeName: StyleKit.commsBlack, NSParagraphStyleAttributeName: senderUsernameTextStyle};
 
     CGFloat senderUsernameTextTextHeight = [senderUsername boundingRectWithSize: CGSizeMake(senderUsernameTextRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: senderUsernameTextFontAttributes context: nil].size.height;
     CGContextSaveGState(context);
@@ -546,7 +546,7 @@ static UIImage* _imageOfChannelLock = nil;
     NSMutableParagraphStyle* messageTextStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
     messageTextStyle.alignment = NSTextAlignmentLeft;
 
-    NSDictionary* messageTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS" size: UIFont.smallSystemFontSize], NSForegroundColorAttributeName: StyleKit.commsBlue, NSParagraphStyleAttributeName: messageTextStyle};
+    NSDictionary* messageTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS" size: UIFont.smallSystemFontSize], NSForegroundColorAttributeName: StyleKit.commsBlack, NSParagraphStyleAttributeName: messageTextStyle};
 
     [message drawInRect: messageTextRect withAttributes: messageTextFontAttributes];
 }
@@ -691,7 +691,7 @@ static UIImage* _imageOfChannelLock = nil;
     UIRectClip(symbolRect);
     CGContextTranslateCTM(context, symbolRect.origin.x, symbolRect.origin.y);
 
-    [StyleKit drawLockIconWithFrame: CGRectMake(0, 0, symbolRect.size.width, symbolRect.size.height) lockColor: StyleKit.commsOrange keyColor: StyleKit.commsPeach isLocked: YES];
+    [StyleKit drawLockIconWithFrame: CGRectMake(0, 0, symbolRect.size.width, symbolRect.size.height) lockColor: StyleKit.commsBlack keyColor: StyleKit.commsPeach isLocked: YES];
     CGContextRestoreGState(context);
 }
 
