@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Post Message";
+    
+    self.view.backgroundColor = [StyleKit commsDeepGreen];
+    self.messageTextView.backgroundColor = [StyleKit commsTan];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
