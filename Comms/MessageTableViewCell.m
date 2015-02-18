@@ -26,7 +26,7 @@
     
     [StyleKit drawMessageBlockWithFrame:self.bounds
                                isLocked:locked
-                         senderUsername:sender.username
+                         senderUsername:sender?sender.username:@"[deleted user]"
                               createdAt:date
                                 message:self.messageText];
 }

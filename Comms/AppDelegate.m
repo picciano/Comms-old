@@ -29,6 +29,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 #ifndef PRO
     [self initializeICloudKeyValueStorageWithOptions:launchOptions];
     [self checkForExpiredSubscriptionAndHiddenChannels];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForExpiredSubscriptionAndHiddenChannels) name:CURRENT_USER_CHANGE_NOTIFICATION object:nil];
 #endif
     [self initializeUserInterfaceWithOptions:launchOptions];
     
