@@ -14,7 +14,7 @@
     NSString *objectId = self.objectId;
     NSTimeInterval updateAt = [self.updatedAt timeIntervalSinceReferenceDate];
     
-    NSString *uniqueIdentifier = [NSString stringWithFormat:@"%@%f", objectId, updateAt];
+    NSString *uniqueIdentifier = [NSString stringWithFormat:@"%@.%f", objectId, updateAt];
     
     return uniqueIdentifier;
 }
