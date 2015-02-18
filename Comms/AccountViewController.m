@@ -115,7 +115,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
         if (error) {
             DDLogError(@"Error during login: %@", error);
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error Logging In"
-                                                                           message:@"Check your username and password, or maybe try signing up instead."
+                                                                           message:@"Check your username and password, or maybe try creating an account instead."
                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
                                                                     style:UIAlertActionStyleDefault
