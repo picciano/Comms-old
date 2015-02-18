@@ -112,6 +112,8 @@
 		AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDEC00D1A8438DE00A40F1F /* ProPanel.m */; };
 		AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */; };
 		AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDEC0131A843B2100A40F1F /* ProPanelPromotion.xib */; };
+		AFEA6CD91A9544A200AA8111 /* nnn-short.aiff in Resources */ = {isa = PBXBuildFile; fileRef = AFEA6CD81A9544A200AA8111 /* nnn-short.aiff */; };
+		AFEA6CDA1A9544A200AA8111 /* nnn-short.aiff in Resources */ = {isa = PBXBuildFile; fileRef = AFEA6CD81A9544A200AA8111 /* nnn-short.aiff */; };
 		AFF8050E1A86796E0083C834 /* UIControl+NextControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */; };
 		AFF805121A8683A00083C834 /* PFObject+DateFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF805111A8683A00083C834 /* PFObject+DateFormat.m */; };
 		AFF805141A8685440083C834 /* UIControl+NextControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */; };
@@ -244,6 +246,7 @@
 		AFDEC00D1A8438DE00A40F1F /* ProPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProPanel.m; sourceTree = "<group>"; };
 		AFDEC00E1A8438DE00A40F1F /* ProPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProPanelContents.xib; sourceTree = "<group>"; };
 		AFDEC0131A843B2100A40F1F /* ProPanelPromotion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProPanelPromotion.xib; sourceTree = "<group>"; };
+		AFEA6CD81A9544A200AA8111 /* nnn-short.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "nnn-short.aiff"; sourceTree = "<group>"; };
 		AFF8050C1A86796E0083C834 /* UIControl+NextControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+NextControl.h"; sourceTree = "<group>"; };
 		AFF8050D1A86796E0083C834 /* UIControl+NextControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+NextControl.m"; sourceTree = "<group>"; };
 		AFF805101A8683A00083C834 /* PFObject+DateFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+DateFormat.h"; sourceTree = "<group>"; };
@@ -473,6 +476,7 @@
 				AFD0DD691A83FFFA00C9CC10 /* Post Message View */,
 				AFD990291A83F60800A2B1DD /* Account View */,
 				AFA5773D1A83E431004D2809 /* Images.xcassets */,
+				AFEA6CD71A95449900AA8111 /* Sounds */,
 				AFA5773F1A83E431004D2809 /* LaunchScreen.xib */,
 				AFF805161A86C5220083C834 /* Style Kit */,
 				AFA577301A83E431004D2809 /* Supporting Files */,
@@ -607,6 +611,14 @@
 				AFF8050F1A8679A20083C834 /* Next Control */,
 			);
 			name = "Account View";
+			sourceTree = "<group>";
+		};
+		AFEA6CD71A95449900AA8111 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AFEA6CD81A9544A200AA8111 /* nnn-short.aiff */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		AFF8050F1A8679A20083C834 /* Next Control */ = {
@@ -797,6 +809,7 @@
 				AFDEC0141A843B2100A40F1F /* ProPanelPromotion.xib in Resources */,
 				AF4D9C9F1A91145600754BB7 /* InAppPurchaseView.xib in Resources */,
 				AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */,
+				AFEA6CD91A9544A200AA8111 /* nnn-short.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +832,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEA6CDA1A9544A200AA8111 /* nnn-short.aiff in Resources */,
 				AFDEC0121A843ADA00A40F1F /* ProPanelContents.xib in Resources */,
 				AFA55F141A89482200813CAE /* MessageTableViewCell.xib in Resources */,
 				AFA55F071A89167800813CAE /* HeaderView.xib in Resources */,
