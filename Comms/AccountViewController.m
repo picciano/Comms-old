@@ -206,7 +206,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                             style:UIAlertActionStyleDefault
                                                           handler:nil];
-    UIAlertAction *burnAction = [UIAlertAction actionWithTitle:@"Burn it"
+    UIAlertAction *burnAction = [UIAlertAction actionWithTitle:@"Burn Account"
                                                             style:UIAlertActionStyleDestructive
                                                        handler:^(UIAlertAction *action) {
                                                            [self burnAccount];
