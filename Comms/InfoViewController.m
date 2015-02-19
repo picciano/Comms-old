@@ -22,6 +22,8 @@
 
 @end
 
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+
 @implementation InfoViewController
 
 - (void)viewDidLoad {
@@ -55,6 +57,15 @@
     self.redemptionCodeTextField.hidden = YES;
     self.enterCodeButton.hidden = YES;
 #endif
+}
+
+- (IBAction)readTheFAQ:(id)sender {
+    NSString *url = [[PFConfig currentConfig] objectForKey:CONFIG_FAQ_URL];
+    if (!url) {
+        DDLogWarn(@"Parse config not loaded. Using hard-coded F.A.Q. URL.");
+        url = FALLBACK_FAQ_URL;
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 - (IBAction)suggestPublicChannel:(id)sender {

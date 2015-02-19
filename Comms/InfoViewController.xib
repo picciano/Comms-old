@@ -19,9 +19,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Channel Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kPn-to-19t">
-                    <rect key="frame" x="8" y="84" width="456" height="30"/>
+                    <rect key="frame" x="8" y="127" width="456" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="bRC-rM-05a"/>
+                        <constraint firstAttribute="height" constant="30" id="pI7-H4-lig"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -30,10 +30,10 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqd-RA-Kdb" customClass="CommsButton">
-                    <rect key="frame" x="472" y="79" width="120" height="40"/>
+                    <rect key="frame" x="472" y="122" width="120" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="4WO-sj-oae"/>
-                        <constraint firstAttribute="width" constant="120" id="Mcf-He-C6U"/>
+                        <constraint firstAttribute="height" constant="40" id="0ZA-ZP-VyB"/>
+                        <constraint firstAttribute="width" constant="120" id="SeT-zf-ovN"/>
                     </constraints>
                     <state key="normal" title="Suggest Public Channel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,11 +42,24 @@
                         <action selector="suggestPublicChannel:" destination="-1" eventType="touchUpInside" id="kYF-Eg-7cr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbV-sf-C8N" customClass="CommsButton">
-                    <rect key="frame" x="472" y="147" width="120" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axk-Ig-09d" customClass="CommsButton">
+                    <rect key="frame" x="206" y="74" width="189" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="aIk-hX-Sds"/>
-                        <constraint firstAttribute="width" constant="120" id="iR2-Lw-6L6"/>
+                        <constraint firstAttribute="width" constant="189" id="mLt-kJ-VfI"/>
+                        <constraint firstAttribute="height" constant="40" id="ozA-NM-H9g"/>
+                    </constraints>
+                    <state key="normal" title="Questions? Read the F.A.Q.">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="readTheFAQ:" destination="-1" eventType="touchUpInside" id="obz-BP-LJ2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbV-sf-C8N" customClass="CommsButton">
+                    <rect key="frame" x="472" y="170" width="120" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="7RC-O4-7Qo"/>
+                        <constraint firstAttribute="height" constant="40" id="N1o-fe-dKn"/>
                     </constraints>
                     <state key="normal" title="Enter Code">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,9 +69,9 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Redemption Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MFe-Hz-cF4">
-                    <rect key="frame" x="8" y="152" width="456" height="30"/>
+                    <rect key="frame" x="8" y="175" width="456" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ltg-Mo-G2O"/>
+                        <constraint firstAttribute="height" constant="30" id="i7Y-05-OSF"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -69,16 +82,18 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Mqd-RA-Kdb" secondAttribute="trailing" constant="8" id="FBa-Pu-V02"/>
-                <constraint firstItem="Mqd-RA-Kdb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="79" id="Nhe-NL-Ttc"/>
-                <constraint firstItem="kPn-to-19t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="OZw-MU-I6z"/>
-                <constraint firstItem="Mqd-RA-Kdb" firstAttribute="leading" secondItem="kPn-to-19t" secondAttribute="trailing" constant="8" id="OgI-kh-Gus"/>
-                <constraint firstItem="kPn-to-19t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="RL3-jf-dIg"/>
-                <constraint firstItem="MFe-Hz-cF4" firstAttribute="top" secondItem="kPn-to-19t" secondAttribute="bottom" constant="38" id="VwI-Wo-YHw"/>
-                <constraint firstItem="MFe-Hz-cF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="YrA-Yk-Bdp"/>
-                <constraint firstItem="YbV-sf-C8N" firstAttribute="leading" secondItem="MFe-Hz-cF4" secondAttribute="trailing" constant="8" id="dnU-lY-ERt"/>
-                <constraint firstItem="YbV-sf-C8N" firstAttribute="top" secondItem="Mqd-RA-Kdb" secondAttribute="bottom" constant="28" id="wjL-88-aRe"/>
-                <constraint firstAttribute="trailing" secondItem="YbV-sf-C8N" secondAttribute="trailing" constant="8" id="yYh-tt-cGZ"/>
+                <constraint firstItem="Mqd-RA-Kdb" firstAttribute="leading" secondItem="kPn-to-19t" secondAttribute="trailing" constant="8" id="4Lq-wO-Jhe"/>
+                <constraint firstItem="Mqd-RA-Kdb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="122" id="A1e-3j-4uU"/>
+                <constraint firstItem="MFe-Hz-cF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="CQh-WF-ILP"/>
+                <constraint firstItem="YbV-sf-C8N" firstAttribute="leading" secondItem="MFe-Hz-cF4" secondAttribute="trailing" constant="8" id="KBu-4W-epP"/>
+                <constraint firstAttribute="centerX" secondItem="axk-Ig-09d" secondAttribute="centerX" id="Mm7-dG-MEx"/>
+                <constraint firstItem="axk-Ig-09d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="Rqr-ed-yqZ"/>
+                <constraint firstItem="kPn-to-19t" firstAttribute="top" secondItem="axk-Ig-09d" secondAttribute="bottom" constant="13" id="Zex-3E-WfJ"/>
+                <constraint firstItem="YbV-sf-C8N" firstAttribute="top" secondItem="Mqd-RA-Kdb" secondAttribute="bottom" constant="8" id="iP4-dm-bAp"/>
+                <constraint firstAttribute="trailing" secondItem="YbV-sf-C8N" secondAttribute="trailing" constant="8" id="lfr-l6-uyw"/>
+                <constraint firstItem="MFe-Hz-cF4" firstAttribute="top" secondItem="kPn-to-19t" secondAttribute="bottom" constant="18" id="nYO-5J-qrp"/>
+                <constraint firstAttribute="trailing" secondItem="Mqd-RA-Kdb" secondAttribute="trailing" constant="8" id="qBZ-ep-DP4"/>
+                <constraint firstItem="kPn-to-19t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="uaO-8I-e0a"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>

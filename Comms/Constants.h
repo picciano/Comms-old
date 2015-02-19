@@ -52,6 +52,9 @@
 #define OBJECT_KEY_USER             @"user"
 #define OBJECT_KEY_USERNAME         @"username"
 
+#define CONFIG_FAQ_URL              @"faqUrl"
+#define FALLBACK_FAQ_URL            @"http://comms.parseapp.com/faq.html"
+
 #define CURRENT_USER_CHANGE_NOTIFICATION        @"currentUserChange"
 #define SUBSCRIPTION_CHANGE_NOTIFICATION        @"subscriptionChange"
 #define MESSAGE_POSTED_NOTIFICATION             @"messagePosted"

@@ -60,6 +60,14 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
             [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
         }
     }
+    
+    [PFConfig getConfigInBackgroundWithBlock:^(PFConfig *config, NSError *error) {
+        if (error) {
+            DDLogError(@"Parse config failed to load with error: %@", error.localizedDescription);
+        } else {
+            DDLogDebug(@"Parse config loaded successfully.");
+        }
+    }];
 }
 
 - (void)initializeUserInterfaceWithOptions:(NSDictionary *)launchOptions {
