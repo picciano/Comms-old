@@ -158,11 +158,11 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	
 	// Delete the private key.
 	sanityCheck = SecItemDelete((CFDictionaryRef)queryPrivateKey);
-	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing private key, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing private key, OSStatus == %d.", (int)sanityCheck );
 	
 	// Delete the public key.
 	sanityCheck = SecItemDelete((CFDictionaryRef)queryPublicKey);
-	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing public key, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing public key, OSStatus == %d.", (int)sanityCheck );
 	
 	[queryPrivateKey release];
 	[queryPublicKey release];
@@ -181,7 +181,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
     
     // Delete the symmetric key.
     sanityCheck = SecItemDelete((CFDictionaryRef)queryPeerKey);
-    LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing symmetric key, OSStatus == %d.", sanityCheck );
+    LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing symmetric key, OSStatus == %d.", (int)sanityCheck );
     
     [queryPeerKey release];
     [peerTag release];
@@ -200,7 +200,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	
 	// Delete the symmetric key.
 	sanityCheck = SecItemDelete((CFDictionaryRef)querySymmetricKey);
-	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing symmetric key, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Error removing symmetric key, OSStatus == %d.", (int)sanityCheck );
 	
 	[querySymmetricKey release];
 	[symmetricKeyRef release];
@@ -278,9 +278,9 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	memset((void *)symmetricKey, 0x0, kChosenCipherKeySize);
 	
 	sanityCheck = SecRandomCopyBytes(kSecRandomDefault, kChosenCipherKeySize, symmetricKey);
-	LOGGING_FACILITY1( sanityCheck == noErr, @"Problem generating the symmetric key, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr, @"Problem generating the symmetric key, OSStatus == %d.", (int)sanityCheck );
 	
-	self.symmetricKeyRef = [[NSData alloc] initWithBytes:(const void *)symmetricKey length:kChosenCipherKeySize];
+	self.symmetricKeyRef = [[[NSData alloc] initWithBytes:(const void *)symmetricKey length:kChosenCipherKeySize] autorelease];
 	
 	// Add the wrapped key data to the container dictionary.
 	[symmetricKeyAttr setObject:self.symmetricKeyRef
@@ -288,7 +288,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	
 	// Add the symmetric key to the keychain.
 	sanityCheck = SecItemAdd((CFDictionaryRef) symmetricKeyAttr, NULL);
-	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecDuplicateItem, @"Problem storing the symmetric key in the keychain, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecDuplicateItem, @"Problem storing the symmetric key in the keychain, OSStatus == %d.", (int)sanityCheck );
 	
 	if (symmetricKey) free(symmetricKey);
 	[symmetricKeyAttr release];
@@ -320,7 +320,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	// Also take a look at SecKeyWrapper's methods (CFTypeRef)getPersistentKeyRefWithKeyRef:(SecKeyRef)key
 	// & (SecKeyRef)getKeyRefWithPersistentKeyRef:(CFTypeRef)persistentRef.
 	
-	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecDuplicateItem, @"Problem adding the peer public key to the keychain, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecDuplicateItem, @"Problem adding the peer public key to the keychain, OSStatus == %d.", (int)sanityCheck );
 	
 	if (persistPeer) {
 		peerKeyRef = [self getKeyRefWithPersistentKeyRef:persistPeer];
@@ -331,7 +331,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 		sanityCheck = SecItemCopyMatching((CFDictionaryRef) peerPublicKeyAttr, (CFTypeRef *)&peerKeyRef);
 	}
 	
-	LOGGING_FACILITY1( sanityCheck == noErr && peerKeyRef != NULL, @"Problem acquiring reference to the public key, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr && peerKeyRef != NULL, @"Problem acquiring reference to the public key, OSStatus == %d.", (int)sanityCheck );
 	
 	[peerTag release];
 	[peerPublicKeyAttr release];
@@ -353,7 +353,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	
 	sanityCheck = SecItemDelete((CFDictionaryRef) peerPublicKeyAttr);
 	
-	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Problem deleting the peer public key to the keychain, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr || sanityCheck == errSecItemNotFound, @"Problem deleting the peer public key to the keychain, OSStatus == %d.", (int)sanityCheck );
 	
 	[peerTag release];
 	[peerPublicKeyAttr release];
@@ -393,7 +393,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 									&cipherBufferSize
 								);
 	
-	LOGGING_FACILITY1( sanityCheck == noErr, @"Error encrypting, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr, @"Error encrypting, OSStatus == %d.", (int)sanityCheck );
 	
 	// Build up cipher text blob.
 	cipher = [NSData dataWithBytes:(const void *)cipherBuffer length:(NSUInteger)cipherBufferSize];
@@ -435,7 +435,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 									&keyBufferSize
 								);
 	
-	LOGGING_FACILITY1( sanityCheck == noErr, @"Error decrypting, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr, @"Error decrypting, OSStatus == %d.", (int)sanityCheck );
 	
 	// Build up plain text blob.
 	key = [NSData dataWithBytes:(const void *)keyBuffer length:(NSUInteger)keyBufferSize];
@@ -494,7 +494,7 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 									&signedHashBytesSize
 								);
 	
-	LOGGING_FACILITY1( sanityCheck == noErr, @"Problem signing the SHA1 hash, OSStatus == %d.", sanityCheck );
+	LOGGING_FACILITY1( sanityCheck == noErr, @"Problem signing the SHA1 hash, OSStatus == %d.", (int)sanityCheck );
 	
 	// Build up signed SHA1 blob.
 	signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
@@ -808,6 +808,9 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	
 	// Get the persistent key reference.
 	sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryKey, (CFTypeRef *)&persistentRef);
+    
+    LOGGING_FACILITY1( sanityCheck == noErr, @"Error in getPersistentKeyRefWithKeyRef, OSStatus == %d.", (int)sanityCheck );
+    
 	[queryKey release];
 	
 	return persistentRef;
@@ -827,6 +830,9 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	
 	// Get the persistent key reference.
 	sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryKey, (CFTypeRef *)&keyRef);
+    
+    LOGGING_FACILITY1( sanityCheck == noErr, @"Error in getKeyRefWithPersistentKeyRef, OSStatus == %d.", (int)sanityCheck );
+    
 	[queryKey release];
 	
 	return keyRef;
