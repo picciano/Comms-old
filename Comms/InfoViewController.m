@@ -78,7 +78,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
     [suggestion setObject:self.channelNameTextField.text forKey:OBJECT_KEY_TEXT];
     [suggestion saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Suggestion Noted"
-                                                                       message:@"Thank you for the suggestion. We will consider add that public channel."
+                                                                       message:@"Thank you for the suggestion. We will consider adding that channel."
                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
                                                                 style:UIAlertActionStyleDefault
