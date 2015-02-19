@@ -65,7 +65,6 @@
 		AFA577871A83E7DF004D2809 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577861A83E7DF004D2809 /* SystemConfiguration.framework */; };
 		AFA577891A83E7E6004D2809 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577881A83E7E6004D2809 /* libz.dylib */; };
 		AFA5778B1A83E7ED004D2809 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */; };
-		AFA5778D1A83E7FB004D2809 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778C1A83E7FB004D2809 /* iAd.framework */; };
 		AFD0DD5F1A83FC3900C9CC10 /* CommsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA5774C1A83E431004D2809 /* CommsTests.m */; };
 		AFD0DD681A83FCA300C9CC10 /* CommsProTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD0DD671A83FCA300C9CC10 /* CommsProTests-Info.plist */; };
 		AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DD6B1A84001900C9CC10 /* PostMessageViewController.m */; };
@@ -84,7 +83,6 @@
 		AFD990011A83EC1200A2B1DD /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577621A83E563004D2809 /* DDTTYLogger.m */; };
 		AFD990021A83EC1200A2B1DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577321A83E431004D2809 /* main.m */; };
 		AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA577601A83E563004D2809 /* DDASLLogger.m */; };
-		AFD990051A83EC1200A2B1DD /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778C1A83E7FB004D2809 /* iAd.framework */; };
 		AFD990061A83EC1200A2B1DD /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */; };
 		AFD990071A83EC1200A2B1DD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577881A83E7E6004D2809 /* libz.dylib */; };
 		AFD990081A83EC1200A2B1DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA577861A83E7DF004D2809 /* SystemConfiguration.framework */; };
@@ -224,7 +222,6 @@
 		AFA577861A83E7DF004D2809 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AFA577881A83E7E6004D2809 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		AFA5778C1A83E7FB004D2809 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		AFD0DD651A83FC3900C9CC10 /* CommsProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommsProTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD0DD671A83FCA300C9CC10 /* CommsProTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CommsProTests-Info.plist"; sourceTree = "<group>"; };
 		AFD0DD6A1A84001900C9CC10 /* PostMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMessageViewController.h; sourceTree = "<group>"; };
@@ -265,7 +262,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA5778D1A83E7FB004D2809 /* iAd.framework in Frameworks */,
 				AFA5778B1A83E7ED004D2809 /* libsqlite3.dylib in Frameworks */,
 				AFA577891A83E7E6004D2809 /* libz.dylib in Frameworks */,
 				AFA577871A83E7DF004D2809 /* SystemConfiguration.framework in Frameworks */,
@@ -300,7 +296,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD990051A83EC1200A2B1DD /* iAd.framework in Frameworks */,
 				AFD990061A83EC1200A2B1DD /* libsqlite3.dylib in Frameworks */,
 				AFD990071A83EC1200A2B1DD /* libz.dylib in Frameworks */,
 				AFD990081A83EC1200A2B1DD /* SystemConfiguration.framework in Frameworks */,
@@ -537,7 +532,6 @@
 		AFA5776A1A83E56B004D2809 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AFA5778C1A83E7FB004D2809 /* iAd.framework */,
 				AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */,
 				AFA577881A83E7E6004D2809 /* libz.dylib */,
 				AFA577861A83E7DF004D2809 /* SystemConfiguration.framework */,
