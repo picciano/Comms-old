@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signedOutViewheightConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordAgainField;
 @property (weak, nonatomic) IBOutlet UIButton *logInButton;
 @property (weak, nonatomic) IBOutlet UIButton *createAccountButton;
 
@@ -60,20 +61,29 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 }
 
 - (IBAction)editingChanged:(id)sender {
-    self.createAccountButton.enabled = self.logInButton.enabled = (self.usernameField.text.length > 0 && self.passwordField.text.length > 0);
+    self.createAccountButton.enabled = (self.usernameField.text.length > 0 &&
+                                        self.passwordField.text.length > 0 &&
+                                        [self.passwordField.text isEqualToString:self.passwordAgainField.text]);
+    
+    
+    self.logInButton.enabled = (self.usernameField.text.length > 0 &&
+                                self.passwordField.text.length > 0);
 }
 
 - (void)clearLoginFields {
     self.usernameField.text = EMPTY_STRING;
     self.passwordField.text = EMPTY_STRING;
+    self.passwordAgainField.text = EMPTY_STRING;
     [self.usernameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
+    [self.passwordAgainField resignFirstResponder];
     [self setFormFieldsEnabled:YES];
 }
 
 - (void)setFormFieldsEnabled:(BOOL)enabled {
     self.usernameField.enabled = enabled;
     self.passwordField.enabled = enabled;
+    self.passwordAgainField.enabled = enabled;
     self.createAccountButton.enabled = enabled;
     self.logInButton.enabled = enabled;
 }
