@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Comms": {
+            "applicationId": "jtIeP2JlQH0dUvxA2rdt5apHBkiyOKlV6eZQFRDp", 
+            "masterKey": "mrtAzye7GJGNhxetw3NB2FxcD6hCK9F0mbBIhvS4"
+        }, 
+        "_default": {
+            "link": "Comms"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.4"
+    }
+}

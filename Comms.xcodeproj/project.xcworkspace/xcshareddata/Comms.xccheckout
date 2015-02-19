@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E0F632BB-979D-48E2-AFB3-83E4C9024783</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Comms</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2AFFB86BC49AFAAE64911E6C6DF3EE6F1E3C9481</key>
+		<string>https://github.com/picciano/Comms.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Comms.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2AFFB86BC49AFAAE64911E6C6DF3EE6F1E3C9481</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/picciano/Comms.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2AFFB86BC49AFAAE64911E6C6DF3EE6F1E3C9481</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2AFFB86BC49AFAAE64911E6C6DF3EE6F1E3C9481</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Comms</string>
+		</dict>
+	</array>
+</dict>
+</plist>
