@@ -92,6 +92,8 @@
 @property (nonatomic, retain) NSData * symmetricKeyRef;
 
 + (SecKeyWrapper *)sharedWrapper;
++ (void)reset;
+
 - (void)generateKeyPair:(NSUInteger)keySize;
 - (void)deleteAsymmetricKeys;
 - (void)deleteAsymmetricKeyForPeer:(NSString *)peerName;

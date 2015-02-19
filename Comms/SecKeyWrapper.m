@@ -90,10 +90,14 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 + (SecKeyWrapper *)sharedWrapper {
     @synchronized(self) {
         if (__sharedKeyWrapper == nil) {
-            [[self alloc] init];
+            __sharedKeyWrapper = [[SecKeyWrapper alloc] init];
         }
     }
     return __sharedKeyWrapper;
+}
+
++ (void)reset {
+    __sharedKeyWrapper = nil;
 }
 
 + (id)allocWithZone:(NSZone *)zone {

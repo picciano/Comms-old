@@ -49,6 +49,19 @@ static SecurityService * __sharedSecurityService = nil;
     SecKeyRef privateKey = [[self wrapper] getPrivateKeyRef];
     NSString *plaintext = [self decrypt:ciphertext usingPrivateKey:privateKey];
     
+    if (plaintext == nil) {
+        DDLogWarn(@"DECRYPTION ERROR: RESETTING SecKeyWrapper");
+        
+        [SecKeyWrapper reset];
+        
+        privateKey = [[self wrapper] getPrivateKeyRef];
+        plaintext = [self decrypt:ciphertext usingPrivateKey:privateKey];
+        
+        if (plaintext == nil) {
+            plaintext = @"[unable to decrypt data]";
+        }
+    }
+    
     return plaintext;
 }
 
@@ -143,7 +156,7 @@ static SecurityService * __sharedSecurityService = nil;
             
             if (status != noErr) {
                 DDLogError(@"Cannot decrypt data, last SecKeyEncrypt status: %d", (int)status);
-                return @"[unable to decrypt data]";
+                return nil;
             }
             
             [accumulator appendBytes:plainBuffer length:actualOutputSize];
