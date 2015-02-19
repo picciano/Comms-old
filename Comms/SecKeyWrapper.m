@@ -166,8 +166,6 @@ static SecKeyWrapper * __sharedKeyWrapper = nil;
 	
 	[queryPrivateKey release];
 	[queryPublicKey release];
-	if (publicKeyRef) CFRelease(publicKeyRef);
-	if (privateKeyRef) CFRelease(privateKeyRef);
 }
 
 - (void)deleteAsymmetricKeyForPeer:(NSString *)peerName {
