@@ -202,8 +202,10 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 - (void)updatePublicKey {
     PFUser *currentUser = [PFUser currentUser];
     NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
-    [currentUser setObject:publicKeyBits forKey:OBJECT_KEY_PUBLIC_KEY];
-    [currentUser saveEventually];
+    if (publicKeyBits) {
+        [currentUser setObject:publicKeyBits forKey:OBJECT_KEY_PUBLIC_KEY];
+        [currentUser saveEventually];
+    }
 }
 
 - (IBAction)logOut:(id)sender {
