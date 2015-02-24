@@ -9,8 +9,17 @@
 #import "SecurityService.h"
 #import "SecKeyWrapper.h"
 #import "Constants.h"
+#import "LibgcryptWrapper.h"
+#import "KeychainItemWrapper.h"
 
-static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+@interface SecurityService ()
+
+@property (strong, nonatomic) KeychainItemWrapper *keychain;
+
+@end
+
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+static NSString * const KEYCHAIN_IDENTIFIER = @"com.picciano.comms.keychainID";
 
 @implementation SecurityService
 
@@ -20,19 +29,17 @@ static SecurityService * __sharedSecurityService = nil;
     @synchronized(self) {
         if (__sharedSecurityService == nil) {
             __sharedSecurityService = [[SecurityService alloc] init];
+            __sharedSecurityService.keychain = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_IDENTIFIER accessGroup:nil];
         }
     }
     return __sharedSecurityService;
 }
 
 - (NSData *)getPublicKeyBits {
-    SecKeyWrapper *wrapper = [self wrapper];
+    NSData *keypair = [LibgcryptWrapper generateKeypair];
+    NSData *publicKey = [LibgcryptWrapper getPublicKeyFromKeypair:keypair];
     
-    if (![wrapper getPublicKeyBits]) {
-        [wrapper generateKeyPair:SECURITY_SERVICE_BIT_LENGTH];
-    }
-    
-    return [wrapper getPublicKeyBits];
+    return publicKey;
 }
 
 - (BOOL)publicKeyExists {

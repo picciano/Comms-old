@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF364F9E1A9B8C0B00382A7A /* gcrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF364F9D1A9B8C0B00382A7A /* gcrypt.framework */; };
+		AF364F9F1A9B94A800382A7A /* gcrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF364F9D1A9B8C0B00382A7A /* gcrypt.framework */; };
+		AF364FA21A9BEACB00382A7A /* LibgcryptWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */; };
+		AF364FA31A9BEAD000382A7A /* LibgcryptWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */; };
+		AF364FA61A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */; };
+		AF364FA71A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */; };
 		AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
 		AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
 		AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -147,6 +153,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF364F9D1A9B8C0B00382A7A /* gcrypt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gcrypt.framework; sourceTree = "<group>"; };
+		AF364FA01A9BEACB00382A7A /* LibgcryptWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibgcryptWrapper.h; sourceTree = "<group>"; };
+		AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibgcryptWrapper.m; sourceTree = "<group>"; };
+		AF364FA41A9CDE8A00382A7A /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		AF4344E31A8A524600A5B527 /* SecurityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityService.h; sourceTree = "<group>"; };
 		AF4344E41A8A524600A5B527 /* SecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityService.m; sourceTree = "<group>"; };
 		AF4344E71A8A7D8700A5B527 /* SecKeyWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecKeyWrapper.h; sourceTree = "<group>"; };
@@ -267,6 +278,7 @@
 				AFA577871A83E7DF004D2809 /* SystemConfiguration.framework in Frameworks */,
 				AFA577851A83E7D7004D2809 /* StoreKit.framework in Frameworks */,
 				AFA577831A83E7CD004D2809 /* Security.framework in Frameworks */,
+				AF364F9E1A9B8C0B00382A7A /* gcrypt.framework in Frameworks */,
 				AFA577811A83E7C6004D2809 /* QuartzCore.framework in Frameworks */,
 				AFA5777F1A83E7BF004D2809 /* MobileCoreServices.framework in Frameworks */,
 				AFA5777D1A83E7B7004D2809 /* CoreLocation.framework in Frameworks */,
@@ -301,6 +313,7 @@
 				AFD990081A83EC1200A2B1DD /* SystemConfiguration.framework in Frameworks */,
 				AFD990091A83EC1200A2B1DD /* StoreKit.framework in Frameworks */,
 				AFD9900A1A83EC1200A2B1DD /* Security.framework in Frameworks */,
+				AF364F9F1A9B94A800382A7A /* gcrypt.framework in Frameworks */,
 				AFD9900B1A83EC1200A2B1DD /* QuartzCore.framework in Frameworks */,
 				AFD9900C1A83EC1200A2B1DD /* MobileCoreServices.framework in Frameworks */,
 				AFD9900D1A83EC1200A2B1DD /* CoreLocation.framework in Frameworks */,
@@ -320,8 +333,12 @@
 			children = (
 				AF4344E31A8A524600A5B527 /* SecurityService.h */,
 				AF4344E41A8A524600A5B527 /* SecurityService.m */,
+				AF364FA01A9BEACB00382A7A /* LibgcryptWrapper.h */,
+				AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */,
 				AF4344E71A8A7D8700A5B527 /* SecKeyWrapper.h */,
 				AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */,
+				AF364FA41A9CDE8A00382A7A /* KeychainItemWrapper.h */,
+				AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */,
 			);
 			name = Encryption;
 			sourceTree = "<group>";
@@ -532,6 +549,7 @@
 		AFA5776A1A83E56B004D2809 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF364F9D1A9B8C0B00382A7A /* gcrypt.framework */,
 				AFA5778A1A83E7ED004D2809 /* libsqlite3.dylib */,
 				AFA577881A83E7E6004D2809 /* libz.dylib */,
 				AFA577861A83E7DF004D2809 /* SystemConfiguration.framework */,
@@ -893,6 +911,7 @@
 				AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
+				AF364FA61A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */,
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
 				AFFA88A71A92A26100F035F5 /* InfoButton.m in Sources */,
 				AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */,
@@ -903,6 +922,7 @@
 				AF4D9CA91A9117B400754BB7 /* CommsIAPHelper.m in Sources */,
 				AFD990231A83F33300A2B1DD /* ChannelViewController.m in Sources */,
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
+				AF364FA21A9BEACB00382A7A /* LibgcryptWrapper.m in Sources */,
 				AFA577331A83E431004D2809 /* main.m in Sources */,
 				AFF8050E1A86796E0083C834 /* UIControl+NextControl.m in Sources */,
 				AF562A991A91419A006FC3F6 /* ExpirationHeaderView.m in Sources */,
@@ -935,6 +955,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */,
+				AF364FA71A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */,
 				AFFA88A81A92A26100F035F5 /* InfoButton.m in Sources */,
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
 				AFA55F121A89482200813CAE /* MessageTableViewCell.m in Sources */,
@@ -944,6 +965,7 @@
 				AFA41DE11A8FB1D100DAF30A /* PFUser+UniqueIdentifier.m in Sources */,
 				AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
+				AF364FA31A9BEAD000382A7A /* LibgcryptWrapper.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AF562A9F1A914E8C006FC3F6 /* CommsButton.m in Sources */,
 				AFD98FFE1A83EC1200A2B1DD /* ViewController.m in Sources */,
