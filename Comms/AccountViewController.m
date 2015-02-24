@@ -10,10 +10,7 @@
 #import "UIControl+NextControl.h"
 #import "PFObject+DateFormat.h"
 #import "SecurityService.h"
-#import "PFUser+UniqueIdentifier.h"
 #import "Constants.h"
-
-#define ENCRYPTION_TEST_STRING @"Hello, world!"
 
 @interface AccountViewController ()
 
@@ -138,7 +135,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            if (![[SecurityService sharedSecurityService] publicKeyExists]) {
+            if (![[SecurityService sharedSecurityService] privateKeyExistsForCurrentUser]) {
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Important Notice"
                                                                                message:@"When you log into the same user account on multiple devices, only the device that logs in most recently will be able to decrypt encrypted message sent to that user. This is done to protect the private encryption key."
                                                                         preferredStyle:UIAlertControllerStyleActionSheet];
@@ -201,9 +198,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 - (void)updatePublicKey {
     PFUser *currentUser = [PFUser currentUser];
-    NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
-    if (publicKeyBits) {
-        [currentUser setObject:publicKeyBits forKey:OBJECT_KEY_PUBLIC_KEY];
+    NSData *publicKey = [[SecurityService sharedSecurityService] publicKeyForCurrentUser];
+    if (publicKey) {
+        [currentUser setObject:publicKey forKey:OBJECT_KEY_PUBLIC_KEY];
         [currentUser saveEventually];
     }
 }
@@ -232,28 +229,14 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 }
 
 - (IBAction)showPublicKey:(id)sender {
-    NSData *bits = [[SecurityService sharedSecurityService] getPublicKeyBits];
-    self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"Public Key Bits: %@", bits];
+    NSData *publicKey = [[SecurityService sharedSecurityService] publicKeyForCurrentUser];
+    self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"Public Key: %@", publicKey];
     [self testEncryption:sender];
 }
 
 - (IBAction)testEncryption:(id)sender {
-    NSData *publicKeyBits = [[SecurityService sharedSecurityService] getPublicKeyBits];
-    
-    NSString *uid = [PFUser currentUser].uniqueIdentifier;
-    
-    NSData *ciphertext = [[SecurityService sharedSecurityService] encrypt:ENCRYPTION_TEST_STRING usingPublicKeyBits:publicKeyBits for:uid];
-    NSString *plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
-    
-    if (plaintext == nil) {
-        DDLogDebug(@"Retrying decryption...");
-        plaintext = [[SecurityService sharedSecurityService] decrypt:ciphertext];
-    }
-    
-    DDLogDebug(@"Decoded text: %@", plaintext);
-    
-    NSString *message = ([ENCRYPTION_TEST_STRING isEqualToString:plaintext])?@"Encryption is working correctly.":@"Encryption is not working correctly. Try logging out and back in.";
-    
+    BOOL working = [[SecurityService sharedSecurityService] testEncryption];
+    NSString *message = working?@"Encryption is working correctly.":@"Encryption is not working correctly. Try logging out and back in.";
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Encryption Status"
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleActionSheet];
@@ -283,7 +266,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            [[SecurityService sharedSecurityService] deleteKeyPair];
+            [[SecurityService sharedSecurityService] deleteKeypairForCurrentUser];
             [PFUser logOut];
             [[NSNotificationCenter defaultCenter] postNotificationName:CURRENT_USER_CHANGE_NOTIFICATION object:self];
             [self updateDisplay:YES];

@@ -11,12 +11,10 @@
 		AF364F9F1A9B94A800382A7A /* gcrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF364F9D1A9B8C0B00382A7A /* gcrypt.framework */; };
 		AF364FA21A9BEACB00382A7A /* LibgcryptWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */; };
 		AF364FA31A9BEAD000382A7A /* LibgcryptWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */; };
-		AF364FA61A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */; };
-		AF364FA71A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */; };
+		AF364FAA1A9D0A4500382A7A /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA91A9D0A4500382A7A /* KeychainWrapper.m */; };
+		AF364FAB1A9D0A4500382A7A /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF364FA91A9D0A4500382A7A /* KeychainWrapper.m */; };
 		AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
 		AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E41A8A524600A5B527 /* SecurityService.m */; };
-		AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AF4344EA1A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF4D9C9E1A91145600754BB7 /* InAppPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4D9C9C1A91145600754BB7 /* InAppPurchaseViewController.m */; };
 		AF4D9C9F1A91145600754BB7 /* InAppPurchaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4D9C9D1A91145600754BB7 /* InAppPurchaseView.xib */; };
 		AF4D9CA51A91179100754BB7 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4D9CA41A91179100754BB7 /* IAPHelper.m */; };
@@ -37,8 +35,6 @@
 		AF9EC12A1A853B3500061558 /* ChannelInfoPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */; };
 		AF9FCC681A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
 		AF9FCC691A84198100BD32A6 /* AccountPanelContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */; };
-		AFA41DDF1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */; };
-		AFA41DE11A8FB1D100DAF30A /* PFUser+UniqueIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */; };
 		AFA55F041A89167800813CAE /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F021A89167800813CAE /* HeaderView.m */; };
 		AFA55F051A89167800813CAE /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA55F021A89167800813CAE /* HeaderView.m */; };
 		AFA55F061A89167800813CAE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFA55F031A89167800813CAE /* HeaderView.xib */; };
@@ -156,12 +152,10 @@
 		AF364F9D1A9B8C0B00382A7A /* gcrypt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gcrypt.framework; sourceTree = "<group>"; };
 		AF364FA01A9BEACB00382A7A /* LibgcryptWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibgcryptWrapper.h; sourceTree = "<group>"; };
 		AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibgcryptWrapper.m; sourceTree = "<group>"; };
-		AF364FA41A9CDE8A00382A7A /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
-		AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		AF364FA81A9D0A4500382A7A /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		AF364FA91A9D0A4500382A7A /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		AF4344E31A8A524600A5B527 /* SecurityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityService.h; sourceTree = "<group>"; };
 		AF4344E41A8A524600A5B527 /* SecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityService.m; sourceTree = "<group>"; };
-		AF4344E71A8A7D8700A5B527 /* SecKeyWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecKeyWrapper.h; sourceTree = "<group>"; };
-		AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecKeyWrapper.m; sourceTree = "<group>"; };
 		AF4D9C971A91012600754BB7 /* Comms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Comms.entitlements; sourceTree = "<group>"; };
 		AF4D9C9B1A91145600754BB7 /* InAppPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseViewController.h; sourceTree = "<group>"; };
 		AF4D9C9C1A91145600754BB7 /* InAppPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseViewController.m; sourceTree = "<group>"; };
@@ -185,8 +179,6 @@
 		AF9EC1251A853B1F00061558 /* ChannelInfoPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelInfoPanel.m; sourceTree = "<group>"; };
 		AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelInfoPanelContents.xib; sourceTree = "<group>"; };
 		AF9FCC671A84198100BD32A6 /* AccountPanelContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPanelContents.xib; sourceTree = "<group>"; };
-		AFA41DDD1A8FB12500DAF30A /* PFUser+UniqueIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFUser+UniqueIdentifier.h"; sourceTree = "<group>"; };
-		AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFUser+UniqueIdentifier.m"; sourceTree = "<group>"; };
 		AFA55F011A89167800813CAE /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		AFA55F021A89167800813CAE /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		AFA55F031A89167800813CAE /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -335,10 +327,8 @@
 				AF4344E41A8A524600A5B527 /* SecurityService.m */,
 				AF364FA01A9BEACB00382A7A /* LibgcryptWrapper.h */,
 				AF364FA11A9BEACB00382A7A /* LibgcryptWrapper.m */,
-				AF4344E71A8A7D8700A5B527 /* SecKeyWrapper.h */,
-				AF4344E81A8A7D8700A5B527 /* SecKeyWrapper.m */,
-				AF364FA41A9CDE8A00382A7A /* KeychainItemWrapper.h */,
-				AF364FA51A9CDE8A00382A7A /* KeychainItemWrapper.m */,
+				AF364FA81A9D0A4500382A7A /* KeychainWrapper.h */,
+				AF364FA91A9D0A4500382A7A /* KeychainWrapper.m */,
 			);
 			name = Encryption;
 			sourceTree = "<group>";
@@ -430,15 +420,6 @@
 				AF9EC1281A853B3500061558 /* ChannelInfoPanelContents.xib */,
 			);
 			name = "Channel Info Panel";
-			sourceTree = "<group>";
-		};
-		AFA41DE01A8FB12900DAF30A /* Unique Identifier */ = {
-			isa = PBXGroup;
-			children = (
-				AFA41DDD1A8FB12500DAF30A /* PFUser+UniqueIdentifier.h */,
-				AFA41DDE1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m */,
-			);
-			name = "Unique Identifier";
 			sourceTree = "<group>";
 		};
 		AFA55F0D1A8947D300813CAE /* Table View Cells */ = {
@@ -586,7 +567,6 @@
 				AFD0DD6A1A84001900C9CC10 /* PostMessageViewController.h */,
 				AFD0DD6B1A84001900C9CC10 /* PostMessageViewController.m */,
 				AFD0DD6C1A84001900C9CC10 /* PostMessageView.xib */,
-				AFA41DE01A8FB12900DAF30A /* Unique Identifier */,
 			);
 			name = "Post Message View";
 			sourceTree = "<group>";
@@ -906,12 +886,10 @@
 				AF562A931A9126C6006FC3F6 /* ProductTableViewCell.m in Sources */,
 				AFA577361A83E431004D2809 /* AppDelegate.m in Sources */,
 				AF4344E51A8A524600A5B527 /* SecurityService.m in Sources */,
-				AFA41DDF1A8FB12500DAF30A /* PFUser+UniqueIdentifier.m in Sources */,
 				AFF805191A86C5320083C834 /* StyleKit.m in Sources */,
 				AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
 				AFD0DD6D1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AFA577731A83E5B8004D2809 /* ViewController.m in Sources */,
-				AF364FA61A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */,
 				AFA577661A83E563004D2809 /* DDASLLogCapture.m in Sources */,
 				AFFA88A71A92A26100F035F5 /* InfoButton.m in Sources */,
 				AFD9902D1A83F61E00A2B1DD /* AccountViewController.m in Sources */,
@@ -924,13 +902,13 @@
 				AFA577681A83E563004D2809 /* DDTTYLogger.m in Sources */,
 				AF364FA21A9BEACB00382A7A /* LibgcryptWrapper.m in Sources */,
 				AFA577331A83E431004D2809 /* main.m in Sources */,
+				AF364FAA1A9D0A4500382A7A /* KeychainWrapper.m in Sources */,
 				AFF8050E1A86796E0083C834 /* UIControl+NextControl.m in Sources */,
 				AF562A991A91419A006FC3F6 /* ExpirationHeaderView.m in Sources */,
 				AF562A9E1A914E8C006FC3F6 /* CommsButton.m in Sources */,
 				AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */,
 				AFA577671A83E563004D2809 /* DDASLLogger.m in Sources */,
 				AFF805121A8683A00083C834 /* PFObject+DateFormat.m in Sources */,
-				AF4344E91A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,16 +933,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFD98FFB1A83EC1200A2B1DD /* AppInfoManager.m in Sources */,
-				AF364FA71A9CDE8A00382A7A /* KeychainItemWrapper.m in Sources */,
 				AFFA88A81A92A26100F035F5 /* InfoButton.m in Sources */,
 				AFD98FFC1A83EC1200A2B1DD /* DDLog.m in Sources */,
 				AFA55F121A89482200813CAE /* MessageTableViewCell.m in Sources */,
 				AF9EC1271A853B1F00061558 /* ChannelInfoPanel.m in Sources */,
 				AFD98FFD1A83EC1200A2B1DD /* AppDelegate.m in Sources */,
 				AF4344E61A8A524600A5B527 /* SecurityService.m in Sources */,
-				AFA41DE11A8FB1D100DAF30A /* PFUser+UniqueIdentifier.m in Sources */,
 				AFF8051A1A86C7870083C834 /* StyleKit.m in Sources */,
 				AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */,
+				AF364FAB1A9D0A4500382A7A /* KeychainWrapper.m in Sources */,
 				AF364FA31A9BEAD000382A7A /* LibgcryptWrapper.m in Sources */,
 				AFD0DD6E1A84001900C9CC10 /* PostMessageViewController.m in Sources */,
 				AF562A9F1A914E8C006FC3F6 /* CommsButton.m in Sources */,
@@ -982,7 +959,6 @@
 				AFDEC0111A843AB600A40F1F /* ProPanel.m in Sources */,
 				AFD990031A83EC1200A2B1DD /* DDASLLogger.m in Sources */,
 				AFF805151A8685490083C834 /* PFObject+DateFormat.m in Sources */,
-				AF4344EA1A8A7D8700A5B527 /* SecKeyWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
