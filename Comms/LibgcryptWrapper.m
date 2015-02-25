@@ -38,8 +38,8 @@ static const char * EXPECTED_VERSION = "1.5.3";
 
 + (NSData *)generateKeypair {
     gcry_error_t err = 0;
-    gcry_sexp_t params;
-    gcry_sexp_t keypair;
+    gcry_sexp_t params = NULL;
+    gcry_sexp_t keypair = NULL;
     
     err = gcry_sexp_build(&params, NULL, GENKEY_STRING);
     if (err) {
@@ -63,7 +63,12 @@ static const char * EXPECTED_VERSION = "1.5.3";
     gcry_sexp_t keypair = [LibgcryptWrapper sexpFromData:data];
     gcry_sexp_t public_key = [LibgcryptWrapper publicKeyFromKeyPair:keypair];
     
-    return [LibgcryptWrapper dataFromSexp:public_key];
+    NSData *key = [LibgcryptWrapper dataFromSexp:public_key];
+    
+    gcry_sexp_release(keypair);
+    gcry_sexp_release(public_key);
+    
+    return key;
 }
 
 
@@ -71,7 +76,12 @@ static const char * EXPECTED_VERSION = "1.5.3";
     gcry_sexp_t keypair = [LibgcryptWrapper sexpFromData:data];
     gcry_sexp_t private_key = [LibgcryptWrapper privateKeyFromKeyPair:keypair];
     
-    return [LibgcryptWrapper dataFromSexp:private_key];
+    NSData *key = [LibgcryptWrapper dataFromSexp:private_key];
+    
+    gcry_sexp_release(keypair);
+    gcry_sexp_release(private_key);
+    
+    return key;
 }
 
 + (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(NSData *)publicKey {
@@ -79,7 +89,9 @@ static const char * EXPECTED_VERSION = "1.5.3";
     int chunkSize = gcry_pk_get_nbits(pkey) / 8;
     
     if (plaintext.length <= chunkSize) {
-        return [LibgcryptWrapper encryptChunk:plaintext usingPublicKey:pkey];
+        NSData *data = [LibgcryptWrapper encryptChunk:plaintext usingPublicKey:pkey];
+        gcry_sexp_release(pkey);
+        return data;
     } else {
         __block NSRange range = NSMakeRange(0, chunkSize);
         NSMutableData *data = [NSMutableData data];
@@ -91,6 +103,8 @@ static const char * EXPECTED_VERSION = "1.5.3";
             range.location += chunkSize;
             range.length = MIN(chunkSize, plaintext.length - range.location);
         }
+        
+        gcry_sexp_release(pkey);
         
         return data;
     }
@@ -115,7 +129,12 @@ static const char * EXPECTED_VERSION = "1.5.3";
         gcry_sexp_dump(ciph);
     }
     
-    return [LibgcryptWrapper dataFromSexp:ciph];
+    NSData *data = [LibgcryptWrapper dataFromSexp:ciph];
+    
+    gcry_sexp_release(ptxt);
+    gcry_sexp_release(ciph);
+    
+    return data;
 }
 
 + (NSString *)decrypt:(NSData *)ciphertext usingPrivateKey:(NSData *)privateKey {
@@ -143,6 +162,8 @@ static const char * EXPECTED_VERSION = "1.5.3";
         range = [ciphertext rangeOfData:delimiter options:0 range:NSMakeRange(body_offset, ciphertext.length - body_offset)];
     }
     
+    gcry_sexp_release(skey);
+    
     return plaintext;
 }
 
@@ -165,8 +186,12 @@ static const char * EXPECTED_VERSION = "1.5.3";
     DDLogVerbose(@"plainttext: %s", plainttext);
     
     if (plainttext) {
-        return [NSString stringWithCString:plainttext encoding:NSUTF8StringEncoding];
+        NSString *string = [NSString stringWithCString:plainttext encoding:NSUTF8StringEncoding];
+        gcry_sexp_release(ptxt);
+        return string;
     }
+    
+    gcry_sexp_release(ptxt);
     
     return nil;
 }
@@ -179,7 +204,11 @@ static const char * EXPECTED_VERSION = "1.5.3";
     
     gcry_sexp_sprint(sexp, GCRYSEXP_FMT_ADVANCED, buffer, length);
     
-    return [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+    NSString *string = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+    
+    gcry_sexp_release(sexp);
+    
+    return string;
 }
 
 #pragma mark - Private Methods
