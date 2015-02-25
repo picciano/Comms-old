@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *publicKeyBitsTextView;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *generatingKeypairLabel;
 
 @end
 
@@ -137,7 +138,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
         } else {
             if (![[SecurityService sharedSecurityService] privateKeyExistsForCurrentUser]) {
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Important Notice"
-                                                                               message:@"When you log into the same user account on multiple devices, only the device that logs in most recently will be able to decrypt encrypted message sent to that user. This is done to protect the private encryption key."
+                                                                               message:@"When you log into the same user account on multiple devices, only the device that logs in most recently will be able to decrypt encrypted message sent to that user. This is done to protect the private encryption key.\n\nPlease be patient while a new key is generated."
                                                                         preferredStyle:UIAlertControllerStyleActionSheet];
                 UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Okay"
                                                                         style:UIAlertActionStyleDefault
@@ -164,6 +165,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
     
     [AppInfoManager setNetworkActivityIndicatorVisible:YES];
     [self.activityIndicator startAnimating];
+    self.generatingKeypairLabel.hidden = NO;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
@@ -198,11 +200,14 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 - (void)updatePublicKey {
     PFUser *currentUser = [PFUser currentUser];
+    [self.activityIndicator startAnimating];
     NSData *publicKey = [[SecurityService sharedSecurityService] publicKeyForCurrentUser];
     if (publicKey) {
         [currentUser setObject:publicKey forKey:OBJECT_KEY_PUBLIC_KEY];
         [currentUser saveEventually];
     }
+    [self.activityIndicator stopAnimating];
+    self.generatingKeypairLabel.hidden = YES;
 }
 
 - (IBAction)logOut:(id)sender {

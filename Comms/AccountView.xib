@@ -10,6 +10,7 @@
                 <outlet property="burnAccountButton" destination="Xt8-Yf-JsD" id="8pF-mi-EJW"/>
                 <outlet property="createAccountButton" destination="zFc-wP-IcV" id="vwN-tI-qXQ"/>
                 <outlet property="createdAtLabel" destination="Yji-FX-mwx" id="hrc-tw-dIf"/>
+                <outlet property="generatingKeypairLabel" destination="216-Pq-UfR" id="bIg-ip-C02"/>
                 <outlet property="logInButton" destination="06h-td-LVs" id="u2N-ke-tdx"/>
                 <outlet property="logOutButton" destination="4fU-Hr-iAj" id="6f1-Nu-dh8"/>
                 <outlet property="passwordAgainField" destination="1T1-wh-Soh" id="8bo-jc-i6O"/>
@@ -230,11 +231,23 @@
                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generating key pair, please be patient." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="216-Pq-UfR">
+                    <rect key="frame" x="151" y="326" width="299" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="fwx-WB-ePO"/>
+                        <constraint firstAttribute="width" constant="299" id="oqG-Mz-aV9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="zhA-9E-Ghd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2RI-zj-Zpr"/>
                 <constraint firstAttribute="trailing" secondItem="zhA-9E-Ghd" secondAttribute="trailing" constant="8" id="AYf-e9-qyO"/>
+                <constraint firstItem="216-Pq-UfR" firstAttribute="top" secondItem="zkn-AE-js5" secondAttribute="bottom" constant="8" id="FuN-O1-Wch"/>
+                <constraint firstAttribute="centerX" secondItem="216-Pq-UfR" secondAttribute="centerX" id="HNZ-p4-Ggt"/>
                 <constraint firstItem="zhA-9E-Ghd" firstAttribute="top" secondItem="eqT-La-ums" secondAttribute="bottom" constant="8" id="LVJ-JS-Zic"/>
                 <constraint firstItem="dXo-kQ-V4Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="NV1-0d-KFc"/>
                 <constraint firstItem="dXo-kQ-V4Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="T7q-Ym-tMo"/>

@@ -15,7 +15,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @implementation LibgcryptWrapper
 
 //static const char * GENKEY_STRING = "(genkey (rsa (nbits 4:1024)))";
-static const char * GENKEY_STRING = "(genkey (elg (nbits 3:256)))";
+//static const char * GENKEY_STRING = "(genkey (elg (nbits 3:256)))";
+static const char * GENKEY_STRING = "(genkey (elg (nbits 3:512)))";
 //static const char * GENKEY_STRING = "(genkey (elg (nbits 4:1024)))";
 //static const char * GENKEY_STRING = "(genkey (elg (nbits 4:2048)))";
 //static const char * GENKEY_STRING = "(genkey (elg (nbits 4:4096)))";
