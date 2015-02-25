@@ -7,19 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
-#define SECURITY_SERVICE_BIT_LENGTH     2048
+//#define ENCRYPTION_TEST_STRING @"Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hell"
+#define ENCRYPTION_TEST_STRING @"Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!"
+//#define ENCRYPTION_TEST_STRING @"Hello, world!"
 
 @interface SecurityService : NSObject
 
 + (instancetype)sharedSecurityService;
 
-- (NSData *)getPublicKeyBits;
-- (void)deleteKeyPair;
+- (NSData *)publicKeyForCurrentUser;
+- (void)deleteKeypairForCurrentUser;
+- (BOOL)privateKeyExistsForCurrentUser;
+- (NSString *)humanReadablePublicKeyForCurrentUser;
 
-- (NSData *)encrypt:(NSString *)plaintext usingPublicKeyBits:(NSData *)publicKeyBits for:(NSString *)uid;
-- (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(SecKeyRef)publicKey;
+- (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(NSData *)publicKey;
 - (NSString *)decrypt:(NSData *)ciphertext;
-- (BOOL)publicKeyExists;
+
+- (BOOL)testEncryption;
 
 @end
