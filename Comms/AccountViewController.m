@@ -172,6 +172,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
         [self.activityIndicator stopAnimating];
         
         if (error) {
+            self.generatingKeypairLabel.hidden = YES;
             DDLogError(@"Error during signup: %@", error);
             long code = [[error.userInfo valueForKey:@"code"] longValue];
             NSString *message = @"Sorry, could not complete sign up. Try again later.";
