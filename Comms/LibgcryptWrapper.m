@@ -10,11 +10,15 @@
 #import "CocoaLumberjack.h"
 #import <gcrypt/gcrypt.h>
 
-static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation LibgcryptWrapper
 
-static const char * GENKEY_STRING = "(genkey (elg (nbits 4:2048)))";
+//static const char * GENKEY_STRING = "(genkey (rsa (nbits 4:1024)))";
+static const char * GENKEY_STRING = "(genkey (elg (nbits 3:256)))";
+//static const char * GENKEY_STRING = "(genkey (elg (nbits 4:1024)))";
+//static const char * GENKEY_STRING = "(genkey (elg (nbits 4:2048)))";
+//static const char * GENKEY_STRING = "(genkey (elg (nbits 4:4096)))";
 //static const char * GENKEY_STRING = "(genkey (ecc (curve secp521r1) (nbits 3:521)))"; //paranoid mode, not working
 static const char * PUBLIC_KEY = "public-key";
 static const char * PRIVATE_KEY = "private-key";
@@ -70,11 +74,31 @@ static const char * EXPECTED_VERSION = "1.5.3";
 }
 
 + (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(NSData *)publicKey {
-    gcry_error_t err = 0;
+    gcry_sexp_t pkey = [LibgcryptWrapper sexpFromData:publicKey];
+    int chunkSize = gcry_pk_get_nbits(pkey) / 8;
     
+    if (plaintext.length <= chunkSize) {
+        return [LibgcryptWrapper encryptChunk:plaintext usingPublicKey:pkey];
+    } else {
+        __block NSRange range = NSMakeRange(0, chunkSize);
+        NSMutableData *data = [NSMutableData data];
+        
+        while (range.location < plaintext.length) {
+            NSString *chunk = [plaintext substringWithRange:range];
+            [data appendData:[LibgcryptWrapper encryptChunk:chunk usingPublicKey:pkey]];
+            DDLogVerbose(@"chunk: %@", chunk);
+            range.location += chunkSize;
+            range.length = MIN(chunkSize, plaintext.length - range.location);
+        }
+        
+        return data;
+    }
+}
+
++ (NSData *)encryptChunk:(NSString *)plaintext usingPublicKey:(gcry_sexp_t)pkey {
+    gcry_error_t err = 0;
     gcry_sexp_t ciph = NULL;
     gcry_sexp_t ptxt = NULL;
-    gcry_sexp_t pkey = [LibgcryptWrapper sexpFromData:publicKey];
     
     err = gcry_sexp_build(&ptxt, NULL, "(data (flags raw) (value %s))", [plaintext UTF8String]);
     if (err) {
@@ -86,33 +110,75 @@ static const char * EXPECTED_VERSION = "1.5.3";
         DDLogError(@"gcrypt: failed to encrypt");
     }
     
-    if (ddLogLevel >= DDLogFlagDebug) {
+    if (ddLogLevel >= DDLogLevelVerbose) {
         gcry_sexp_dump(ciph);
     }
     
     return [LibgcryptWrapper dataFromSexp:ciph];
 }
 
-+ (NSString *)decrypt:(NSData *)ciphertext usingPrivateKey:privateKey {
++ (NSString *)decrypt:(NSData *)ciphertext usingPrivateKey:(NSData *)privateKey {
+    gcry_sexp_t skey = [LibgcryptWrapper sexpFromData:privateKey];
+    
+    NSData *delimiter = [NSData dataWithBytes:")))\0" length:4];
+    
+    NSRange range = [ciphertext rangeOfData:delimiter
+                                    options:0
+                                      range:NSMakeRange(0, ciphertext.length)];
+    size_t body_offset = 0;
+    NSMutableString *plaintext = [NSMutableString string];
+    
+    while (range.location != NSNotFound) {
+        size_t body_size = NSMaxRange(range) - body_offset;
+        range = NSMakeRange(body_offset, body_size);
+        
+        NSData *chunk = [ciphertext subdataWithRange:range];
+        NSString *decryptedChunk = [LibgcryptWrapper decryptChunk:chunk usingPrivateKey:skey];
+        if (decryptedChunk) {
+            [plaintext appendString:decryptedChunk];
+        }
+        
+        body_offset += body_size;
+        range = [ciphertext rangeOfData:delimiter options:0 range:NSMakeRange(body_offset, ciphertext.length - body_offset)];
+    }
+    
+    return plaintext;
+}
+
++ (NSString *)decryptChunk:(NSData *)ciphertext usingPrivateKey:(gcry_sexp_t)skey {
     gcry_error_t err = 0;
     
     gcry_sexp_t ptxt = NULL;
     gcry_sexp_t ciph = [LibgcryptWrapper sexpFromData:ciphertext];
-    gcry_sexp_t skey = [LibgcryptWrapper sexpFromData:privateKey];
-    
     err = gcry_pk_decrypt(&ptxt, ciph, skey);
     if (err) {
         DDLogError(@"gcrypt: failed to decrypt");
     }
     
-    if (ddLogLevel >= DDLogFlagDebug) {
+    if (ddLogLevel >= DDLogLevelVerbose) {
         gcry_sexp_dump(ptxt);
     }
     
-    size_t length;
+    size_t length = 0;
     const char * plainttext = gcry_sexp_nth_data(ptxt, 0, &length);
+    DDLogVerbose(@"plainttext: %s", plainttext);
     
-    return [NSString stringWithCString:plainttext encoding:NSUTF8StringEncoding];
+    if (plainttext) {
+        return [NSString stringWithCString:plainttext encoding:NSUTF8StringEncoding];
+    }
+    
+    return nil;
+}
+
++ (NSString *)stringFromKey:(NSData *)key {
+    gcry_sexp_t sexp = [LibgcryptWrapper sexpFromData:key];
+    
+    size_t length = gcry_sexp_sprint(sexp, GCRYSEXP_FMT_ADVANCED, NULL, 0); // Needed to get the length
+    char * buffer = (char *)malloc(length);
+    
+    gcry_sexp_sprint(sexp, GCRYSEXP_FMT_ADVANCED, buffer, length);
+    
+    return [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
 }
 
 #pragma mark - Private Methods

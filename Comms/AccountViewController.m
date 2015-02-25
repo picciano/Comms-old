@@ -229,8 +229,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 }
 
 - (IBAction)showPublicKey:(id)sender {
-    NSData *publicKey = [[SecurityService sharedSecurityService] publicKeyForCurrentUser];
-    self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"Public Key: %@", publicKey];
+    NSString *publicKey = [[SecurityService sharedSecurityService] humanReadablePublicKeyForCurrentUser];
+    self.publicKeyBitsTextView.text = [NSString stringWithFormat:@"%@", publicKey];
     [self testEncryption:sender];
 }
 

@@ -39,6 +39,11 @@ static SecurityService * __sharedSecurityService = nil;
     }
 }
 
+- (NSString *)humanReadablePublicKeyForCurrentUser {
+    NSData *publicKey = [self publicKeyForCurrentUser];
+    return [LibgcryptWrapper stringFromKey:publicKey];
+}
+
 - (void)deleteKeypairForCurrentUser {
     NSAssert([PFUser currentUser] != nil, @"Current user must not be nil.");
     [KeychainWrapper deleteItemFromKeychainWithIdentifier:[self privateKeyIdentifierForCurrentUser]];
@@ -63,9 +68,15 @@ static SecurityService * __sharedSecurityService = nil;
 }
 
 - (BOOL)testEncryption {
+    DDLogVerbose(@"Using ENCRYPTION_TEST_STRING length: %lu", (unsigned long)ENCRYPTION_TEST_STRING.length);
+    
     NSData *publicKey = [self publicKeyForCurrentUser];
     NSData *ciphertext = [self encrypt:ENCRYPTION_TEST_STRING usingPublicKey:publicKey];
     NSString *plaintext = [self decrypt:ciphertext];
+    
+    DDLogVerbose(@"Public Key length: %lu", (unsigned long)publicKey.length);
+    DDLogVerbose(@"Ciphertext length: %lu", (unsigned long)ciphertext.length);
+    DDLogVerbose(@"Ciphertext length: %@", ciphertext);
     
     return [ENCRYPTION_TEST_STRING isEqualToString:plaintext];
 }

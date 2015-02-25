@@ -14,6 +14,7 @@
 + (NSData *)getPublicKeyFromKeypair:(NSData *)keypair;
 + (NSData *)getPrivateKeyFromKeypair:(NSData *)keypair;
 + (NSData *)encrypt:(NSString *)plaintext usingPublicKey:(NSData *)publicKey;
-+ (NSString *)decrypt:(NSData *)ciphertext usingPrivateKey:privateKey;
++ (NSString *)decrypt:(NSData *)ciphertext usingPrivateKey:(NSData *)privateKey;
++ (NSString *)stringFromKey:(NSData *)key;
 
 @end
