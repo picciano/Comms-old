@@ -8,19 +8,13 @@
 
 #import "LibgcryptWrapper.h"
 #import "CocoaLumberjack.h"
+#import "Constants.h"
 #import <gcrypt/gcrypt.h>
 
 static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 @implementation LibgcryptWrapper
 
-//static const char * GENKEY_STRING = "(genkey (rsa (nbits 4:1024)))";
-//static const char * GENKEY_STRING = "(genkey (elg (nbits 3:256)))";
-static const char * GENKEY_STRING = "(genkey (elg (nbits 3:512)))";
-//static const char * GENKEY_STRING = "(genkey (elg (nbits 4:1024)))";
-//static const char * GENKEY_STRING = "(genkey (elg (nbits 4:2048)))";
-//static const char * GENKEY_STRING = "(genkey (elg (nbits 4:4096)))";
-//static const char * GENKEY_STRING = "(genkey (ecc (curve secp521r1) (nbits 3:521)))"; //paranoid mode, not working
 static const char * PUBLIC_KEY = "public-key";
 static const char * PRIVATE_KEY = "private-key";
 static const char * EXPECTED_VERSION = "1.5.3";
@@ -41,7 +35,13 @@ static const char * EXPECTED_VERSION = "1.5.3";
     gcry_sexp_t params = NULL;
     gcry_sexp_t keypair = NULL;
     
-    err = gcry_sexp_build(&params, NULL, GENKEY_STRING);
+    NSString *genkey = [[PFConfig currentConfig] objectForKey:CONFIG_GENKEY];
+    if (!genkey) {
+        DDLogWarn(@"Parse config not loaded. Using hard-coded genkey.");
+        genkey = FALLBACK_GENKEY;
+    }
+    
+    err = gcry_sexp_build(&params, NULL, [genkey cStringUsingEncoding:NSUTF8StringEncoding]);
     if (err) {
         DDLogError(@"gcrypt: failed to create params");
     }

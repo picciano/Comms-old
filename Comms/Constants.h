@@ -55,6 +55,9 @@
 #define CONFIG_FAQ_URL              @"faqUrl"
 #define FALLBACK_FAQ_URL            @"http://comms.parseapp.com/faq.html"
 
+#define CONFIG_GENKEY               @"genkey"
+#define FALLBACK_GENKEY             @"(genkey (elg (nbits 3:512)))"
+
 #define CURRENT_USER_CHANGE_NOTIFICATION        @"currentUserChange"
 #define SUBSCRIPTION_CHANGE_NOTIFICATION        @"subscriptionChange"
 #define MESSAGE_POSTED_NOTIFICATION             @"messagePosted"
