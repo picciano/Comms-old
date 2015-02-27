@@ -11,7 +11,7 @@
 #import "KeychainWrapper.h"
 #import "CocoaLumberjack.h"
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 static const NSString * PRIVATE_KEY = @"private-key";
 static const NSString * PUBLIC_KEY = @"public-key";
 

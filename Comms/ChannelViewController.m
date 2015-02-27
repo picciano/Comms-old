@@ -11,13 +11,15 @@
 #import "PostMessageViewController.h"
 #import "MessageTableViewCell.h"
 #import "Constants.h"
+#import "Message.h"
 
 @interface ChannelViewController ()
 
 @property (weak, nonatomic) IBOutlet ChannelInfoPanel *channelInfoPanel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, atomic) NSArray *messages;
+@property (strong, atomic) NSMutableArray *messages;
+@property (nonatomic) BOOL isUpdating;
 
 @end
 
@@ -29,6 +31,7 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = [self.channel objectForKey:OBJECT_KEY_NAME];
     self.channelInfoPanel.channelNameLabel.text = [self.channel objectForKey:OBJECT_KEY_NAME];
     
@@ -36,6 +39,8 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
          forCellReuseIdentifier:kMessageReuseIdentifier];
     
     self.tableView.backgroundColor = [StyleKit commsTan];
+    
+    self.messages = [NSMutableArray array];
     
     [self loadSubscriptionStatus];
     [self loadSubscriptionCount];
@@ -81,12 +86,25 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
 }
 
 - (void)loadMessages {
+    
+    if (self.isUpdating) {
+        return;
+    }
+    
+    self.isUpdating = YES;
+    
     [AppInfoManager setNetworkActivityIndicatorVisible:YES];
     
     PFQuery *query = [PFQuery queryWithClassName:OBJECT_TYPE_MESSAGE];
     [query whereKey:OBJECT_KEY_CHANNEL equalTo:self.channel];
     [query orderByDescending:OBJECT_KEY_CREATED_AT];
     [query includeKey:OBJECT_KEY_USER];
+    
+    if (self.messages.count > 0) {
+        Message *message = self.messages[0];
+        NSDate *date = [message.object createdAt];
+        [query whereKey:OBJECT_KEY_CREATED_AT greaterThan:date];
+    }
     
     if ([[self.channel objectForKey:OBJECT_KEY_HIDDEN] boolValue]) {
         [query whereKey:OBJECT_KEY_RECIPIENT equalTo:[PFUser currentUser]];
@@ -96,9 +114,14 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
         [AppInfoManager setNetworkActivityIndicatorVisible:NO];
         
         if (!error) {
-            self.messages = objects;
+            [objects enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                Message *message = [Message messageWithObject:obj];
+                [self.messages insertObject:message atIndex:0];
+            }];
             [self.tableView reloadData];
         }
+        
+        self.isUpdating = NO;
     }];
 }
 
@@ -147,7 +170,8 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [MessageTableViewCell heightForMessage:self.messages[indexPath.row] frame:CGRectMake(0, 0, self.tableView.frame.size.width, INFINITY)];
+    Message *message = self.messages[indexPath.row];
+    return [Message heightForMessage:message.object frame:CGRectMake(0, 0, self.tableView.frame.size.width, INFINITY)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

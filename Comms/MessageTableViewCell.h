@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+
+@class Message;
 
 @interface MessageTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) PFObject *message;
-
-+ (CGFloat)heightForMessage:(PFObject *)messageObject frame:(CGRect)frame;
+@property (strong, nonatomic) Message *message;
 
 @end

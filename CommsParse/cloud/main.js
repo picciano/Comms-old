@@ -36,22 +36,40 @@ Parse.Cloud.beforeSave("Subscription", function(request, response) {
 
 Parse.Cloud.afterSave("Subscription", function(request) {
 	var user = request.object.get("user");
-	var pushQuery = new Parse.Query(Parse.Installation);
-	pushQuery.equalTo("user", user);
-	
-	Parse.Push.send({
-		where: pushQuery,
-		data: {
-			alert: "You have subscribed to a channel.",
-			badge: "Increment",
-			type: PUSH_TYPE_SUBSCRIPTION
-		}
-	}, {
+	var channel = request.object.get("channel");
+	channel.fetch({
 		success: function() {
-			console.log("Push sent to " + user.id);
+			var pushQuery = new Parse.Query(Parse.Installation);
+			var message = "You have subscribed to a channel.";
+			
+			if (channel.get("hidden") == true) {
+				var subQuery = new Parse.Query("Subscription");
+				subQuery.equalTo("channel", channel);
+				
+		 		pushQuery.matchesKeyInQuery("user", "user", subQuery);
+		 		message = "Someone subscribed to your hidden channel.";
+			} else {
+				pushQuery.equalTo("user", user);
+			}
+			
+			Parse.Push.send({
+				where: pushQuery,
+				data: {
+					alert: message,
+					badge: "Increment",
+					type: PUSH_TYPE_SUBSCRIPTION
+				}
+			}, {
+				success: function() {
+					console.log("Push sent to " + user.id);
+				},
+				error: function(error) {
+					console.log("Push failed to send to " + user.id);
+				}
+			});
 		},
-		error: function(error) {
-			console.log("Push failed to send to " + user.id);
+		error: function () {
+			console.log("Channel fetch failed. Error: " + error);
 		}
 	});
 });
@@ -112,38 +130,49 @@ Parse.Cloud.afterSave("RedemptionCode", function(request) {
 Parse.Cloud.afterDelete("Subscription", function(request) {
 	var user = request.object.get("user");
 	var pushQuery = new Parse.Query(Parse.Installation);
-	pushQuery.equalTo("user", user);
-	
-	Parse.Push.send({
-		where: pushQuery,
-		data: {
-			alert: "You have unsubscribed from a channel.",
-			badge: "Increment",
-			type: PUSH_TYPE_SUBSCRIPTION
-		}
-	}, {
-		success: function() {
-			console.log("Push sent to " + user.id);
-		},
-		error: function(error) {
-			console.log("Push failed to send to " + user.id);
-		}
-	});
-	
 	var channel = request.object.get("channel");
+	var message = "You have unsubscribed from a channel.";
 	
-	channel.fetch({success: function(){
-		if (channel.get("hidden") == true) {
-			var query = new Parse.Query("Subscription");
-			query.equalTo("channel", channel);
-			query.first().then(function(existingSubscription) {
-				if (!existingSubscription) {
-					channel.destroy();
-					console.log("Deleting " + channel.get("name"));
+	channel.fetch({
+		success: function() {
+			if (channel.get("hidden") == true) {
+				var subQuery = new Parse.Query("Subscription");
+				subQuery.equalTo("channel", channel);
+				
+		 		pushQuery.matchesKeyInQuery("user", "user", subQuery);
+		 		message = "Someone unsubscribed from your hidden channel.";
+			} else {
+				pushQuery.equalTo("user", user);
+			}
+		
+			Parse.Push.send({
+				where: pushQuery,
+				data: {
+					alert: message,
+					badge: "Increment",
+					type: PUSH_TYPE_SUBSCRIPTION
+				}
+			}, {
+				success: function() {
+					console.log("Push sent to " + user.id);
+				},
+				error: function(error) {
+					console.log("Push failed to send to " + user.id);
 				}
 			});
+		
+			if (channel.get("hidden") == true) {
+				var query = new Parse.Query("Subscription");
+				query.equalTo("channel", channel);
+				query.first().then(function(existingSubscription) {
+					if (!existingSubscription) {
+						channel.destroy();
+						console.log("Deleting " + channel.get("name"));
+					}
+				});
+			}
 		}
-	}});
+	});
 });
 
 Parse.Cloud.afterDelete("Channel", function(request) {

@@ -25,6 +25,8 @@
 		AF562A9A1A91419A006FC3F6 /* ExpirationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF562A981A91419A006FC3F6 /* ExpirationHeaderView.xib */; };
 		AF562A9E1A914E8C006FC3F6 /* CommsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF562A9D1A914E8C006FC3F6 /* CommsButton.m */; };
 		AF562A9F1A914E8C006FC3F6 /* CommsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF562A9D1A914E8C006FC3F6 /* CommsButton.m */; };
+		AF817B011AA0A34100243FAD /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = AF817B001AA0A34100243FAD /* Message.m */; };
+		AF817B021AA0A34100243FAD /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = AF817B001AA0A34100243FAD /* Message.m */; };
 		AF9EC11D1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11E1A85267D00061558 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */; };
 		AF9EC11F1A85267D00061558 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */; };
@@ -172,6 +174,8 @@
 		AF562A981A91419A006FC3F6 /* ExpirationHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpirationHeaderView.xib; sourceTree = "<group>"; };
 		AF562A9C1A914E8C006FC3F6 /* CommsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommsButton.h; sourceTree = "<group>"; };
 		AF562A9D1A914E8C006FC3F6 /* CommsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommsButton.m; sourceTree = "<group>"; };
+		AF817AFF1AA0A34100243FAD /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		AF817B001AA0A34100243FAD /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		AF9EC11A1A85267D00061558 /* ChannelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelTableViewCell.h; sourceTree = "<group>"; };
 		AF9EC11B1A85267D00061558 /* ChannelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelTableViewCell.m; sourceTree = "<group>"; };
 		AF9EC11C1A85267D00061558 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
@@ -376,6 +380,15 @@
 				AF562A9D1A914E8C006FC3F6 /* CommsButton.m */,
 			);
 			name = "Comm Button";
+			sourceTree = "<group>";
+		};
+		AF817AFE1AA0A32100243FAD /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				AF817AFF1AA0A34100243FAD /* Message.h */,
+				AF817B001AA0A34100243FAD /* Message.m */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		AF9EC1191A85264C00061558 /* Table View Cells */ = {
@@ -588,6 +601,7 @@
 				AFD990221A83F33300A2B1DD /* ChannelView.xib */,
 				AFA55F0D1A8947D300813CAE /* Table View Cells */,
 				AF9EC1231A853AE200061558 /* Channel Info Panel */,
+				AF817AFE1AA0A32100243FAD /* Message */,
 			);
 			name = "Channel View";
 			sourceTree = "<group>";
@@ -908,6 +922,7 @@
 				AF562A9E1A914E8C006FC3F6 /* CommsButton.m in Sources */,
 				AFDEC00F1A8438DE00A40F1F /* ProPanel.m in Sources */,
 				AFA577671A83E563004D2809 /* DDASLLogger.m in Sources */,
+				AF817B011AA0A34100243FAD /* Message.m in Sources */,
 				AFF805121A8683A00083C834 /* PFObject+DateFormat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,6 +964,7 @@
 				AFD98FFF1A83EC1200A2B1DD /* DDASLLogCapture.m in Sources */,
 				AFD9902F1A83F62B00A2B1DD /* AccountViewController.m in Sources */,
 				AFD0DD791A840AA700C9CC10 /* AccountPanel.m in Sources */,
+				AF817B021AA0A34100243FAD /* Message.m in Sources */,
 				AFA55F051A89167800813CAE /* HeaderView.m in Sources */,
 				AFD990001A83EC1200A2B1DD /* DDFileLogger.m in Sources */,
 				AFD990251A83F50600A2B1DD /* ChannelViewController.m in Sources */,

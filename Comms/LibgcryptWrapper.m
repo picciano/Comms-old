@@ -10,7 +10,7 @@
 #import "CocoaLumberjack.h"
 #import <gcrypt/gcrypt.h>
 
-static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 
 @implementation LibgcryptWrapper
 
