@@ -22,6 +22,6 @@
 
 - (instancetype)initWithObject:(PFObject *)object;
 + (instancetype)messageWithObject:(PFObject *)object;
-+ (CGFloat)heightForMessage:(PFObject *)messageObject frame:(CGRect)frame;
++ (CGFloat)heightForMessage:(Message *)message frame:(CGRect)frame;
 
 @end

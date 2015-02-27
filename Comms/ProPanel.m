@@ -25,8 +25,6 @@
 
 @end
 
-//static const DDLogLevel ddLogLevel = DDLogLevelWarning;
-
 @implementation ProPanel
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {

@@ -60,24 +60,14 @@
     return [[SecurityService sharedSecurityService] decrypt:[self.object objectForKey:OBJECT_KEY_ENCRYPTED_DATA]];
 }
 
-+ (CGFloat)heightForMessage:(PFObject *)message frame:(CGRect)frame {
-    
-    NSString *messageText;
-    
-    if ([[message objectForKey:OBJECT_KEY_ENCRYPTED] boolValue]) {
-        messageText = [[SecurityService sharedSecurityService] decrypt:[message objectForKey:OBJECT_KEY_ENCRYPTED_DATA]];
-    } else {
-        messageText = [message objectForKey:OBJECT_KEY_TEXT];
-    }
-    
-    //// Message Text Drawing
++ (CGFloat)heightForMessage:(Message *)message frame:(CGRect)frame {
     CGRect messageTextRect = CGRectMake(CGRectGetMinX(frame) + 5, CGRectGetMinY(frame) + 25, CGRectGetWidth(frame) - 10, CGRectGetHeight(frame) - 25);
     NSMutableParagraphStyle* messageTextStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
     messageTextStyle.alignment = NSTextAlignmentLeft;
     
     NSDictionary* messageTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"TrebuchetMS" size: UIFont.smallSystemFontSize], NSForegroundColorAttributeName: StyleKit.commsBlue, NSParagraphStyleAttributeName: messageTextStyle};
     
-    CGFloat messageTextTextHeight = [messageText boundingRectWithSize: CGSizeMake(messageTextRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: messageTextFontAttributes context: nil].size.height;
+    CGFloat messageTextTextHeight = [message.text boundingRectWithSize: CGSizeMake(messageTextRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: messageTextFontAttributes context: nil].size.height;
     
     return messageTextTextHeight + 30;
 }

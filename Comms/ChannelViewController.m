@@ -171,7 +171,7 @@ static NSString *kMessageReuseIdentifier = @"kMessageReuseIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Message *message = self.messages[indexPath.row];
-    return [Message heightForMessage:message.object frame:CGRectMake(0, 0, self.tableView.frame.size.width, INFINITY)];
+    return [Message heightForMessage:message frame:CGRectMake(0, 0, self.tableView.frame.size.width, INFINITY)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
