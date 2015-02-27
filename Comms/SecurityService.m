@@ -9,7 +9,7 @@
 #import "SecurityService.h"
 #import "LibgcryptWrapper.h"
 #import "KeychainWrapper.h"
-#import "CocoaLumberjack.h"
+#import "Constants.h"
 
 static const DDLogLevel ddLogLevel = DDLogLevelWarning;
 static const NSString * PRIVATE_KEY = @"private-key";
@@ -63,8 +63,13 @@ static SecurityService * __sharedSecurityService = nil;
 - (NSString *)decrypt:(NSData *)ciphertext {
     NSString *identifier = [self privateKeyIdentifierForCurrentUser];
     NSData *privateKey = [KeychainWrapper dataFromMatchingIdentifier:identifier];
+    NSString *plaintext = [LibgcryptWrapper decrypt:ciphertext usingPrivateKey:privateKey];
     
-    return [LibgcryptWrapper decrypt:ciphertext usingPrivateKey:privateKey];
+    if (plaintext == nil || plaintext.length == 0) {
+        return UNABLE_TO_DECRYPT;
+    }
+    
+    return plaintext;
 }
 
 - (BOOL)testEncryption {

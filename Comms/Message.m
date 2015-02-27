@@ -41,7 +41,7 @@
 
 - (NSString *)senderUsername {
     PFUser *sender = [self.object objectForKey:OBJECT_KEY_USER];
-    return sender?sender.username:@"[deleted user]";
+    return sender?sender.username:DELETED_USER;
 }
 
 - (NSString *)text {

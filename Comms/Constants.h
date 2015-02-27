@@ -19,6 +19,8 @@
 #define PARSE_CLIENT_KEY            @"xoDvMRxkCfqpcguTDiywONIgHjolunDL1gVvzZNJ"
 
 #define EMPTY_STRING                @""
+#define DELETED_USER                @"[deleted user]"
+#define UNABLE_TO_DECRYPT           @"[unable to decrypt]"
 
 #define PUSH_TYPE_NEW_MESSAGE       101
 #define PUSH_TYPE_SUBSCRIPTION      102
