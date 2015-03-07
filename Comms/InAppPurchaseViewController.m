@@ -33,14 +33,6 @@ static NSString *kProductReuseIdentifier = @"kProductReuseIdentifier";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductTableViewCell"bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:kProductReuseIdentifier];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Restore" style:UIBarButtonItemStylePlain target:self action:@selector(restoreTapped:)];
-}
-
-- (void)restoreTapped:(id)sender {
-    [[CommsIAPHelper sharedInstance] restoreCompletedTransactions];
-    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
-    [self.tableView reloadData];
 }
 
 - (void)reload {
